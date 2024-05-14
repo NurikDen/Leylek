@@ -19,8 +19,6 @@ class MainActivity : AppCompatActivity() {
     var smart_count = 0
     var beautiful_count = 0
     var believer_count = 0
-    var name = String()
-    var random = Random()
     var meaning_text = ""
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +42,8 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<ImageView>(R.id.button)
         val name = findViewById<TextView>(R.id.name)
         val meaning = findViewById<TextView>(R.id.meaning)
-        val ending = findViewById<ImageView>(R.id.ending)
+        val ending = findViewById<ImageView>(R.id.result_white)
+        val character_type = findViewById<TextView>(R.id.character_type)
 
         var isrichRunning = false
         var isstrongRunning = false
@@ -102,6 +101,8 @@ class MainActivity : AppCompatActivity() {
         var smartinwaiting =false
         var beautifulinwaiting =false
         var believerinwaiting =false
+
+        var searching_tool = Searching()
 
         rich.setOnClickListener {
             if (isrichRunning == false) {
@@ -999,76 +1000,19 @@ class MainActivity : AppCompatActivity() {
             true
         }
         button.setOnClickListener {
-           name.setText(searching(rich_count,strong_count,smart_count,beautiful_count,believer_count))
-            meaning.setText(meaning_text)
+            var arr = searching_tool.searching(rich_count,strong_count,smart_count,beautiful_count,believer_count,"man")
+            name.setText(arr[0])
+            meaning.setText(arr[1])
+            character_type.setText(arr[2])
             ending.visibility = View.VISIBLE
         }
         ending.setOnLongClickListener {
             ending.visibility = View.INVISIBLE
             meaning.setText("")
             name.setText("")
+            character_type.setText("")
             true
         }
     }
 
-
-    fun searching(
-        rich_int: Int,
-        strong_int: Int,
-        smart_int: Int,
-        beautiful_int: Int,
-        believer_int: Int
-    ): String {
-        var characterMap = HashMap<String, String>()
-        val filePath = "man_names.xml"
-        val randint_1 = random.nextInt(165)
-        val randint_2 = randint_1 + 25
-        val total = rich_int + strong_int + smart_int + beautiful_int + believer_int
-        val context: Context? = null
-        val document = getXmlDocument(filePath)
-        val nameMap = java.util.HashMap<String, Int>()
-        val nameNodes = document!!.getElementsByTagName("name")
-        for (i in randint_1 until randint_2) {
-            val name = nameNodes.item(i).textContent
-            val nodes = document.getElementsByTagName("character")
-            val character = nodes.item(i).textContent
-            val rich = getValueForTag(document, "rich", i)
-            val strong = getValueForTag(document, "strong", i)
-            val smart = getValueForTag(document, "smart", i)
-            val beautiful = getValueForTag(document, "beautiful", i)
-            val believer = getValueForTag(document, "believer", i)
-            val totalScore =
-                rich * rich_int + strong * strong_int + smart * smart_int + beautiful * beautiful_int + believer * believer_int
-            nameMap[name] = totalScore
-            characterMap[name] = character
-        }
-        val arr: ArrayList<String> = ArrayList<String>()
-        for ((key) in nameMap) {
-            if (nameMap[key]!! >= total / 2) {
-                arr.add(key)
-            }
-        }
-        val random_name = random.nextInt(arr.size)
-        name = arr[random_name]
-        meaning_text = characterMap[name].toString()
-        return name
-    }
-
-    fun getXmlDocument(filename: String): Document? {
-        return try {
-            val dbFactory = DocumentBuilderFactory.newInstance()
-            val dBuilder = dbFactory.newDocumentBuilder()
-            val document = dBuilder.parse(assets.open(filename))
-            document.documentElement.normalize()
-            return document
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
-
-    fun getValueForTag(document: Document?, tag: String?, index: Int): Int {
-        val nodes = document!!.getElementsByTagName(tag)
-        return nodes.item(index).textContent.toInt()
-    }
 }
