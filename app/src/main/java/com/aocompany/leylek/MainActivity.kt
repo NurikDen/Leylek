@@ -12,7 +12,7 @@ import java.util.Random
 import javax.xml.parsers.DocumentBuilderFactory
 
 
-class MainActivity : AppCompatActivity() {
+open class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
     var rich_count = 0
     var strong_count = 0
@@ -24,25 +24,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val rich = findViewById<ImageView>(R.id.rich_button)
         val strong = findViewById<ImageView>(R.id.strong_button)
         val smart = findViewById<ImageView>(R.id.smart_button)
         val beautiful = findViewById<ImageView>(R.id.beautiful_button)
         val believer = findViewById<ImageView>(R.id.believer_button)
+
         val place1 = findViewById<ImageView>(R.id.place1)
         val place2 = findViewById<ImageView>(R.id.place2)
         val place3 = findViewById<ImageView>(R.id.place3)
         val place4 = findViewById<ImageView>(R.id.place4)
         val place5 = findViewById<ImageView>(R.id.place5)
+
         val rich_text = findViewById<ImageView>(R.id.rich_text)
         val strong_text = findViewById<ImageView>(R.id.strong_text)
         val smart_text = findViewById<ImageView>(R.id.smart_text)
         val beautiful_text = findViewById<ImageView>(R.id.beautiful_text)
         val believer_text = findViewById<ImageView>(R.id.believer_text)
+
         val button = findViewById<ImageView>(R.id.button)
         val name = findViewById<TextView>(R.id.name)
         val meaning = findViewById<TextView>(R.id.meaning)
-        val ending = findViewById<ImageView>(R.id.result_white)
+        val result = findViewById<ImageView>(R.id.result_white)
         val character_type = findViewById<TextView>(R.id.character_type)
 
         var isrichRunning = false
@@ -1000,19 +1004,36 @@ class MainActivity : AppCompatActivity() {
             true
         }
         button.setOnClickListener {
-            var arr = searching_tool.searching(rich_count,strong_count,smart_count,beautiful_count,believer_count,"man")
+            var arr = searching_tool.searching(rich_count,strong_count,smart_count,beautiful_count,believer_count,"man",
+                getXmlDocument("man_names.xml")!!,
+                getXmlDocument("man_names.xml")!!.getElementsByTagName("name"), getXmlDocument("man_names.xml")!!.getElementsByTagName("character"))
             name.setText(arr[0])
             meaning.setText(arr[1])
             character_type.setText(arr[2])
-            ending.visibility = View.VISIBLE
+            result.visibility = View.VISIBLE
         }
-        ending.setOnLongClickListener {
-            ending.visibility = View.INVISIBLE
+        result.setOnLongClickListener {
+            result.visibility = View.INVISIBLE
             meaning.setText("")
             name.setText("")
             character_type.setText("")
             true
         }
     }
-
+    open fun getXmlDocument(filename: String): Document? {
+        return try {
+            val dbFactory = DocumentBuilderFactory.newInstance()
+            val dBuilder = dbFactory.newDocumentBuilder()
+            val document = dBuilder.parse(assets.open(filename))
+            document.documentElement.normalize()
+            return document
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
+        }
+    }
+    fun getValueForTag(document: Document?, tag: String?, index: Int): Int {
+        val nodes = document!!.getElementsByTagName(tag)
+        return nodes.item(index).textContent.toInt()
+    }
 }

@@ -48,7 +48,7 @@
             style="@android:style/Widget.Material.TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-smallcaps"
+            android:fontFamily="@font/montserrat_alternates"
             android:rotation="-35"
             android:text="0"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -56,14 +56,14 @@
             android:textColorHighlight="#FFFFFF"
             android:textColorHint="#FFFFFF"
             android:textColorLink="#FFFFFF"
-            android:textSize="14sp"
+            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.62"
+            app:layout_constraintHorizontal_bias="0.602"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.622" />
+            app:layout_constraintVertical_bias="0.634" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -189,6 +189,7 @@
         android:layout_marginBottom="50dp"
         android:fontFamily="@font/montserrat_alternates_bold"
         android:gravity="center"
+        android:shadowColor="#FFFFFF"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#000000"
