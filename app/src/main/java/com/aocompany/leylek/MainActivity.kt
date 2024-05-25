@@ -12,13 +12,6 @@ import javax.xml.parsers.DocumentBuilderFactory
 
 open class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
-    var rich_count = 0
-    var strong_count = 0
-    var smart_count = 0
-    var beautiful_count = 0
-    var believer_count = 0
-    var meaning_text = ""
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -451,17 +444,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_1.set_placeText("")
-                    rich_count = 0
+                    rich_name.set_count(0)
+                    rich_name.get_imageView().rotation = 0f
                     rich_name.get_imageView().startAnimation(anim)
                     rich_name.get_textView().startAnimation(anim_text)
                     rich_name.set_isNameRunning(false)
                 } else if (strong_name.get_isNameRunning() == true && place_1.get_placeText() =="strong") {
                     val anim =
-                        TranslateAnimation(place_1.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_1.get_placeView().y + 10f - strong_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_1.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_1.get_placeView().y + 17f - strong_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x + 62f) - strong_name.get_textView().x,
+                        (place_1.get_placeView().x + 60f) - strong_name.get_textView().x,
                         0f,
-                        (75f + place_1.get_placeView().y) - strong_name.get_textView().y,
+                        (112f + place_1.get_placeView().y) - strong_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -469,17 +463,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_1.set_placeText("")
-                    strong_count = 0
+                    strong_name.set_count(0)
+                    strong_name.get_imageView().rotation = 0f
                     strong_name.get_imageView().startAnimation(anim)
                     strong_name.get_textView().startAnimation(anim_text)
                     strong_name.set_isNameRunning(false)
                 } else if (smart_name.get_isNameRunning() == true && place_1.get_placeText() == "smart") {
                     val anim =
-                        TranslateAnimation(place_1.get_placeView().x - 7f - smart_name.get_imageView().x, 0f, place_1.get_placeView().y + 10f - smart_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_1.get_placeView().x - smart_name.get_imageView().x, 0f, place_1.get_placeView().y - smart_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x + 62f) - smart_name.get_textView().x,
+                        (place_1.get_placeView().x - 85f) - smart_name.get_textView().x,
                         0f,
-                        (75f + place_1.get_placeView().y) - smart_name.get_textView().y,
+                        (140f + place_1.get_placeView().y) - smart_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -487,17 +482,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_1.set_placeText("")
-                    smart_count = 0
+                    smart_name.set_count(0)
+                    smart_name.get_imageView().rotation = 0f
                     smart_name.get_imageView().startAnimation(anim)
                     smart_name.get_textView().startAnimation(anim_text)
                     smart_name.set_isNameRunning(false)
                 } else if (beautiful_name.get_isNameRunning() == true && place_1.get_placeText() == "beautiful") {
                     val anim =
-                        TranslateAnimation(place_1.get_placeView().x - 7f - beautiful_name.get_imageView().x, 0f, place_1.get_placeView().y + 10f - beautiful_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_1.get_placeView().x - beautiful_name.get_imageView().x, 0f, place_1.get_placeView().y - beautiful_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x + 62f) - beautiful_name.get_textView().x,
+                        (place_1.get_placeView().x - 225f) - beautiful_name.get_textView().x,
                         0f,
-                        (75f + place_1.get_placeView().y) - beautiful_name.get_textView().y,
+                        (100f + place_1.get_placeView().y) - beautiful_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -505,17 +501,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_1.set_placeText("")
-                    beautiful_count = 0
+                    beautiful_name.set_count(0)
+                    beautiful_name.get_imageView().rotation = 0f
                     beautiful_name.get_imageView().startAnimation(anim)
                     beautiful_name.get_textView().startAnimation(anim_text)
                     beautiful_name.set_isNameRunning(false)
                 } else if (believer_name.get_isNameRunning() == true && place_1.get_placeText() == "believer") {
                     val anim =
-                        TranslateAnimation(place_1.get_placeView().x - 7f - believer_name.get_imageView().x, 0f, place_1.get_placeView().y + 10f - believer_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_1.get_placeView().x - believer_name.get_imageView().x, 0f, place_1.get_placeView().y - believer_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x + 62f) - believer_name.get_textView().x,
+                        (place_1.get_placeView().x - 225f) - believer_name.get_textView().x,
                         0f,
-                        (75f + place_1.get_placeView().y) - believer_name.get_textView().y,
+                        (place_1.get_placeView().y-55F) - believer_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -523,7 +520,8 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_1.set_placeText("")
-                    believer_count = 0
+                    believer_name.set_count(0)
+                    believer_name.get_imageView().rotation = 0f
                     believer_name.get_imageView().startAnimation(anim)
                     believer_name.get_textView().startAnimation(anim_text)
                     believer_name.set_isNameRunning(false)
@@ -548,17 +546,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_2.set_placeText("")
-                    rich_count = 0
+                    rich_name.set_count(0)
+                    rich_name.get_imageView().rotation = 0f
                     rich_name.get_imageView().startAnimation(anim)
                     rich_name.get_textView().startAnimation(anim_text)
                     rich_name.set_isNameRunning(false)
                 } else if (strong_name.get_isNameRunning() == true && place_2.get_placeText() =="strong") {
                     val anim =
-                        TranslateAnimation(place_2.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_2.get_placeView().y + 10f - strong_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_2.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_2.get_placeView().y + 17f - strong_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_2.get_placeView().x + 62f) - strong_name.get_textView().x,
+                        (place_2.get_placeView().x + 60f) - strong_name.get_textView().x,
                         0f,
-                        (75f + place_2.get_placeView().y) - strong_name.get_textView().y,
+                        (112f + place_2.get_placeView().y) - strong_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -566,17 +565,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_2.set_placeText("")
-                    strong_count = 0
+                    strong_name.set_count(0)
+                    strong_name.get_imageView().rotation = 0f
                     strong_name.get_imageView().startAnimation(anim)
                     strong_name.get_textView().startAnimation(anim_text)
                     strong_name.set_isNameRunning(false)
                 } else if (smart_name.get_isNameRunning() == true && place_2.get_placeText() == "smart") {
                     val anim =
-                        TranslateAnimation(place_2.get_placeView().x - 7f - smart_name.get_imageView().x, 0f, place_2.get_placeView().y + 10f - smart_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_2.get_placeView().x - smart_name.get_imageView().x, 0f, place_2.get_placeView().y - smart_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_2.get_placeView().x + 62f) - smart_name.get_textView().x,
+                        (place_2.get_placeView().x - 85f) - smart_name.get_textView().x,
                         0f,
-                        (75f + place_2.get_placeView().y) - smart_name.get_textView().y,
+                        (140f + place_2.get_placeView().y) - smart_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -584,17 +584,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_2.set_placeText("")
-                    smart_count = 0
+                    smart_name.set_count(0)
+                    smart_name.get_imageView().rotation = 0f
                     smart_name.get_imageView().startAnimation(anim)
                     smart_name.get_textView().startAnimation(anim_text)
                     smart_name.set_isNameRunning(false)
                 } else if (beautiful_name.get_isNameRunning() == true && place_2.get_placeText() == "beautiful") {
                     val anim =
-                        TranslateAnimation(place_2.get_placeView().x - 7f - beautiful_name.get_imageView().x, 0f, place_2.get_placeView().y + 10f - beautiful_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_2.get_placeView().x - beautiful_name.get_imageView().x, 0f, place_2.get_placeView().y - beautiful_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_2.get_placeView().x + 62f) - beautiful_name.get_textView().x,
+                        (place_2.get_placeView().x - 225f) - beautiful_name.get_textView().x,
                         0f,
-                        (75f + place_2.get_placeView().y) - beautiful_name.get_textView().y,
+                        (100f + place_2.get_placeView().y) - beautiful_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -602,17 +603,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_2.set_placeText("")
-                    beautiful_count = 0
+                    beautiful_name.set_count(0)
+                    beautiful_name.get_imageView().rotation = 0f
                     beautiful_name.get_imageView().startAnimation(anim)
                     beautiful_name.get_textView().startAnimation(anim_text)
                     beautiful_name.set_isNameRunning(false)
                 } else if (believer_name.get_isNameRunning() == true && place_2.get_placeText() == "believer") {
                     val anim =
-                        TranslateAnimation(place_2.get_placeView().x - 7f - believer_name.get_imageView().x, 0f, place_2.get_placeView().y + 10f - believer_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_2.get_placeView().x - believer_name.get_imageView().x, 0f, place_2.get_placeView().y - believer_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_2.get_placeView().x + 62f) - believer_name.get_textView().x,
+                        (place_2.get_placeView().x - 225f) - believer_name.get_textView().x,
                         0f,
-                        (75f + place_2.get_placeView().y) - believer_name.get_textView().y,
+                        (place_2.get_placeView().y-55F) - believer_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -620,7 +622,8 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_2.set_placeText("")
-                    believer_count = 0
+                    believer_name.set_count(0)
+                    believer_name.get_imageView().rotation = 0f
                     believer_name.get_imageView().startAnimation(anim)
                     believer_name.get_textView().startAnimation(anim_text)
                     believer_name.set_isNameRunning(false)
@@ -645,17 +648,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_3.set_placeText("")
-                    rich_count = 0
+                    rich_name.set_count(0)
+                    rich_name.get_imageView().rotation = 0f
                     rich_name.get_imageView().startAnimation(anim)
                     rich_name.get_textView().startAnimation(anim_text)
                     rich_name.set_isNameRunning(false)
                 } else if (strong_name.get_isNameRunning() == true && place_3.get_placeText() =="strong") {
                     val anim =
-                        TranslateAnimation(place_3.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_3.get_placeView().y + 10f - strong_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_3.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_3.get_placeView().y + 17f - strong_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_3.get_placeView().x + 62f) - strong_name.get_textView().x,
+                        (place_3.get_placeView().x + 60f) - strong_name.get_textView().x,
                         0f,
-                        (75f + place_3.get_placeView().y) - strong_name.get_textView().y,
+                        (112f + place_3.get_placeView().y) - strong_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -663,17 +667,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_3.set_placeText("")
-                    strong_count = 0
+                    strong_name.set_count(0)
+                    strong_name.get_imageView().rotation = 0f
                     strong_name.get_imageView().startAnimation(anim)
                     strong_name.get_textView().startAnimation(anim_text)
                     strong_name.set_isNameRunning(false)
                 } else if (smart_name.get_isNameRunning() == true && place_3.get_placeText() == "smart") {
                     val anim =
-                        TranslateAnimation(place_3.get_placeView().x - 7f - smart_name.get_imageView().x, 0f, place_3.get_placeView().y + 10f - smart_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_3.get_placeView().x - smart_name.get_imageView().x, 0f, place_3.get_placeView().y - smart_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_3.get_placeView().x + 62f) - smart_name.get_textView().x,
+                        (place_3.get_placeView().x - 85f) - smart_name.get_textView().x,
                         0f,
-                        (75f + place_3.get_placeView().y) - smart_name.get_textView().y,
+                        (140f + place_3.get_placeView().y) - smart_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -681,17 +686,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_3.set_placeText("")
-                    smart_count = 0
+                    smart_name.set_count(0)
+                    smart_name.get_imageView().rotation = 0f
                     smart_name.get_imageView().startAnimation(anim)
                     smart_name.get_textView().startAnimation(anim_text)
                     smart_name.set_isNameRunning(false)
                 } else if (beautiful_name.get_isNameRunning() == true && place_3.get_placeText() == "beautiful") {
                     val anim =
-                        TranslateAnimation(place_3.get_placeView().x - 7f - beautiful_name.get_imageView().x, 0f, place_3.get_placeView().y + 10f - beautiful_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_3.get_placeView().x - beautiful_name.get_imageView().x, 0f, place_3.get_placeView().y - beautiful_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_3.get_placeView().x + 62f) - beautiful_name.get_textView().x,
+                        (place_3.get_placeView().x - 225f) - beautiful_name.get_textView().x,
                         0f,
-                        (75f + place_3.get_placeView().y) - beautiful_name.get_textView().y,
+                        (100f + place_3.get_placeView().y) - beautiful_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -699,17 +705,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_3.set_placeText("")
-                    beautiful_count = 0
+                    beautiful_name.set_count(0)
+                    beautiful_name.get_imageView().rotation = 0f
                     beautiful_name.get_imageView().startAnimation(anim)
                     beautiful_name.get_textView().startAnimation(anim_text)
                     beautiful_name.set_isNameRunning(false)
                 } else if (believer_name.get_isNameRunning() == true && place_3.get_placeText() == "believer") {
                     val anim =
-                        TranslateAnimation(place_3.get_placeView().x - 7f - believer_name.get_imageView().x, 0f, place_3.get_placeView().y + 10f - believer_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_3.get_placeView().x - believer_name.get_imageView().x, 0f, place_3.get_placeView().y - believer_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_3.get_placeView().x + 62f) - believer_name.get_textView().x,
+                        (place_3.get_placeView().x - 225f) - believer_name.get_textView().x,
                         0f,
-                        (75f + place_3.get_placeView().y) - believer_name.get_textView().y,
+                        (place_3.get_placeView().y-55F) - believer_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -717,7 +724,8 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_3.set_placeText("")
-                    believer_count = 0
+                    believer_name.set_count(0)
+                    believer_name.get_imageView().rotation = 0f
                     believer_name.get_imageView().startAnimation(anim)
                     believer_name.get_textView().startAnimation(anim_text)
                     believer_name.set_isNameRunning(false)
@@ -742,17 +750,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_4.set_placeText("")
-                    rich_count = 0
+                    rich_name.set_count(0)
+                    rich_name.get_imageView().rotation = 0f
                     rich_name.get_imageView().startAnimation(anim)
                     rich_name.get_textView().startAnimation(anim_text)
                     rich_name.set_isNameRunning(false)
                 } else if (strong_name.get_isNameRunning() == true && place_4.get_placeText() =="strong") {
                     val anim =
-                        TranslateAnimation(place_4.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_4.get_placeView().y + 10f - strong_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_4.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_4.get_placeView().y + 17f - strong_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_4.get_placeView().x + 62f) - strong_name.get_textView().x,
+                        (place_4.get_placeView().x + 60f) - strong_name.get_textView().x,
                         0f,
-                        (75f + place_4.get_placeView().y) - strong_name.get_textView().y,
+                        (112f + place_4.get_placeView().y) - strong_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -760,17 +769,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_4.set_placeText("")
-                    strong_count = 0
+                    strong_name.set_count(0)
+                    strong_name.get_imageView().rotation = 0f
                     strong_name.get_imageView().startAnimation(anim)
                     strong_name.get_textView().startAnimation(anim_text)
                     strong_name.set_isNameRunning(false)
                 } else if (smart_name.get_isNameRunning() == true && place_4.get_placeText() == "smart") {
                     val anim =
-                        TranslateAnimation(place_4.get_placeView().x - 7f - smart_name.get_imageView().x, 0f, place_4.get_placeView().y + 10f - smart_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_4.get_placeView().x - smart_name.get_imageView().x, 0f, place_4.get_placeView().y - smart_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_4.get_placeView().x + 62f) - smart_name.get_textView().x,
+                        (place_4.get_placeView().x - 85f) - smart_name.get_textView().x,
                         0f,
-                        (75f + place_4.get_placeView().y) - smart_name.get_textView().y,
+                        (140f + place_4.get_placeView().y) - smart_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -778,17 +788,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_4.set_placeText("")
-                    smart_count = 0
+                    smart_name.set_count(0)
+                    smart_name.get_imageView().rotation = 0f
                     smart_name.get_imageView().startAnimation(anim)
                     smart_name.get_textView().startAnimation(anim_text)
                     smart_name.set_isNameRunning(false)
                 } else if (beautiful_name.get_isNameRunning() == true && place_4.get_placeText() == "beautiful") {
                     val anim =
-                        TranslateAnimation(place_4.get_placeView().x - 7f - beautiful_name.get_imageView().x, 0f, place_4.get_placeView().y + 10f - beautiful_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_4.get_placeView().x - beautiful_name.get_imageView().x, 0f, place_4.get_placeView().y - beautiful_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_4.get_placeView().x + 62f) - beautiful_name.get_textView().x,
+                        (place_4.get_placeView().x - 225f) - beautiful_name.get_textView().x,
                         0f,
-                        (75f + place_4.get_placeView().y) - beautiful_name.get_textView().y,
+                        (100f + place_4.get_placeView().y) - beautiful_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -796,17 +807,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_4.set_placeText("")
-                    beautiful_count = 0
+                    beautiful_name.set_count(0)
+                    beautiful_name.get_imageView().rotation = 0f
                     beautiful_name.get_imageView().startAnimation(anim)
                     beautiful_name.get_textView().startAnimation(anim_text)
                     beautiful_name.set_isNameRunning(false)
                 } else if (believer_name.get_isNameRunning() == true && place_4.get_placeText() == "believer") {
                     val anim =
-                        TranslateAnimation(place_4.get_placeView().x - 7f - believer_name.get_imageView().x, 0f, place_4.get_placeView().y + 10f - believer_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_4.get_placeView().x - believer_name.get_imageView().x, 0f, place_4.get_placeView().y - believer_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_4.get_placeView().x + 62f) - believer_name.get_textView().x,
+                        (place_4.get_placeView().x - 225f) - believer_name.get_textView().x,
                         0f,
-                        (75f + place_4.get_placeView().y) - believer_name.get_textView().y,
+                        (place_4.get_placeView().y-55F) - believer_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -814,7 +826,8 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_4.set_placeText("")
-                    believer_count = 0
+                    believer_name.set_count(0)
+                    believer_name.get_imageView().rotation = 0f
                     believer_name.get_imageView().startAnimation(anim)
                     believer_name.get_textView().startAnimation(anim_text)
                     believer_name.set_isNameRunning(false)
@@ -839,17 +852,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_5.set_placeText("")
-                    rich_count = 0
+                    rich_name.set_count(0)
+                    rich_name.get_imageView().rotation = 0f
                     rich_name.get_imageView().startAnimation(anim)
                     rich_name.get_textView().startAnimation(anim_text)
                     rich_name.set_isNameRunning(false)
                 } else if (strong_name.get_isNameRunning() == true && place_5.get_placeText() =="strong") {
                     val anim =
-                        TranslateAnimation(place_5.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_5.get_placeView().y + 10f - strong_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_5.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_5.get_placeView().y + 17f - strong_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_5.get_placeView().x + 62f) - strong_name.get_textView().x,
+                        (place_5.get_placeView().x + 60f) - strong_name.get_textView().x,
                         0f,
-                        (75f + place_5.get_placeView().y) - strong_name.get_textView().y,
+                        (112f + place_5.get_placeView().y) - strong_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -857,17 +871,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_5.set_placeText("")
-                    strong_count = 0
+                    strong_name.set_count(0)
+                    strong_name.get_imageView().rotation = 0f
                     strong_name.get_imageView().startAnimation(anim)
                     strong_name.get_textView().startAnimation(anim_text)
                     strong_name.set_isNameRunning(false)
                 } else if (smart_name.get_isNameRunning() == true && place_5.get_placeText() == "smart") {
                     val anim =
-                        TranslateAnimation(place_5.get_placeView().x - 7f - smart_name.get_imageView().x, 0f, place_5.get_placeView().y + 10f - smart_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_5.get_placeView().x - smart_name.get_imageView().x, 0f, place_5.get_placeView().y - smart_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_5.get_placeView().x + 62f) - smart_name.get_textView().x,
+                        (place_5.get_placeView().x - 85f) - smart_name.get_textView().x,
                         0f,
-                        (75f + place_5.get_placeView().y) - smart_name.get_textView().y,
+                        (140f + place_5.get_placeView().y) - smart_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -875,17 +890,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_5.set_placeText("")
-                    smart_count = 0
+                    smart_name.set_count(0)
+                    smart_name.get_imageView().rotation = 0f
                     smart_name.get_imageView().startAnimation(anim)
                     smart_name.get_textView().startAnimation(anim_text)
                     smart_name.set_isNameRunning(false)
                 } else if (beautiful_name.get_isNameRunning() == true && place_5.get_placeText() == "beautiful") {
                     val anim =
-                        TranslateAnimation(place_5.get_placeView().x - 7f - beautiful_name.get_imageView().x, 0f, place_5.get_placeView().y + 10f - beautiful_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_5.get_placeView().x - beautiful_name.get_imageView().x, 0f, place_5.get_placeView().y - beautiful_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_5.get_placeView().x + 62f) - beautiful_name.get_textView().x,
+                        (place_5.get_placeView().x - 225f) - beautiful_name.get_textView().x,
                         0f,
-                        (75f + place_5.get_placeView().y) - beautiful_name.get_textView().y,
+                        (100f + place_5.get_placeView().y) - beautiful_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -893,17 +909,18 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_5.set_placeText("")
-                    beautiful_count = 0
+                    beautiful_name.set_count(0)
+                    beautiful_name.get_imageView().rotation = 0f
                     beautiful_name.get_imageView().startAnimation(anim)
                     beautiful_name.get_textView().startAnimation(anim_text)
                     beautiful_name.set_isNameRunning(false)
                 } else if (believer_name.get_isNameRunning() == true && place_5.get_placeText() == "believer") {
                     val anim =
-                        TranslateAnimation(place_5.get_placeView().x - 7f - believer_name.get_imageView().x, 0f, place_5.get_placeView().y + 10f - believer_name.get_imageView().y, 0f)
+                        TranslateAnimation(place_5.get_placeView().x - believer_name.get_imageView().x, 0f, place_5.get_placeView().y - believer_name.get_imageView().y, 0f)
                     val anim_text = TranslateAnimation(
-                        (place_5.get_placeView().x + 62f) - believer_name.get_textView().x,
+                        (place_5.get_placeView().x - 225f) - believer_name.get_textView().x,
                         0f,
-                        (75f + place_5.get_placeView().y) - believer_name.get_textView().y,
+                        (place_5.get_placeView().y-55F) - believer_name.get_textView().y,
                         0f
                     )
                     anim_text.duration = 1000
@@ -911,7 +928,8 @@ open class MainActivity : AppCompatActivity() {
                     anim.duration = 1000
                     anim.fillAfter = true
                     place_5.set_placeText("")
-                    believer_count = 0
+                    believer_name.set_count(0)
+                    believer_name.get_imageView().rotation = 0f
                     believer_name.get_imageView().startAnimation(anim)
                     believer_name.get_textView().startAnimation(anim_text)
                     believer_name.set_isNameRunning(false)
@@ -921,7 +939,7 @@ open class MainActivity : AppCompatActivity() {
             true
         }
         button.setOnClickListener {
-            var arr = searching_tool.searching(rich_count,strong_count,smart_count,beautiful_count,believer_count,"man",
+            var arr = searching_tool.searching(rich_name.get_count(),strong_name.get_count(),smart_name.get_count(),beautiful_name.get_count(),believer_name.get_count(),"man",
                 getXmlDocument("man_names.xml")!!,
                 getXmlDocument("man_names.xml")!!.getElementsByTagName("name"), getXmlDocument("man_names.xml")!!.getElementsByTagName("character"))
             name.setText(arr[0])
