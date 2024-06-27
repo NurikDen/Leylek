@@ -1,16 +1,23 @@
 package com.aocompany.leylek
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.ScaleAnimation
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import org.w3c.dom.Document
 import javax.xml.parsers.DocumentBuilderFactory
 
 
 open class MainActivity : AppCompatActivity() {
+    private var mExplosionField: ExplosionField? = null
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +28,7 @@ open class MainActivity : AppCompatActivity() {
         val meaning = findViewById<TextView>(R.id.meaning)
         val result = findViewById<ImageView>(R.id.result_white)
         val character_type = findViewById<TextView>(R.id.character_type)
+        val men_women = findViewById<ImageView>(R.id.men_button)
 
         var searching_tool = Searching()
 
@@ -35,6 +43,63 @@ open class MainActivity : AppCompatActivity() {
         val place_3 = Place(findViewById<ImageView>(R.id.place3),"",true)
         val place_4 = Place(findViewById<ImageView>(R.id.place4),"",true)
         val place_5 = Place(findViewById<ImageView>(R.id.place5),"",true)
+
+        mExplosionField = ExplosionField.attach2Window(this)
+
+        val anim_men = TranslateAnimation(
+            0f, 0f,
+            -300f,
+           0f)
+        anim_men.duration = 1000
+        anim_men.fillAfter = true
+        men_women.startAnimation(anim_men)
+
+        val scale_animation = ScaleAnimation(0f,1f,0f,1f)
+        scale_animation.duration =1000
+        findViewById<ImageView>(R.id.button2).startAnimation(scale_animation)
+        button.startAnimation(scale_animation)
+
+
+        val anim_rich = TranslateAnimation(
+            -100f, 0f,
+            0f,
+            0f)
+        anim_rich.duration = 1000
+        anim_rich.fillAfter = true
+        findViewById<ConstraintLayout>(R.id.rich).startAnimation(anim_rich)
+
+        val anim_strong = TranslateAnimation(
+            -100f, 0f,
+            0f,
+            0f)
+        anim_strong.duration = 1000
+        anim_strong.fillAfter = true
+        findViewById<ConstraintLayout>(R.id.strong).startAnimation(anim_strong)
+
+        val anim_smart = TranslateAnimation(
+            0f, 0f,
+            -100f,
+            0f)
+        anim_smart.duration = 1000
+        anim_smart.fillAfter = true
+        findViewById<ConstraintLayout>(R.id.smart).startAnimation(anim_smart)
+
+        val anim_beautiful = TranslateAnimation(
+            100f, 0f,
+            0f,
+            0f)
+        anim_beautiful.duration = 1000
+        anim_beautiful.fillAfter = true
+        findViewById<ConstraintLayout>(R.id.beautiful).startAnimation(anim_beautiful)
+
+        val anim_believer = TranslateAnimation(
+            100f, 0f,
+            0f,
+            0f)
+        anim_believer.duration = 1000
+        anim_believer.fillAfter = true
+        findViewById<ConstraintLayout>(R.id.believer).startAnimation(anim_believer)
+
 
         rich_name.get_imageView().setOnClickListener {
             if (rich_name.get_isNameRunning() == false) {
@@ -947,13 +1012,9 @@ open class MainActivity : AppCompatActivity() {
             character_type.setText(arr[2])
             result.visibility = View.VISIBLE
         }
-        result.setOnLongClickListener {
-            result.visibility = View.INVISIBLE
-            meaning.setText("")
-            name.setText("")
-            character_type.setText("")
-            true
-        }
+
+        addListener(result,meaning,name,character_type)
+
     }
     open fun getXmlDocument(filename: String): Document? {
         return try {
@@ -970,5 +1031,23 @@ open class MainActivity : AppCompatActivity() {
     fun getValueForTag(document: Document?, tag: String?, index: Int): Int {
         val nodes = document!!.getElementsByTagName(tag)
         return nodes.item(index).textContent.toInt()
+    }
+    private fun addListener(root: View,root2: TextView,root3: TextView,root4: TextView) {
+        if (root is ViewGroup) {
+            val parent = root
+            for (i in 0 until parent.childCount) {
+                addListener(parent.getChildAt(i),root2,root3,root4)
+            }
+        } else {
+            root.isClickable = true
+            root.setOnLongClickListener { v ->
+                mExplosionField!!.explode(v)
+                root.visibility = View.INVISIBLE
+                root2.setText("")
+                root3.setText("")
+                root4.setText("")
+                true
+            }
+        }
     }
 }
