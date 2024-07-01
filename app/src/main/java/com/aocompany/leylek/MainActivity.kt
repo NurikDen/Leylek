@@ -1,8 +1,6 @@
 package com.aocompany.leylek
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
@@ -23,7 +21,7 @@ open class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button = findViewById<ImageView>(R.id.button)
+        val button = findViewById<ConstraintLayout>(R.id.button)
         val name = findViewById<TextView>(R.id.name)
         val meaning = findViewById<TextView>(R.id.meaning)
         val result = findViewById<ImageView>(R.id.result_white)
@@ -54,48 +52,40 @@ open class MainActivity : AppCompatActivity() {
         anim_men.fillAfter = true
         men_women.startAnimation(anim_men)
 
-        val scale_animation = ScaleAnimation(0f,1f,0f,1f)
-        scale_animation.duration =1000
-        findViewById<ImageView>(R.id.button2).startAnimation(scale_animation)
-        button.startAnimation(scale_animation)
-
-
-        val anim_rich = TranslateAnimation(
-            -100f, 0f,
-            0f,
+        val translate_button_animation = TranslateAnimation(
+            0f, 0f,
+            200f,
             0f)
+        translate_button_animation.duration =1000
+        button.startAnimation(translate_button_animation)
+
+
+        val anim_rich = ScaleAnimation(0f,1f,0f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
+            Animation.RELATIVE_TO_SELF, 0.5f)
         anim_rich.duration = 1000
         anim_rich.fillAfter = true
         findViewById<ConstraintLayout>(R.id.rich).startAnimation(anim_rich)
 
-        val anim_strong = TranslateAnimation(
-            -100f, 0f,
-            0f,
-            0f)
+        val anim_strong = ScaleAnimation(0f,1f,0f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
+            Animation.RELATIVE_TO_SELF, 0.5f)
         anim_strong.duration = 1000
         anim_strong.fillAfter = true
         findViewById<ConstraintLayout>(R.id.strong).startAnimation(anim_strong)
 
-        val anim_smart = TranslateAnimation(
-            0f, 0f,
-            -100f,
-            0f)
+        val anim_smart = ScaleAnimation(0f,1f,0f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
+            Animation.RELATIVE_TO_SELF, 0.5f)
         anim_smart.duration = 1000
         anim_smart.fillAfter = true
         findViewById<ConstraintLayout>(R.id.smart).startAnimation(anim_smart)
 
-        val anim_beautiful = TranslateAnimation(
-            100f, 0f,
-            0f,
-            0f)
+        val anim_beautiful = ScaleAnimation(0f,1f,0f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
+            Animation.RELATIVE_TO_SELF, 0.5f)
         anim_beautiful.duration = 1000
         anim_beautiful.fillAfter = true
         findViewById<ConstraintLayout>(R.id.beautiful).startAnimation(anim_beautiful)
 
-        val anim_believer = TranslateAnimation(
-            100f, 0f,
-            0f,
-            0f)
+        val anim_believer = ScaleAnimation(0f,1f,0f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
+            Animation.RELATIVE_TO_SELF, 0.5f)
         anim_believer.duration = 1000
         anim_believer.fillAfter = true
         findViewById<ConstraintLayout>(R.id.believer).startAnimation(anim_believer)
