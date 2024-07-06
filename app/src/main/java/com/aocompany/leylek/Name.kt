@@ -1,8 +1,12 @@
 package com.aocompany.leylek
 
 import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 
-class Name(private val imageView: ImageView, private val textView: ImageView, private var isNameRunning: Boolean,private var placeCount_x: Float, private var placeCount_y: Float, private var nameDestination_x: Float, private var nameDestination_y: Float, private var name_textDestination_x: Float, private var name_textDestination_y: Float,private var count:Int) {
+class Name(private val constraintLayout: ConstraintLayout, private val imageView: ImageView, private val textView: ImageView, private var isNameRunning: Boolean,private var placeCount_x: Float, private var placeCount_y: Float, private var nameDestination_x: Float, private var nameDestination_y: Float, private var name_textDestination_x: Float, private var name_textDestination_y: Float,private var count:Int) {
+    fun get_constraintLayout(): ConstraintLayout{
+        return constraintLayout
+    }
     fun get_imageView(): ImageView {
         return imageView
     }
@@ -57,7 +61,4 @@ class Name(private val imageView: ImageView, private val textView: ImageView, pr
     fun set_count(count:Int){
         this.count = count
     }
-
-
-
 }

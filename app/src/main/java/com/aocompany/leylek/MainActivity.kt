@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.view.animation.ScaleAnimation
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
@@ -16,7 +17,7 @@ import javax.xml.parsers.DocumentBuilderFactory
 
 open class MainActivity : AppCompatActivity() {
     private var mExplosionField: ExplosionField? = null
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,17 +31,22 @@ open class MainActivity : AppCompatActivity() {
 
         var searching_tool = Searching()
 
-        val rich_name = Name(findViewById<ImageView>(R.id.rich_button),findViewById<ImageView>(R.id.rich_text),false,0f,0f,0f,0f,0f,0f,0)
-        val strong_name = Name(findViewById<ImageView>(R.id.strong_button),findViewById<ImageView>(R.id.strong_text),false,0f,0f,0f,0f,0f,0f,0)
-        val smart_name = Name(findViewById<ImageView>(R.id.smart_button),findViewById<ImageView>(R.id.smart_text),false,0f,0f,0f,0f,0f,0f,0)
-        val beautiful_name = Name(findViewById<ImageView>(R.id.beautiful_button),findViewById<ImageView>(R.id.beautiful_text),false,0f,0f,0f,0f,0f,0f,0)
-        val believer_name = Name(findViewById<ImageView>(R.id.believer_button),findViewById<ImageView>(R.id.believer_text),false,0f,0f,0f,0f,0f,0f,0)
+        val rich_name = Name(findViewById(R.id.rich),findViewById<ImageView>(R.id.rich_button),findViewById<ImageView>(R.id.rich_text),false,0f,0f,0f,0f,0f,0f,0)
+        val strong_name = Name(findViewById(R.id.strong),findViewById<ImageView>(R.id.strong_button),findViewById<ImageView>(R.id.strong_text),false,0f,0f,0f,0f,0f,0f,0)
+        val smart_name = Name(findViewById(R.id.smart),findViewById<ImageView>(R.id.smart_button),findViewById<ImageView>(R.id.smart_text),false,0f,0f,0f,0f,0f,0f,0)
+        val beautiful_name = Name(findViewById(R.id.beautiful),findViewById<ImageView>(R.id.beautiful_button),findViewById<ImageView>(R.id.beautiful_text),false,0f,0f,0f,0f,0f,0f,0)
+        val believer_name = Name(findViewById(R.id.believer),findViewById<ImageView>(R.id.believer_button),findViewById<ImageView>(R.id.believer_text),false,0f,0f,0f,0f,0f,0f,0)
 
         val place_1 = Place(findViewById<ImageView>(R.id.place1),"",true)
         val place_2 = Place(findViewById<ImageView>(R.id.place2),"",true)
         val place_3 = Place(findViewById<ImageView>(R.id.place3),"",true)
         val place_4 = Place(findViewById<ImageView>(R.id.place4),"",true)
         val place_5 = Place(findViewById<ImageView>(R.id.place5),"",true)
+
+        val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fadeout)
+        val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein)
+        fadeOutAnimation.fillAfter = true
+        fadeInAnimation.fillAfter = true
 
         mExplosionField = ExplosionField.attach2Window(this)
 
@@ -58,7 +64,6 @@ open class MainActivity : AppCompatActivity() {
             0f)
         translate_button_animation.duration =1000
         button.startAnimation(translate_button_animation)
-
 
         val anim_rich = ScaleAnimation(0f,1f,0f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
             Animation.RELATIVE_TO_SELF, 0.5f)
@@ -90,84 +95,79 @@ open class MainActivity : AppCompatActivity() {
         anim_believer.fillAfter = true
         findViewById<ConstraintLayout>(R.id.believer).startAnimation(anim_believer)
 
-
         rich_name.get_imageView().setOnClickListener {
             if (rich_name.get_isNameRunning() == false) {
-                if (place_1.get_placeIsEmpty()==true) {
-                    rich_name.set_placeCount_x(place_1.get_placeView().x)
-                    rich_name.set_placeCount_y(place_1.get_placeView().y)
-                    rich_name.set_nameDestination_x(7f)
-                    rich_name.set_nameDestination_y(10f)
-                    rich_name.set_name_textDestination_x(62f)
-                    rich_name.set_name_textDestination_y(75f)
-                    rich_name.set_count(5)
-                    place_1.set_placeText("rich")
-                    place_1.set_placeIsEmpty(false)
-                }
-                else if (place_2.get_placeIsEmpty()==true) {
-                    rich_name.set_placeCount_x(place_2.get_placeView().x)
-                    rich_name.set_placeCount_y(place_2.get_placeView().y)
-                    rich_name.set_nameDestination_x(7f)
-                    rich_name.set_nameDestination_y(-10f)
-                    rich_name.set_name_textDestination_x(64f)
-                    rich_name.set_name_textDestination_y(112f)
-                    rich_name.set_count(4)
-                    place_2.set_placeText("rich")
-                    place_2.set_placeIsEmpty(false)
-                    rich_name.get_imageView().rotation=180f
-                }
-                else if (place_3.get_placeIsEmpty()==true) {
-                    rich_name.set_placeCount_x(place_3.get_placeView().x)
-                    rich_name.set_placeCount_y(place_3.get_placeView().y)
-                    rich_name.set_nameDestination_x(-7f)
-                    rich_name.set_nameDestination_y(10f)
-                    rich_name.set_name_textDestination_x(75f)
-                    rich_name.set_name_textDestination_y(75f)
-                    rich_name.set_count(3)
-                    place_3.set_placeText("rich")
-                    place_3.set_placeIsEmpty(false)
-                }
-                else if (place_4.get_placeIsEmpty()==true) {
-                    rich_name.set_placeCount_x(place_4.get_placeView().x)
-                    rich_name.set_placeCount_y(place_4.get_placeView().y)
-                    rich_name.set_nameDestination_x(7f)
-                    rich_name.set_nameDestination_y(-10f)
-                    rich_name.set_name_textDestination_x(64f)
-                    rich_name.set_name_textDestination_y(112f)
-                    rich_name.set_count(2)
-                    rich_name.get_imageView().rotation=180f
-                    place_4.set_placeText("rich")
-                    place_4.set_placeIsEmpty(false)
-                }
-                else if (place_5.get_placeIsEmpty()==true) {
-                    rich_name.set_placeCount_x(place_5.get_placeView().x)
-                    rich_name.set_placeCount_y(place_5.get_placeView().y)
-                    rich_name.set_nameDestination_x(7f)
-                    rich_name.set_nameDestination_y(10f)
-                    rich_name.set_name_textDestination_x(62f)
-                    rich_name.set_name_textDestination_y(75f)
-                    rich_name.set_count(1)
-                    place_5.set_placeText("rich")
-                    place_5.set_placeIsEmpty(false)
-                }
-                rich_name.set_isNameRunning(true)
-                val anim = TranslateAnimation(
-                    0f,
-                    ((rich_name.get_placeCount_x() - rich_name.get_imageView().x)-rich_name.get_nameDestination_x()),
-                    0f,
-                    ((rich_name.get_placeCount_y() - rich_name.get_imageView().y)+rich_name.get_nameDestination_y()))
-                val anim_text = TranslateAnimation(0f,(rich_name.get_placeCount_x() - rich_name.get_textView().x)+rich_name.get_nameDestination_x(),0f,(rich_name.get_placeCount_y()-rich_name.get_textView().y)+rich_name.get_name_textDestination_y())
-                anim_text.duration=1000
-                anim_text.fillAfter=true
-                anim.duration = 1000
-                anim.fillAfter = true
-                rich_name.get_textView().startAnimation(anim_text)
-                rich_name.get_imageView().startAnimation(anim)
+                rich_name.get_constraintLayout().startAnimation(fadeOutAnimation)
+                fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
+                    override fun onAnimationStart(animation: Animation) {}
+                    override fun onAnimationEnd(animation: Animation) {
+                        if (place_1.get_placeIsEmpty()==true) {
+                            rich_name.set_placeCount_x(place_1.get_placeView().x)
+                            rich_name.set_placeCount_y(place_1.get_placeView().y)
+                            rich_name.set_nameDestination_x(-7f)
+                            rich_name.set_nameDestination_y(10f)
+                            rich_name.set_name_textDestination_x(0f)
+                            rich_name.set_name_textDestination_y(0f)
+                            rich_name.set_count(5)
+                            place_1.set_placeText("rich")
+                            place_1.set_placeIsEmpty(false)
+                        }
+                        else if (place_2.get_placeIsEmpty()==true) {
+                            rich_name.set_placeCount_x(place_2.get_placeView().x)
+                            rich_name.set_placeCount_y(place_2.get_placeView().y)
+                            rich_name.set_nameDestination_x(-9f)
+                            rich_name.set_nameDestination_y(-10f)
+                            rich_name.set_name_textDestination_x(0f)
+                            rich_name.set_name_textDestination_y(50f)
+                            rich_name.set_count(4)
+                            place_2.set_placeText("rich")
+                            place_2.set_placeIsEmpty(false)
+                            rich_name.get_imageView().rotation=180f
+                        }
+                        else if (place_3.get_placeIsEmpty()==true) {
+                            rich_name.set_placeCount_x(place_3.get_placeView().x)
+                            rich_name.set_placeCount_y(place_3.get_placeView().y)
+                            rich_name.set_nameDestination_x(7f)
+                            rich_name.set_nameDestination_y(10f)
+                            rich_name.set_name_textDestination_x(0f)
+                            rich_name.set_name_textDestination_y(0f)
+                            rich_name.set_count(3)
+                            place_3.set_placeText("rich")
+                            place_3.set_placeIsEmpty(false)
+                        }
+                        else if (place_4.get_placeIsEmpty()==true) {
+                            rich_name.set_placeCount_x(place_4.get_placeView().x)
+                            rich_name.set_placeCount_y(place_4.get_placeView().y)
+                            rich_name.set_nameDestination_x(-7f)
+                            rich_name.set_nameDestination_y(-10f)
+                            rich_name.set_name_textDestination_x(0f)
+                            rich_name.set_name_textDestination_y(50f)
+                            rich_name.set_count(2)
+                            rich_name.get_imageView().rotation=180f
+                            place_4.set_placeText("rich")
+                            place_4.set_placeIsEmpty(false)
+                        }
+                        else if (place_5.get_placeIsEmpty()==true) {
+                            rich_name.set_placeCount_x(place_5.get_placeView().x)
+                            rich_name.set_placeCount_y(place_5.get_placeView().y)
+                            rich_name.set_nameDestination_x(-7f)
+                            rich_name.set_nameDestination_y(10f)
+                            rich_name.set_name_textDestination_x(0f)
+                            rich_name.set_name_textDestination_y(0f)
+                            rich_name.set_count(1)
+                            place_5.set_placeText("rich")
+                            place_5.set_placeIsEmpty(false)
+                        }
+                        rich_name.set_isNameRunning(true)
+                        rich_name.get_constraintLayout().x = rich_name.get_placeCount_x()+ rich_name.get_nameDestination_x()
+                        rich_name.get_constraintLayout().y = rich_name.get_placeCount_y() + rich_name.get_nameDestination_y()
+                        rich_name.get_textView().x+=rich_name.get_name_textDestination_x()
+                        rich_name.get_textView().y+=rich_name.get_name_textDestination_y()
+                        rich_name.get_constraintLayout().startAnimation(fadeInAnimation)
+                    }
+                    override fun onAnimationRepeat(animation: Animation) {}
+                })
             }
-        }
-        if (rich_name.get_isNameRunning() == true) {
-            rich_name.get_imageView().x = rich_name.get_placeCount_x()
-            rich_name.get_imageView().y = rich_name.get_placeCount_y()
         }
         strong_name.get_imageView().setOnClickListener{
             if (strong_name.get_isNameRunning() == false) {
@@ -482,110 +482,48 @@ open class MainActivity : AppCompatActivity() {
             believer_name.get_imageView().x = believer_name.get_placeCount_x()
             believer_name.get_imageView().y = believer_name.get_placeCount_y()
         }
+        rich_name.get_imageView().setOnLongClickListener {
+            if(rich_name.get_isNameRunning()==true){
+                rich_name.get_constraintLayout().startAnimation(fadeOutAnimation)
+                fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
+                    override fun onAnimationStart(animation: Animation) {}
+                    override fun onAnimationEnd(animation: Animation) {
+                        if(place_1.get_placeIsEmpty()==false && place_1.get_placeText().equals("rich")){
+                            place_1.set_placeText("")
+                            place_1.set_placeIsEmpty(true)
+                        }
+                        else if (place_2.get_placeIsEmpty()==false && place_2.get_placeText().equals("rich")){
+                            place_2.set_placeText("")
+                            place_2.set_placeIsEmpty(true)
+                        }
+                        else if (place_3.get_placeIsEmpty()==false && place_3.get_placeText().equals("rich")){
+                            place_3.set_placeText("")
+                            place_3.set_placeIsEmpty(true)
+                        }
+                        else if (place_4.get_placeIsEmpty()==false && place_4.get_placeText().equals("rich")){
+                            place_4.set_placeText("")
+                            place_4.set_placeIsEmpty(true)
+                        }
+                        else if (place_5.get_placeIsEmpty()==false && place_5.get_placeText().equals("rich")){
+                            place_5.set_placeText("")
+                            place_5.set_placeIsEmpty(true)
+                        }
+                        rich_name.set_count(0)
+                        rich_name.get_constraintLayout().x = findViewById<TextView>(R.id.start_rich_destination).x
+                        rich_name.get_constraintLayout().y = findViewById<TextView>(R.id.start_rich_destination).y
+                        rich_name.get_textView().x-=rich_name.get_name_textDestination_x()
+                        rich_name.get_textView().y-=rich_name.get_name_textDestination_y()
+                        rich_name.get_imageView().rotation = 0f
+                        rich_name.set_isNameRunning(false)
+                        rich_name.get_constraintLayout().startAnimation(fadeInAnimation)
 
-        place_1.get_placeView().setOnLongClickListener {
-            if(place_1.get_placeIsEmpty()==false) {
-                if (rich_name.get_isNameRunning() == true && place_1.get_placeText() =="rich") {
-                    val anim =
-                        TranslateAnimation(place_1.get_placeView().x - 7f - rich_name.get_imageView().x, 0f, place_1.get_placeView().y + 10f - rich_name.get_imageView().y, 0f)
-                    val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x + 62f) - rich_name.get_textView().x,
-                        0f,
-                        (75f + place_1.get_placeView().y) - rich_name.get_textView().y,
-                        0f
-                    )
-                    anim_text.duration = 1000
-                    anim_text.fillAfter = true
-                    anim.duration = 1000
-                    anim.fillAfter = true
-                    place_1.set_placeText("")
-                    rich_name.set_count(0)
-                    rich_name.get_imageView().rotation = 0f
-                    rich_name.get_imageView().startAnimation(anim)
-                    rich_name.get_textView().startAnimation(anim_text)
-                    rich_name.set_isNameRunning(false)
-                } else if (strong_name.get_isNameRunning() == true && place_1.get_placeText() =="strong") {
-                    val anim =
-                        TranslateAnimation(place_1.get_placeView().x - 7f - strong_name.get_imageView().x, 0f, place_1.get_placeView().y + 17f - strong_name.get_imageView().y, 0f)
-                    val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x + 60f) - strong_name.get_textView().x,
-                        0f,
-                        (112f + place_1.get_placeView().y) - strong_name.get_textView().y,
-                        0f
-                    )
-                    anim_text.duration = 1000
-                    anim_text.fillAfter = true
-                    anim.duration = 1000
-                    anim.fillAfter = true
-                    place_1.set_placeText("")
-                    strong_name.set_count(0)
-                    strong_name.get_imageView().rotation = 0f
-                    strong_name.get_imageView().startAnimation(anim)
-                    strong_name.get_textView().startAnimation(anim_text)
-                    strong_name.set_isNameRunning(false)
-                } else if (smart_name.get_isNameRunning() == true && place_1.get_placeText() == "smart") {
-                    val anim =
-                        TranslateAnimation(place_1.get_placeView().x - smart_name.get_imageView().x, 0f, place_1.get_placeView().y - smart_name.get_imageView().y, 0f)
-                    val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x - 85f) - smart_name.get_textView().x,
-                        0f,
-                        (140f + place_1.get_placeView().y) - smart_name.get_textView().y,
-                        0f
-                    )
-                    anim_text.duration = 1000
-                    anim_text.fillAfter = true
-                    anim.duration = 1000
-                    anim.fillAfter = true
-                    place_1.set_placeText("")
-                    smart_name.set_count(0)
-                    smart_name.get_imageView().rotation = 0f
-                    smart_name.get_imageView().startAnimation(anim)
-                    smart_name.get_textView().startAnimation(anim_text)
-                    smart_name.set_isNameRunning(false)
-                } else if (beautiful_name.get_isNameRunning() == true && place_1.get_placeText() == "beautiful") {
-                    val anim =
-                        TranslateAnimation(place_1.get_placeView().x - beautiful_name.get_imageView().x, 0f, place_1.get_placeView().y - beautiful_name.get_imageView().y, 0f)
-                    val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x - 225f) - beautiful_name.get_textView().x,
-                        0f,
-                        (100f + place_1.get_placeView().y) - beautiful_name.get_textView().y,
-                        0f
-                    )
-                    anim_text.duration = 1000
-                    anim_text.fillAfter = true
-                    anim.duration = 1000
-                    anim.fillAfter = true
-                    place_1.set_placeText("")
-                    beautiful_name.set_count(0)
-                    beautiful_name.get_imageView().rotation = 0f
-                    beautiful_name.get_imageView().startAnimation(anim)
-                    beautiful_name.get_textView().startAnimation(anim_text)
-                    beautiful_name.set_isNameRunning(false)
-                } else if (believer_name.get_isNameRunning() == true && place_1.get_placeText() == "believer") {
-                    val anim =
-                        TranslateAnimation(place_1.get_placeView().x - believer_name.get_imageView().x, 0f, place_1.get_placeView().y - believer_name.get_imageView().y, 0f)
-                    val anim_text = TranslateAnimation(
-                        (place_1.get_placeView().x - 225f) - believer_name.get_textView().x,
-                        0f,
-                        (place_1.get_placeView().y-55F) - believer_name.get_textView().y,
-                        0f
-                    )
-                    anim_text.duration = 1000
-                    anim_text.fillAfter = true
-                    anim.duration = 1000
-                    anim.fillAfter = true
-                    place_1.set_placeText("")
-                    believer_name.set_count(0)
-                    believer_name.get_imageView().rotation = 0f
-                    believer_name.get_imageView().startAnimation(anim)
-                    believer_name.get_textView().startAnimation(anim_text)
-                    believer_name.set_isNameRunning(false)
-                }
-                place_1.set_placeIsEmpty(true)
+                    }
+                    override fun onAnimationRepeat(animation: Animation) {}
+                })
             }
                 true
         }
-        place_2.get_placeView().setOnLongClickListener {
+        place_2.get_placeView().setOnClickListener {
             if(place_2.get_placeIsEmpty()==false) {
                 if (rich_name.get_isNameRunning() == true && place_2.get_placeText() =="rich") {
                     val anim =
