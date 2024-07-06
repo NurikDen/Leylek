@@ -9,3 +9,5 @@ This application can help to find best name for future child.
 #20.05.2024 Code optimization
 
 #27.06.2024 Added new animations, updated UI, updated database of men and women, created database of celebrities.
+
+#01.07.2024 Updated animations.
