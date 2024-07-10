@@ -1,0 +1,1067 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<woman_names>
+   <names>
+        <name>Асия</name>
+        <beautiful>1</beautiful>
+        <smart>2</smart>
+        <happy>1</happy>
+        <believer>5</believer>
+        <rich>1</rich>
+        <character>Юатучы, дәвалаучы</character>
+    </names>
+<names>
+        <name>Айгел</name>
+        <beautiful>6</beautiful>
+        <smart>1</smart>
+        <happy>0</happy>
+        <believer>1</believer>
+        <rich>2</rich>
+        <character>Ай чәчәге</character>
+    </names>
+<names>
+        <name>Айбикә</name>
+        <beautiful>4</beautiful>
+        <smart>1</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>5</rich>
+        <character>Ай бикәсе</character>
+    </names>
+<names>
+        <name>Айсылу</name>
+        <beautiful>7</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+        <character>Ай гүзәле</character>
+    </names>
+<names>
+        <name>Айтуган</name>
+        <beautiful>4</beautiful>
+        <smart>3</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+        <character>Ай туу</character>
+    </names>
+<names>
+        <name>Амалия</name>
+        <beautiful>3</beautiful>
+        <smart>3</smart>
+        <happy>2</happy>
+        <believer>1</believer>
+        <rich>1</rich>
+        <character>Өмет</character>
+    </names>
+<names>
+        <name>Алия</name>
+        <beautiful>3</beautiful>
+        <smart>4</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+        <character>Бөек</character>
+    </names>
+<names>
+        <name>Әклимә</name>
+        <beautiful>2</beautiful>
+        <smart>2</smart>
+        <happy>2</happy>
+        <believer>2</believer>
+        <rich>2</rich>
+        <character>Камиллек</character>
+    </names>
+<names>
+        <name>Аишә</name>
+        <beautiful>1</beautiful>
+        <smart>2</smart>
+        <happy>3</happy>
+        <believer>1</believer>
+        <rich>3</rich>
+        <character>Яшәүче</character>
+    </names>
+<names>
+        <name>Әнисә</name>
+        <beautiful>2</beautiful>
+        <smart>3</smart>
+        <happy>3</happy>
+        <believer>1</believer>
+        <rich>1</rich>
+        <character>Якын дус</character>
+    </names>
+<names>
+        <name>Бану</name>
+        <beautiful>2</beautiful>
+        <smart>2</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>5</rich>
+        <character>Бикә</character>
+    </names>
+<names>
+        <name>Бархәт</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+        <character>Бархәт</character>
+    </names>
+<names>
+        <name>Вәлидә</name>
+        <beautiful>3</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>1</believer>
+        <rich>3</rich>
+        <character>Бала</character>
+    </names>
+<names>
+        <name>Вәсилә</name>
+        <beautiful>2</beautiful>
+        <smart>3</smart>
+        <happy>3</happy>
+        <believer>1</believer>
+        <rich>01</rich>
+        <character>Якын дус</character>
+    </names>
+<names>
+        <name>Гүзәл</name>
+        <beautiful>9</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Матур</character>
+    </names>
+<names>
+        <name>Гәлимә</name>
+        <beautiful>0</beautiful>
+        <smart>8</smart>
+        <happy>0</happy>
+<believer>1</believer>
+        <rich>1</rich>
+        <character>Акыллы</character>
+    </names>
+<names>
+        <name>Гөлия</name>
+        <beautiful>7</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Чәчәк матурлыгы</character>
+    </names>
+<names>
+        <name>Гөлназ</name>
+        <beautiful>7</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+        <character>Чәчәк матурлыгы</character>
+    </names>
+<names>
+        <name>Гөлсем</name>
+        <beautiful>4</beautiful>
+        <smart>3</smart>
+        <happy>1</happy>
+        <believer>1</believer>
+        <rich>1</rich>
+        <character>Сәламәтле</character>
+    </names>
+<names>
+        <name>Гөлфия</name>
+        <beautiful>7</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Чәчәк матурлыгы </character>
+    </names>
+<names>
+        <name>Дания</name>
+        <beautiful>3</beautiful>
+        <smart>3</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+        <character>Данлыклы</character>
+    </names>
+<names>
+        <name>Җәмилә</name>
+        <beautiful>9</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Матур</character>
+    </names>
+<names>
+        <name>Диана</name>
+        <beautiful>2</beautiful>
+        <smart>5</smart>
+        <happy>1</happy>
+        <believer>1</believer>
+        <rich>1</rich>
+        <character>Дәвалучы</character>
+    </names>
+<names>
+        <name>Динә</name>
+        <beautiful>1</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>8</believer>
+        <rich>1</rich>
+        <character>Дини кыз</character>
+    </names>
+<names>
+        <name>Дилбәр</name>
+        <beautiful>6</beautiful>
+        <smart>2</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+        <character>Сихерле йөрәк, яраткан</character>
+    </names>
+<names>
+        <name>Диләфрүз</name>
+        <beautiful>10</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>0</rich>
+        <character>Иң матур</character>
+    </names>
+<names>
+        <name>Диләрә</name>
+        <beautiful>2</beautiful>
+        <smart>2</smart>
+        <happy>5</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Яраткан кыз</character>
+    </names>
+<names>
+        <name>Зәйнәб</name>
+        <beautiful>0</beautiful>
+        <smart>0</smart>
+        <happy>8</happy>
+        <believer>1</believer>
+        <rich>1</rich>
+        <character>Бәхетле</character>
+    </names>
+<names>
+        <name>Зифа</name>
+        <beautiful>5</beautiful>
+        <smart>1</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+        <character>Төз</character>
+    </names>
+<names>
+        <name>Зәмирә</name>
+        <beautiful>0</beautiful>
+        <smart>4</smart>
+        <happy>2</happy>
+        <believer>1</believer>
+        <rich>3</rich>
+        <character>Йөрәк, вөҗдан</character>
+    </names>
+<names>
+        <name>Зилә</name>
+        <beautiful>6</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Нурлы</character>
+    </names>
+<names>
+        <name>Зөлфия</name>
+        <beautiful>5</beautiful>
+        <smart>3</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+                <character>Бөдрә</character>
+    </names>
+<names>
+        <name>Зөхрә</name>
+        <beautiful>6</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Якты</character>
+    </names>
+<names>
+        <name>Зәхирә</name>
+        <beautiful>1</beautiful>
+        <smart>4</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Ярдәмче</character>
+    </names>
+<names>
+
+        <name>Зөләйха</name>
+        <beautiful>7</beautiful>
+        <smart>1</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Шома</character>
+    </names>
+<names>
+        <name>Зәринә</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>5</rich>
+                <character>Алтын, якты</character>
+    </names>
+<names>
+        <name>Зәйтүнә</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>1</believer>
+        <rich>2</rich>
+                <character>Зәйтүн агачы</character>
+    </names>
+<names>
+        <name>Исламия</name>
+        <beautiful>0</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>8</believer>
+        <rich>1</rich>
+                <character>Ислам дине</character>
+    </names>
+<names>
+        <name>Иделия</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Идел елгасы</character>
+    </names>
+<names>
+        <name>Камилә</name>
+        <beautiful>2</beautiful>
+        <smart>2</smart>
+        <happy>2</happy>
+        <believer>2</believer>
+        <rich>2</rich>
+                <character>Камиллек</character>
+    </names>
+<names>
+        <name>Кәримә</name>
+        <beautiful>0</beautiful>
+        <smart>1</smart>
+        <happy>4</happy>
+        <believer>1</believer>
+        <rich>4</rich>
+                <character>Юмарт</character>
+    </names>
+<names>
+        <name>Ләлә</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Ләлә чәчәге</character>
+    </names>
+<names>
+        <name>Ләйсән</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>Беренче яз яңгыры</character>
+    </names>
+<names>
+        <name>Лилия</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Лилия чәчәге</character>
+    </names>
+<names>
+        <name>Лия</name>
+        <beautiful>2</beautiful>
+        <smart>2</smart>
+        <happy>2</happy>
+        <believer>2</believer>
+        <rich>2</rich>
+                <character>Камиллек</character>
+    </names>
+<names>
+        <name>Ландыш</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Ландыш чәчәге</character>
+    </names>
+<names>
+        <name>Миләүшә</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>1</believer>
+        <rich>2</rich>
+                <character>Миләүшә чәчәге</character>
+    </names>
+<names>
+        <name>Мөслимә</name>
+        <beautiful>0</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>8</believer>
+        <rich>1</rich>
+                <character>Мөслим</character>
+    </names>
+<names>
+        <name>Мәрьям</name>
+        <beautiful>5</beautiful>
+        <smart>2</smart>
+        <happy>0</happy>
+        <believer>2</believer>
+        <rich>0</rich>
+                <character>Яраткан</character>
+    </names>
+ <names>
+        <name>Мәвлюдә</name>
+        <beautiful>4</beautiful>
+        <smart>2</smart>
+        <happy>2</happy>
+        <believer>2</believer>
+        <rich>0</rich>
+                <character>Кыз</character>
+    </names>
+ <names>
+        <name>Мәдинә</name>
+        <beautiful>3</beautiful>
+        <smart>2</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>Мәдәни, Мәдинә шәхәре</character>
+    </names>
+ <names>
+        <name>Мәликә</name>
+        <beautiful>3</beautiful>
+        <smart>3</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Патшабикә</character>
+    </names>
+ <names>
+        <name>Мөхлиса</name>
+        <beautiful>0</beautiful>
+        <smart>6</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Эшчән</character>
+    </names>
+ <names>
+        <name>Надия</name>
+        <beautiful>4</beautiful>
+        <smart>2</smart>
+        <happy>1</happy>
+        <believer>1</believer>
+        <rich>2</rich>
+                <character>Беренче</character>
+    </names>
+ <names>
+        <name>Нәфисә</name>
+        <beautiful>8</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+                <character>Матур</character>
+    </names>
+<names>
+        <name>Нурия</name>
+        <beautiful>3</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>1</believer>
+        <rich>3</rich>
+                <character>Нурлы</character>
+    </names>
+ <names>
+        <name>Нурания</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>5</rich>
+                <character>Якты бүләк</character>
+    </names>
+ <names>
+        <name>Надирә</name>
+        <beautiful>2</beautiful>
+        <smart>2</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Сирәк</character>
+    </names>
+ <names>
+        <name>Мәкнүнә</name>
+        <beautiful>5</beautiful>
+        <smart>2</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Чиста</character>
+    </names>
+ <names>
+        <name>Ралинә</name>
+        <beautiful>3</beautiful>
+        <smart>2</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Әтинең яраткан кызы</character>
+    </names>
+<names>
+        <name>Рания</name>
+        <beautiful>0</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>10</rich>
+                <character>Бай</character>
+    </names>
+<names>
+        <name>Ракия</name>
+        <beautiful>4</beautiful>
+        <smart>2</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>беренче</character>
+    </names>
+<names>
+        <name>Рашидә</name>
+        <beautiful>0</beautiful>
+        <smart>2</smart>
+        <happy>2</happy>
+        <believer>5</believer>
+        <rich>1</rich>
+                <character>Дерес юлдан барган кеше</character>
+    </names>
+<names>
+        <name>Рената</name>
+        <beautiful>3</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Яңадан туган кеше
+</character>
+    </names>
+<names>
+        <name>Ризидә</name>
+        <beautiful>0</beautiful>
+        <smart>4</smart>
+        <happy>1</happy>
+        <believer>4</believer>
+        <rich>1</rich>
+                <character>Дәвалау</character>
+    </names>
+<names>
+        <name>Руфия</name>
+        <beautiful>0</beautiful>
+        <smart>3</smart>
+        <happy>4</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>Дуслык</character>
+    </names>
+<names>
+        <name>Рушания</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Якты</character>
+    </names>
+<names>
+        <name>Расимә</name>
+        <beautiful>0</beautiful>
+        <smart>5</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>5</rich>
+                <character>Саклаучы</character>
+    </names>
+<names>
+        <name>Сабира</name>
+        <beautiful>0</beautiful>
+        <smart>4</smart>
+        <happy>4</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Сабырлы</character>
+    </names>
+ <names>
+        <name>Самира</name>
+        <beautiful>2</beautiful>
+        <smart>4</smart>
+        <happy>4</happy>
+        <believer>0</believer>
+        <rich>0</rich>
+                <character>Дус</character>
+    </names>
+<names>
+        <name>Сәрия</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Төн болытлары</character>
+    </names>
+<names>
+        <name>София</name>
+        <beautiful>0</beautiful>
+        <smart>4</smart>
+        <happy>2</happy>
+        <believer>1</believer>
+        <rich>3</rich>
+                <character>Зирәк</character>
+    </names>
+<names>
+        <name>Сылу</name>
+        <beautiful>8</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+                <character>Матур</character>
+    </names>
+<names>
+        <name>Сөмбел</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Чәчәк</character>
+    </names>
+<names>
+        <name>Сәидә</name>
+        <beautiful>0</beautiful>
+        <smart>0</smart>
+        <happy>7</happy>
+        <believer>1</believer>
+        <rich>2</rich>
+                <character>Шат күңелле</character>
+    </names>
+<names>
+        <name>Сәдрия</name>
+        <beautiful>3</beautiful>
+        <smart>3</smart>
+        <happy>0</happy>
+        <believer>1</believer>
+        <rich>3</rich>
+                <character>Беренче</character>
+    </names>
+<names>
+        <name>Сәйфия</name>
+        <beautiful>3</beautiful>
+        <smart>4</smart>
+        <happy>0</happy>
+        <believer>1</believer>
+        <rich>3</rich>
+                <character>Колыч</character>
+    </names>
+<names>
+        <name>Сәлимә</name>
+        <beautiful>3</beautiful>        
+<smart>1</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>Тоныч</character>
+    </names>
+<names>
+        <name>Таңсылу</name>
+        <beautiful>7</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+                <character>Таң гүзәле</character>
+    </names>
+<names>
+        <name>Таңзилә</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>Таң нуры</character>
+    </names>
+<names>
+        <name>Тәслимә</name>
+        <beautiful>3</beautiful>
+        <smart>3</smart>
+        <happy>1</happy>
+        <believer>3</believer>
+        <rich>0</rich>
+                <character>Итагатьле</character>
+    </names>
+<names>
+        <name>Уринә</name>
+        <beautiful>0</beautiful>
+        <smart>4</smart>
+        <happy>2</happy>
+        <believer>2</believer>
+        <rich>2</rich>
+                <character>Сугышчы</character>
+    </names>
+<names>
+        <name>Умидә</name>
+        <beautiful>1</beautiful>
+        <smart>3</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>Өмет</character>
+    </names>
+<names>
+        <name>Фәвзия</name>
+        <beautiful>3</beautiful>
+        <smart>3</smart>
+        <happy>0</happy>
+        <believer>1</believer>
+        <rich>3</rich>
+                <character>Җиңүче</character>
+    </names>
+<names>
+        <name>Фәния</name>
+        <beautiful>3</beautiful>
+        <smart>2</smart>
+        <happy>5</happy>
+        <believer>0</believer>
+        <rich>0</rich>
+                <character>Искиткеч</character>
+    </names>
+<names>
+        <name>Фәнисә</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>Яктылык</character>
+    </names>
+<names>
+        <name>Фатима</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>3</believer>
+        <rich>0</rich>
+                <character>Йөрәк, якты битле</character>
+    </names>
+<names>
+        <name>Филюзә</name>
+        <beautiful>1</beautiful>
+        <smart>4</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>Җиңүче</character>
+    </names>
+<names>
+        <name>Фирдәүс</name>
+        <beautiful>2</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>2</believer>
+        <rich>4</rich>
+                <character>Җәннәт</character>
+    </names>
+<names>
+        <name>Фирүзә</name>
+        <beautiful>3</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Якты, нурлы</character>
+    </names>
+<names>
+        <name>Хава</name>
+        <beautiful>2</beautiful>
+        <smart>2</smart>
+        <happy>2</happy>
+        <believer>2</believer>
+        <rich>2</rich>
+                <character>Исәнлек</character>
+    </names>
+<names>
+        <name>Хадия</name>
+        <beautiful>3</beautiful>
+        <smart>0</smart>
+        <happy>4</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+                <character>бүләк</character>
+    </names>
+<names>
+        <name>Халидә</name>
+        <beautiful>2</beautiful>
+        <smart>3</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>5</rich>
+                <character>Мәңге</character>
+    </names>
+<names>
+        <name>Чулпан</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+                <character>Иртәнге йолдыз</character>
+    </names>
+<names>
+        <name>Халимә</name>
+        <beautiful>3</beautiful>
+        <smart>3</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+                <character>Игелекле</character>
+    </names>
+<names>
+        <name>Энҗенур</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+        <character>Энҗе нуры</character>
+    </names>
+<names>
+        <name>Энҗечәчәк</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+        <character>Энҗе чәчәге</character>
+    </names>
+<names>
+        <name>Шәрифә</name>
+        <beautiful>3</beautiful>
+        <smart>0</smart>
+        <happy>4</happy>
+        <believer>2</believer>
+        <rich>1</rich>
+        <character>Чиста</character>
+    </names>
+<names>
+        <name>Эҗҗегөл</name>
+        <beautiful>3</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>3</believer>
+        <rich>1</rich>
+        <character>Ана чәчәге</character>
+    </names>
+<names>
+        <name>Энҗе</name>
+        <beautiful>2</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>2</believer>
+        <rich>4</rich>
+        <character>Энҗе</character>
+    </names>
+<names>
+        <name>Энҗегөл</name>
+        <beautiful>2</beautiful>
+        <smart>0</smart>
+        <happy>4</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+        <character>Энҗе чәчәге</character>
+    </names>
+<names>
+        <name>Энҗебикә</name>
+        <beautiful>8</beautiful>
+        <smart>1</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Матур</character>
+    </names>
+<names>
+        <name>Энҗенисә</name>
+        <beautiful>2</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>5</rich>
+        <character>Энҗе кызы</character>
+    </names>
+<names>
+        <name>Якут</name>
+        <beautiful>3</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>7</rich>
+        <character>Асылташ</character>
+    </names>
+<names>
+        <name>Җамал</name>
+        <beautiful>8</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Гүзәллек</character>
+    </names>
+<names>
+        <name>Җансылу</name>
+        <beautiful>8</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Матур, яраткан кыз</character>
+    </names>
+<names>
+        <name>Җансөяр</name>
+        <beautiful>7</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>0</rich>
+        <character>Кадерле кыз</character>
+    </names>
+<names>
+        <name>Йөзембану</name>
+        <beautiful>8</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>Матур йөзле</character>
+    </names>
+<names>
+        <name>Йолдыз</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+        <character>Йолдыз</character>
+    </names>
+<names>
+        <name>Язгөл</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+        <character>яз чәчәге</character>
+    </names>
+<names>
+        <name>Яктыҗиһан</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>4</happy>
+        <believer>0</believer>
+        <rich>1</rich>
+        <character>дөнья яктысы</character>
+    </names>
+<names>
+        <name>Ясминә</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>3</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+        <character>чәчәк</character>
+    </names>
+<names>
+        <name>Ясминур</name>
+        <beautiful>5</beautiful>
+        <smart>0</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>4</rich>
+        <character>чәчәк нуры</character>
+    </names>
+<names>
+        <name>Яхшыгөл</name>
+        <beautiful>5</beautiful>
+        <smart>1</smart>
+        <happy>1</happy>
+        <believer>0</believer>
+        <rich>3</rich>
+        <character>Яхшы чәчәк</character>
+    </names>
+<names>
+        <name>Юанычбикә</name>
+        <beautiful>4</beautiful>
+        <smart>4</smart>
+        <happy>2</happy>
+        <believer>0</believer>
+        <rich>0</rich>
+        <character>юатучы</character>
+    </names>
+<names>
+        <name>Йөзлебикә</name>
+        <beautiful>4</beautiful>
+        <smart>0</smart>
+        <happy>4</happy>
+        <believer>0</believer>
+        <rich>2</rich>
+        <character>Матур йөзле</character>
+    </names>
+<names>
+        <name>Йөзсылу</name>
+        <beautiful>10</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>0</rich>
+       <character>Матур</character>
+    </names>  
+<names>
+        <name>Наха</name>
+        <beautiful>0</beautiful>
+        <smart>0</smart>
+        <happy>0</happy>
+        <believer>0</believer>
+        <rich>10</rich>
+       <character>Явыз</character>
+    </names>  
+</woman_names>
