@@ -29,7 +29,21 @@ open class MainActivity : AppCompatActivity() {
         val character_type = findViewById<TextView>(R.id.character_type)
         val men_women = findViewById<ImageView>(R.id.men_button)
 
+        val name_celebrity1 = findViewById<TextView>(R.id.nameCelebrity1)
+        val name_celebrity2 = findViewById<TextView>(R.id.nameCelebrity2)
+        val name_celebrity3 = findViewById<TextView>(R.id.nameCelebrity3)
+        val result_celebrity1 = findViewById<ImageView>(R.id.resultCelebrity1)
+        val result_celebrity2 = findViewById<ImageView>(R.id.resultCelebrity2)
+        val result_celebrity3 = findViewById<ImageView>(R.id.resultCelebrity3)
+        val info1 = findViewById<ImageView>(R.id.information_button1)
+        val info2 = findViewById<ImageView>(R.id.information_button2)
+        val info3 = findViewById<ImageView>(R.id.information_button3)
+
+        val quotes_text = findViewById<TextView>(R.id.quotes_text)
+        val quotes_author = findViewById<TextView>(R.id.quotes_author)
+
         var searching_tool = Searching()
+        var quotesSearching = Quotes_searching()
 
         val rich_name = Name(findViewById(R.id.rich),findViewById<ImageView>(R.id.rich_button),findViewById<ImageView>(R.id.rich_text),false,0f,0f,0f,0f,0f,0f,0)
         val strong_name = Name(findViewById(R.id.strong),findViewById<ImageView>(R.id.strong_button),findViewById<ImageView>(R.id.strong_text),false,0f,0f,0f,0f,0f,0f,0)
@@ -104,6 +118,7 @@ open class MainActivity : AppCompatActivity() {
                         if (place_1.get_placeIsEmpty()==true) {
                             rich_name.set_placeCount_x(place_1.get_placeView().x)
                             rich_name.set_placeCount_y(place_1.get_placeView().y)
+                            place_1.get_placeView().visibility= View.INVISIBLE
                             rich_name.set_nameDestination_x(-7f)
                             rich_name.set_nameDestination_y(10f)
                             rich_name.set_name_textDestination_x(0f)
@@ -115,6 +130,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_2.get_placeIsEmpty()==true) {
                             rich_name.set_placeCount_x(place_2.get_placeView().x)
                             rich_name.set_placeCount_y(place_2.get_placeView().y)
+                            place_2.get_placeView().visibility= View.INVISIBLE
                             rich_name.set_nameDestination_x(-9f)
                             rich_name.set_nameDestination_y(-10f)
                             rich_name.set_name_textDestination_x(0f)
@@ -127,6 +143,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_3.get_placeIsEmpty()==true) {
                             rich_name.set_placeCount_x(place_3.get_placeView().x)
                             rich_name.set_placeCount_y(place_3.get_placeView().y)
+                            place_3.get_placeView().visibility= View.INVISIBLE
                             rich_name.set_nameDestination_x(7f)
                             rich_name.set_nameDestination_y(10f)
                             rich_name.set_name_textDestination_x(0f)
@@ -138,6 +155,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_4.get_placeIsEmpty()==true) {
                             rich_name.set_placeCount_x(place_4.get_placeView().x)
                             rich_name.set_placeCount_y(place_4.get_placeView().y)
+                            place_4.get_placeView().visibility= View.INVISIBLE
                             rich_name.set_nameDestination_x(-7f)
                             rich_name.set_nameDestination_y(-10f)
                             rich_name.set_name_textDestination_x(0f)
@@ -150,6 +168,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_5.get_placeIsEmpty()==true) {
                             rich_name.set_placeCount_x(place_5.get_placeView().x)
                             rich_name.set_placeCount_y(place_5.get_placeView().y)
+                            place_5.get_placeView().visibility= View.INVISIBLE
                             rich_name.set_nameDestination_x(-7f)
                             rich_name.set_nameDestination_y(10f)
                             rich_name.set_name_textDestination_x(0f)
@@ -164,6 +183,11 @@ open class MainActivity : AppCompatActivity() {
                         rich_name.get_textView().x+=rich_name.get_name_textDestination_x()
                         rich_name.get_textView().y+=rich_name.get_name_textDestination_y()
                         rich_name.get_constraintLayout().startAnimation(fadeInAnimation)
+                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
+                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                            quotes_text.setText(nodeList[0])
+                            quotes_text.setText(nodeList[1])
+                        }
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -178,8 +202,9 @@ open class MainActivity : AppCompatActivity() {
                         if (place_1.get_placeIsEmpty()==true) {
                             strong_name.set_placeCount_x(place_1.get_placeView().x)
                             strong_name.set_placeCount_y(place_1.get_placeView().y)
+                            place_1.get_placeView().visibility= View.INVISIBLE
                             strong_name.set_nameDestination_x(-7f)
-                            strong_name.set_nameDestination_y(10f)
+                            strong_name.set_nameDestination_y(-10f)
                             strong_name.set_name_textDestination_x(0f)
                             strong_name.set_name_textDestination_y(0f)
                             strong_name.set_count(5)
@@ -190,8 +215,9 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_2.get_placeIsEmpty()==true) {
                             strong_name.set_placeCount_x(place_2.get_placeView().x)
                             strong_name.set_placeCount_y(place_2.get_placeView().y)
+                            place_2.get_placeView().visibility= View.INVISIBLE
                             strong_name.set_nameDestination_x(0f)
-                            strong_name.set_nameDestination_y(-10f)
+                            strong_name.set_nameDestination_y(10f)
                             strong_name.set_name_textDestination_x(0f)
                             strong_name.set_name_textDestination_y(0f)
                             strong_name.set_count(4)
@@ -201,8 +227,9 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_3.get_placeIsEmpty()==true) {
                             strong_name.set_placeCount_x(place_3.get_placeView().x)
                             strong_name.set_placeCount_y(place_3.get_placeView().y)
+                            place_3.get_placeView().visibility= View.INVISIBLE
                             strong_name.set_nameDestination_x(0f)
-                            strong_name.set_nameDestination_y(10f)
+                            strong_name.set_nameDestination_y(-10f)
                             strong_name.set_name_textDestination_x(0f)
                             strong_name.set_name_textDestination_y(0f)
                             strong_name.set_count(3)
@@ -213,8 +240,9 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_4.get_placeIsEmpty()==true) {
                             strong_name.set_placeCount_x(place_4.get_placeView().x)
                             strong_name.set_placeCount_y(place_4.get_placeView().y)
+                            place_4.get_placeView().visibility= View.INVISIBLE
                             strong_name.set_nameDestination_x(0f)
-                            strong_name.set_nameDestination_y(-10f)
+                            strong_name.set_nameDestination_y(10f)
                             strong_name.set_name_textDestination_x(0f)
                             strong_name.set_name_textDestination_y(0f)
                             strong_name.set_count(2)
@@ -224,8 +252,9 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_5.get_placeIsEmpty()==true) {
                             strong_name.set_placeCount_x(place_5.get_placeView().x)
                             strong_name.set_placeCount_y(place_5.get_placeView().y)
+                            place_5.get_placeView().visibility= View.INVISIBLE
                             strong_name.set_nameDestination_x(0f)
-                            strong_name.set_nameDestination_y(10f)
+                            strong_name.set_nameDestination_y(-10f)
                             strong_name.set_name_textDestination_x(0f)
                             strong_name.set_name_textDestination_y(0f)
                             strong_name.set_count(1)
@@ -239,6 +268,11 @@ open class MainActivity : AppCompatActivity() {
                         strong_name.get_textView().x+=strong_name.get_name_textDestination_x()
                         strong_name.get_textView().y+=strong_name.get_name_textDestination_y()
                         strong_name.get_constraintLayout().startAnimation(fadeInAnimation)
+                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
+                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                            quotes_text.setText(nodeList[0])
+                            quotes_text.setText(nodeList[1])
+                        }
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -254,6 +288,7 @@ open class MainActivity : AppCompatActivity() {
                         if (place_1.get_placeIsEmpty()==true) {
                             smart_name.set_placeCount_x(place_1.get_placeView().x)
                             smart_name.set_placeCount_y(place_1.get_placeView().y)
+                            place_1.get_placeView().visibility= View.INVISIBLE
                             smart_name.set_nameDestination_x(-7f)
                             smart_name.set_nameDestination_y(10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -265,6 +300,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_2.get_placeIsEmpty()==true) {
                             smart_name.set_placeCount_x(place_2.get_placeView().x)
                             smart_name.set_placeCount_y(place_2.get_placeView().y)
+                            place_2.get_placeView().visibility= View.INVISIBLE
                             smart_name.set_nameDestination_x(-9f)
                             smart_name.set_nameDestination_y(-10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -277,6 +313,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_3.get_placeIsEmpty()==true) {
                             smart_name.set_placeCount_x(place_3.get_placeView().x)
                             smart_name.set_placeCount_y(place_3.get_placeView().y)
+                            place_3.get_placeView().visibility= View.INVISIBLE
                             smart_name.set_nameDestination_x(7f)
                             smart_name.set_nameDestination_y(10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -288,6 +325,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_4.get_placeIsEmpty()==true) {
                             smart_name.set_placeCount_x(place_4.get_placeView().x)
                             smart_name.set_placeCount_y(place_4.get_placeView().y)
+                            place_4.get_placeView().visibility= View.INVISIBLE
                             smart_name.set_nameDestination_x(-7f)
                             smart_name.set_nameDestination_y(-10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -300,6 +338,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_5.get_placeIsEmpty()==true) {
                             smart_name.set_placeCount_x(place_5.get_placeView().x)
                             smart_name.set_placeCount_y(place_5.get_placeView().y)
+                            place_5.get_placeView().visibility= View.INVISIBLE
                             smart_name.set_nameDestination_x(-7f)
                             smart_name.set_nameDestination_y(10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -314,6 +353,11 @@ open class MainActivity : AppCompatActivity() {
                         smart_name.get_textView().x+=smart_name.get_name_textDestination_x()
                         smart_name.get_textView().y+=smart_name.get_name_textDestination_y()
                         smart_name.get_constraintLayout().startAnimation(fadeInAnimation)
+                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
+                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                            quotes_text.setText(nodeList[0])
+                            quotes_text.setText(nodeList[1])
+                        }
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -328,8 +372,9 @@ open class MainActivity : AppCompatActivity() {
                         if (place_1.get_placeIsEmpty()==true) {
                             beautiful_name.set_placeCount_x(place_1.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_1.get_placeView().y)
-                            beautiful_name.set_nameDestination_x(10f)
-                            beautiful_name.set_nameDestination_y(10f)
+                            place_1.get_placeView().visibility= View.INVISIBLE
+                            beautiful_name.set_nameDestination_x(0f)
+                            beautiful_name.set_nameDestination_y(-10f)
                             beautiful_name.set_name_textDestination_x(0f)
                             beautiful_name.set_name_textDestination_y(0f)
                             beautiful_name.set_count(5)
@@ -340,8 +385,9 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_2.get_placeIsEmpty()==true) {
                             beautiful_name.set_placeCount_x(place_2.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_2.get_placeView().y)
-                            beautiful_name.set_nameDestination_x(-10f)
-                            beautiful_name.set_nameDestination_y(-10f)
+                            place_2.get_placeView().visibility= View.INVISIBLE
+                            beautiful_name.set_nameDestination_x(0f)
+                            beautiful_name.set_nameDestination_y(10f)
                             beautiful_name.set_name_textDestination_x(0f)
                             beautiful_name.set_name_textDestination_y(0f)
                             beautiful_name.set_count(4)
@@ -351,8 +397,9 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_3.get_placeIsEmpty()==true) {
                             beautiful_name.set_placeCount_x(place_3.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_3.get_placeView().y)
-                            beautiful_name.set_nameDestination_x(-10f)
-                            beautiful_name.set_nameDestination_y(10f)
+                            place_3.get_placeView().visibility= View.INVISIBLE
+                            beautiful_name.set_nameDestination_x(0f)
+                            beautiful_name.set_nameDestination_y(-10f)
                             beautiful_name.set_name_textDestination_x(0f)
                             beautiful_name.set_name_textDestination_y(0f)
                             beautiful_name.set_count(3)
@@ -363,8 +410,9 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_4.get_placeIsEmpty()==true) {
                             beautiful_name.set_placeCount_x(place_4.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_4.get_placeView().y)
-                            beautiful_name.set_nameDestination_x(10f)
-                            beautiful_name.set_nameDestination_y(-10f)
+                            place_4.get_placeView().visibility= View.INVISIBLE
+                            beautiful_name.set_nameDestination_x(0f)
+                            beautiful_name.set_nameDestination_y(10f)
                             beautiful_name.set_name_textDestination_x(0f)
                             beautiful_name.set_name_textDestination_y(0f)
                             beautiful_name.set_count(2)
@@ -374,8 +422,9 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_5.get_placeIsEmpty()==true) {
                             beautiful_name.set_placeCount_x(place_5.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_5.get_placeView().y)
+                            place_5.get_placeView().visibility= View.INVISIBLE
                             beautiful_name.set_nameDestination_x(0f)
-                            beautiful_name.set_nameDestination_y(0f)
+                            beautiful_name.set_nameDestination_y(-10f)
                             beautiful_name.set_name_textDestination_x(0f)
                             beautiful_name.set_name_textDestination_y(0f)
                             beautiful_name.set_count(1)
@@ -389,6 +438,11 @@ open class MainActivity : AppCompatActivity() {
                         beautiful_name.get_textView().x+=beautiful_name.get_name_textDestination_x()
                         beautiful_name.get_textView().y+=beautiful_name.get_name_textDestination_y()
                         beautiful_name.get_constraintLayout().startAnimation(fadeInAnimation)
+                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
+                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                            quotes_text.setText(nodeList[0])
+                            quotes_text.setText(nodeList[1])
+                        }
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -403,6 +457,7 @@ open class MainActivity : AppCompatActivity() {
                         if (place_1.get_placeIsEmpty()==true) {
                             believer_name.set_placeCount_x(place_1.get_placeView().x)
                             believer_name.set_placeCount_y(place_1.get_placeView().y)
+                            place_1.get_placeView().visibility= View.INVISIBLE
                             believer_name.set_nameDestination_x(-7f)
                             believer_name.set_nameDestination_y(10f)
                             believer_name.set_name_textDestination_x(0f)
@@ -414,6 +469,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_2.get_placeIsEmpty()==true) {
                             believer_name.set_placeCount_x(place_2.get_placeView().x)
                             believer_name.set_placeCount_y(place_2.get_placeView().y)
+                            place_2.get_placeView().visibility= View.INVISIBLE
                             believer_name.set_nameDestination_x(-9f)
                             believer_name.set_nameDestination_y(-10f)
                             believer_name.set_name_textDestination_x(0f)
@@ -421,11 +477,12 @@ open class MainActivity : AppCompatActivity() {
                             believer_name.set_count(4)
                             place_2.set_placeText("believer")
                             place_2.set_placeIsEmpty(false)
-                            smart_name.get_imageView().rotation=180f
+                            believer_name.get_imageView().rotation=180f
                         }
                         else if (place_3.get_placeIsEmpty()==true) {
                             believer_name.set_placeCount_x(place_3.get_placeView().x)
                             believer_name.set_placeCount_y(place_3.get_placeView().y)
+                            place_3.get_placeView().visibility= View.INVISIBLE
                             believer_name.set_nameDestination_x(7f)
                             believer_name.set_nameDestination_y(10f)
                             believer_name.set_name_textDestination_x(0f)
@@ -437,6 +494,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_4.get_placeIsEmpty()==true) {
                             believer_name.set_placeCount_x(place_4.get_placeView().x)
                             believer_name.set_placeCount_y(place_4.get_placeView().y)
+                            place_4.get_placeView().visibility= View.INVISIBLE
                             believer_name.set_nameDestination_x(-7f)
                             believer_name.set_nameDestination_y(-10f)
                             believer_name.set_name_textDestination_x(0f)
@@ -449,6 +507,7 @@ open class MainActivity : AppCompatActivity() {
                         else if (place_5.get_placeIsEmpty()==true) {
                             believer_name.set_placeCount_x(place_5.get_placeView().x)
                             believer_name.set_placeCount_y(place_5.get_placeView().y)
+                            place_5.get_placeView().visibility= View.INVISIBLE
                             believer_name.set_nameDestination_x(-7f)
                             believer_name.set_nameDestination_y(10f)
                             believer_name.set_name_textDestination_x(0f)
@@ -463,6 +522,11 @@ open class MainActivity : AppCompatActivity() {
                         believer_name.get_textView().x+=believer_name.get_name_textDestination_x()
                         believer_name.get_textView().y+=believer_name.get_name_textDestination_y()
                         believer_name.get_constraintLayout().startAnimation(fadeInAnimation)
+                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
+                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                            quotes_text.setText(nodeList[0])
+                            quotes_text.setText(nodeList[1])
+                        }
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -475,22 +539,27 @@ open class MainActivity : AppCompatActivity() {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {
                         if(place_1.get_placeIsEmpty()==false && place_1.get_placeText().equals("rich")){
+                            place_1.get_placeView().visibility= View.VISIBLE
                             place_1.set_placeText("")
                             place_1.set_placeIsEmpty(true)
                         }
                         else if (place_2.get_placeIsEmpty()==false && place_2.get_placeText().equals("rich")){
+                            place_2.get_placeView().visibility= View.VISIBLE
                             place_2.set_placeText("")
                             place_2.set_placeIsEmpty(true)
                         }
                         else if (place_3.get_placeIsEmpty()==false && place_3.get_placeText().equals("rich")){
+                            place_3.get_placeView().visibility= View.VISIBLE
                             place_3.set_placeText("")
                             place_3.set_placeIsEmpty(true)
                         }
                         else if (place_4.get_placeIsEmpty()==false && place_4.get_placeText().equals("rich")){
+                            place_4.get_placeView().visibility= View.VISIBLE
                             place_4.set_placeText("")
                             place_4.set_placeIsEmpty(true)
                         }
                         else if (place_5.get_placeIsEmpty()==false && place_5.get_placeText().equals("rich")){
+                            place_5.get_placeView().visibility= View.VISIBLE
                             place_5.set_placeText("")
                             place_5.set_placeIsEmpty(true)
                         }
@@ -502,7 +571,8 @@ open class MainActivity : AppCompatActivity() {
                         rich_name.get_imageView().rotation = 0f
                         rich_name.set_isNameRunning(false)
                         rich_name.get_constraintLayout().startAnimation(fadeInAnimation)
-
+                        quotes_text.setText("")
+                        quotes_author.setText("")
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -516,22 +586,27 @@ open class MainActivity : AppCompatActivity() {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {
                         if(place_1.get_placeIsEmpty()==false && place_1.get_placeText().equals("strong")){
+                            place_1.get_placeView().visibility= View.VISIBLE
                             place_1.set_placeText("")
                             place_1.set_placeIsEmpty(true)
                         }
                         else if (place_2.get_placeIsEmpty()==false && place_2.get_placeText().equals("strong")){
+                            place_2.get_placeView().visibility= View.VISIBLE
                             place_2.set_placeText("")
                             place_2.set_placeIsEmpty(true)
                         }
                         else if (place_3.get_placeIsEmpty()==false && place_3.get_placeText().equals("strong")){
+                            place_3.get_placeView().visibility= View.VISIBLE
                             place_3.set_placeText("")
                             place_3.set_placeIsEmpty(true)
                         }
                         else if (place_4.get_placeIsEmpty()==false && place_4.get_placeText().equals("strong")){
+                            place_4.get_placeView().visibility= View.VISIBLE
                             place_4.set_placeText("")
                             place_4.set_placeIsEmpty(true)
                         }
                         else if (place_5.get_placeIsEmpty()==false && place_5.get_placeText().equals("strong")){
+                            place_5.get_placeView().visibility= View.VISIBLE
                             place_5.set_placeText("")
                             place_5.set_placeIsEmpty(true)
                         }
@@ -543,7 +618,8 @@ open class MainActivity : AppCompatActivity() {
                         strong_name.get_imageView().rotation = 0f
                         strong_name.set_isNameRunning(false)
                         strong_name.get_constraintLayout().startAnimation(fadeInAnimation)
-
+                        quotes_text.setText("")
+                        quotes_author.setText("")
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -558,22 +634,27 @@ open class MainActivity : AppCompatActivity() {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {
                         if(place_1.get_placeIsEmpty()==false && place_1.get_placeText().equals("smart")){
+                            place_1.get_placeView().visibility= View.VISIBLE
                             place_1.set_placeText("")
                             place_1.set_placeIsEmpty(true)
                         }
                         else if (place_2.get_placeIsEmpty()==false && place_2.get_placeText().equals("smart")){
+                            place_2.get_placeView().visibility= View.VISIBLE
                             place_2.set_placeText("")
                             place_2.set_placeIsEmpty(true)
                         }
                         else if (place_3.get_placeIsEmpty()==false && place_3.get_placeText().equals("smart")){
+                            place_3.get_placeView().visibility= View.VISIBLE
                             place_3.set_placeText("")
                             place_3.set_placeIsEmpty(true)
                         }
                         else if (place_4.get_placeIsEmpty()==false && place_4.get_placeText().equals("smart")){
+                            place_4.get_placeView().visibility= View.VISIBLE
                             place_4.set_placeText("")
                             place_4.set_placeIsEmpty(true)
                         }
                         else if (place_5.get_placeIsEmpty()==false && place_5.get_placeText().equals("smart")){
+                            place_5.get_placeView().visibility= View.VISIBLE
                             place_5.set_placeText("")
                             place_5.set_placeIsEmpty(true)
                         }
@@ -585,7 +666,8 @@ open class MainActivity : AppCompatActivity() {
                         smart_name.get_imageView().rotation = 0f
                         smart_name.set_isNameRunning(false)
                         smart_name.get_constraintLayout().startAnimation(fadeInAnimation)
-
+                        quotes_text.setText("")
+                        quotes_author.setText("")
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -600,22 +682,27 @@ open class MainActivity : AppCompatActivity() {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {
                         if(place_1.get_placeIsEmpty()==false && place_1.get_placeText().equals("beautiful")){
+                            place_1.get_placeView().visibility= View.VISIBLE
                             place_1.set_placeText("")
                             place_1.set_placeIsEmpty(true)
                         }
                         else if (place_2.get_placeIsEmpty()==false && place_2.get_placeText().equals("beautiful")){
+                            place_2.get_placeView().visibility= View.VISIBLE
                             place_2.set_placeText("")
                             place_2.set_placeIsEmpty(true)
                         }
                         else if (place_3.get_placeIsEmpty()==false && place_3.get_placeText().equals("beautiful")){
+                            place_3.get_placeView().visibility= View.VISIBLE
                             place_3.set_placeText("")
                             place_3.set_placeIsEmpty(true)
                         }
                         else if (place_4.get_placeIsEmpty()==false && place_4.get_placeText().equals("beautiful")){
+                            place_4.get_placeView().visibility= View.VISIBLE
                             place_4.set_placeText("")
                             place_4.set_placeIsEmpty(true)
                         }
                         else if (place_5.get_placeIsEmpty()==false && place_5.get_placeText().equals("beautiful")){
+                            place_5.get_placeView().visibility= View.VISIBLE
                             place_5.set_placeText("")
                             place_5.set_placeIsEmpty(true)
                         }
@@ -627,7 +714,8 @@ open class MainActivity : AppCompatActivity() {
                         beautiful_name.get_imageView().rotation = 0f
                         beautiful_name.set_isNameRunning(false)
                         beautiful_name.get_constraintLayout().startAnimation(fadeInAnimation)
-
+                        quotes_text.setText("")
+                        quotes_author.setText("")
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
@@ -642,22 +730,27 @@ open class MainActivity : AppCompatActivity() {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {
                         if(place_1.get_placeIsEmpty()==false && place_1.get_placeText().equals("believer")){
+                            place_1.get_placeView().visibility= View.VISIBLE
                             place_1.set_placeText("")
                             place_1.set_placeIsEmpty(true)
                         }
                         else if (place_2.get_placeIsEmpty()==false && place_2.get_placeText().equals("believer")){
+                            place_2.get_placeView().visibility= View.VISIBLE
                             place_2.set_placeText("")
                             place_2.set_placeIsEmpty(true)
                         }
                         else if (place_3.get_placeIsEmpty()==false && place_3.get_placeText().equals("believer")){
+                            place_3.get_placeView().visibility= View.VISIBLE
                             place_3.set_placeText("")
                             place_3.set_placeIsEmpty(true)
                         }
                         else if (place_4.get_placeIsEmpty()==false && place_4.get_placeText().equals("believer")){
+                            place_4.get_placeView().visibility= View.VISIBLE
                             place_4.set_placeText("")
                             place_4.set_placeIsEmpty(true)
                         }
                         else if (place_5.get_placeIsEmpty()==false && place_5.get_placeText().equals("believer")){
+                            place_5.get_placeView().visibility= View.VISIBLE
                             place_5.set_placeText("")
                             place_5.set_placeIsEmpty(true)
                         }
@@ -669,13 +762,15 @@ open class MainActivity : AppCompatActivity() {
                         believer_name.get_imageView().rotation = 0f
                         believer_name.set_isNameRunning(false)
                         believer_name.get_constraintLayout().startAnimation(fadeInAnimation)
-
+                        quotes_text.setText("")
+                        quotes_author.setText("")
                     }
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
             }
             true
         }
+
         button.setOnClickListener {
             var arr = searching_tool.searching(rich_name.get_count(),strong_name.get_count(),smart_name.get_count(),beautiful_name.get_count(),believer_name.get_count(),"man",
                 getXmlDocument("man_names.xml")!!,

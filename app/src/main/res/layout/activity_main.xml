@@ -633,5 +633,31 @@
         app:layout_constraintStart_toStartOf="@+id/resultCelebrity3"
         app:layout_constraintTop_toBottomOf="@+id/resultCelebrity1" />
 
+    <TextView
+        android:id="@+id/quotes_text"
+        android:layout_width="171dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="160dp"
+        android:fontFamily="@font/montserrat_alternates_semibold"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/smart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout" />
+
+    <TextView
+        android:id="@+id/quotes_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:fontFamily="@font/montserrat_alternates_medium"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="@+id/resultCelebrity3"
+        app:layout_constraintEnd_toEndOf="@+id/resultCelebrity3"
+        app:layout_constraintStart_toStartOf="@+id/start_rich_destination"
+        app:layout_constraintTop_toBottomOf="@+id/quotes_text" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
