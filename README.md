@@ -13,3 +13,5 @@ This application can help to find best name for future child.
 #01.07.2024 Updated animations
 
 #06.07.2024 Updated animations, made optimization, added xml file of celebrities.
+
+#10.07.2024 We made optimiztion and updated main animations. Besides, we made the generating of quotes.
