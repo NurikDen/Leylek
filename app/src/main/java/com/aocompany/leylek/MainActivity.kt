@@ -12,7 +12,11 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.w3c.dom.Document
+import java.io.File
 import javax.xml.parsers.DocumentBuilderFactory
+import javax.xml.transform.TransformerFactory
+import javax.xml.transform.dom.DOMSource
+import javax.xml.transform.stream.StreamResult
 
 
 open class MainActivity : AppCompatActivity() {
@@ -28,22 +32,27 @@ open class MainActivity : AppCompatActivity() {
         val result = findViewById<ImageView>(R.id.result_white)
         val character_type = findViewById<TextView>(R.id.character_type)
         val men_women = findViewById<ImageView>(R.id.men_button)
+        var celebrity_name1 = ""
+        var celebrity_name2 = ""
+        var celebrity_name3 = ""
+        var celebrity_meaning1 = ""
+        var celebrity_meaning2 = ""
+        var celebrity_meaning3 = ""
+        var is_celebrity_meaning1 = false
+        var is_celebrity_meaning2 = false
+        var is_celebrity_meaning3 = false
+        var is_result_remove = false
 
-        val name_celebrity1 = findViewById<TextView>(R.id.nameCelebrity1)
-        val name_celebrity2 = findViewById<TextView>(R.id.nameCelebrity2)
-        val name_celebrity3 = findViewById<TextView>(R.id.nameCelebrity3)
-        val result_celebrity1 = findViewById<ImageView>(R.id.resultCelebrity1)
-        val result_celebrity2 = findViewById<ImageView>(R.id.resultCelebrity2)
-        val result_celebrity3 = findViewById<ImageView>(R.id.resultCelebrity3)
-        val info1 = findViewById<ImageView>(R.id.information_button1)
-        val info2 = findViewById<ImageView>(R.id.information_button2)
-        val info3 = findViewById<ImageView>(R.id.information_button3)
+        val celebrity_person1 = Result_celebrity(findViewById(R.id.resultLayout1),findViewById(R.id.resultCelebrity1),findViewById(R.id.nameCelebrity1),findViewById(R.id.information_button1))
+        val celebrity_person2 = Result_celebrity(findViewById(R.id.resultLayout2),findViewById(R.id.resultCelebrity2),findViewById(R.id.nameCelebrity2),findViewById(R.id.information_button2))
+        val celebrity_person3 = Result_celebrity(findViewById(R.id.resultLayout3),findViewById(R.id.resultCelebrity3),findViewById(R.id.nameCelebrity3),findViewById(R.id.information_button3))
 
         val quotes_text = findViewById<TextView>(R.id.quotes_text)
         val quotes_author = findViewById<TextView>(R.id.quotes_author)
 
         var searching_tool = Searching()
         var quotesSearching = Quotes_searching()
+        var celebritiesSearching = Celebrities_searching()
 
         val rich_name = Name(findViewById(R.id.rich),findViewById<ImageView>(R.id.rich_button),findViewById<ImageView>(R.id.rich_text),false,0f,0f,0f,0f,0f,0f,0)
         val strong_name = Name(findViewById(R.id.strong),findViewById<ImageView>(R.id.strong_button),findViewById<ImageView>(R.id.strong_text),false,0f,0f,0f,0f,0f,0f,0)
@@ -185,7 +194,7 @@ open class MainActivity : AppCompatActivity() {
                         rich_name.get_constraintLayout().startAnimation(fadeInAnimation)
                         if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
                             var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
-                            quotes_text.setText(nodeList[0])
+                            quotes_author.setText(nodeList[0])
                             quotes_text.setText(nodeList[1])
                         }
                     }
@@ -270,7 +279,7 @@ open class MainActivity : AppCompatActivity() {
                         strong_name.get_constraintLayout().startAnimation(fadeInAnimation)
                         if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
                             var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
-                            quotes_text.setText(nodeList[0])
+                            quotes_author.setText(nodeList[0])
                             quotes_text.setText(nodeList[1])
                         }
                     }
@@ -355,7 +364,7 @@ open class MainActivity : AppCompatActivity() {
                         smart_name.get_constraintLayout().startAnimation(fadeInAnimation)
                         if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
                             var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
-                            quotes_text.setText(nodeList[0])
+                            quotes_author.setText(nodeList[0])
                             quotes_text.setText(nodeList[1])
                         }
                     }
@@ -440,7 +449,7 @@ open class MainActivity : AppCompatActivity() {
                         beautiful_name.get_constraintLayout().startAnimation(fadeInAnimation)
                         if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
                             var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
-                            quotes_text.setText(nodeList[0])
+                            quotes_author.setText(nodeList[0])
                             quotes_text.setText(nodeList[1])
                         }
                     }
@@ -524,7 +533,7 @@ open class MainActivity : AppCompatActivity() {
                         believer_name.get_constraintLayout().startAnimation(fadeInAnimation)
                         if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
                             var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
-                            quotes_text.setText(nodeList[0])
+                            quotes_author.setText(nodeList[0])
                             quotes_text.setText(nodeList[1])
                         }
                     }
@@ -722,7 +731,6 @@ open class MainActivity : AppCompatActivity() {
             }
             true
         }
-
         believer_name.get_imageView().setOnLongClickListener {
             if(believer_name.get_isNameRunning()==true){
                 believer_name.get_constraintLayout().startAnimation(fadeOutAnimation)
@@ -779,10 +787,167 @@ open class MainActivity : AppCompatActivity() {
             meaning.setText(arr[1])
             character_type.setText(arr[2])
             result.visibility = View.VISIBLE
+            var nodeList = celebritiesSearching.celebrities_searching(getXmlDocument("men_celebrity.xml")!!,arr[0])
+            if(nodeList.size == 0){
+                quotes_text.setText("Әлегә мондый исемле бөек шәхесләр табылмаган. Бәлки сезнең балагыз бу исемне йөртеп бөек шәхес булыр?")
+                quotes_author.setText("")
+                celebrity_person1.get_imageView().visibility = View.INVISIBLE
+                celebrity_person2.get_imageView().visibility = View.INVISIBLE
+                celebrity_person3.get_imageView().visibility = View.INVISIBLE
+                celebrity_person1.get_infoView().visibility = View.INVISIBLE
+                celebrity_person2.get_infoView().visibility = View.INVISIBLE
+                celebrity_person3.get_infoView().visibility = View.INVISIBLE
+                celebrity_person1.get_textView().setText("")
+                celebrity_person2.get_textView().setText("")
+                celebrity_person3.get_textView().setText("")
+                if(!rich_name.get_isNameRunning()) {rich_name.get_imageView().visibility = View.INVISIBLE
+                    rich_name.get_textView().visibility = View.INVISIBLE}
+                if(!strong_name.get_isNameRunning()) {strong_name.get_imageView().visibility = View.INVISIBLE
+                    strong_name.get_textView().visibility = View.INVISIBLE}
+                if(!smart_name.get_isNameRunning()) {smart_name.get_imageView().visibility = View.INVISIBLE
+                    smart_name.get_textView().visibility = View.INVISIBLE}
+                if(!beautiful_name.get_isNameRunning()) {beautiful_name.get_imageView().visibility = View.INVISIBLE
+                    beautiful_name.get_textView().visibility = View.INVISIBLE}
+                if(!believer_name.get_isNameRunning()) {believer_name.get_imageView().visibility = View.INVISIBLE
+                    believer_name.get_textView().visibility = View.INVISIBLE}
+            }
+            else if (nodeList.size == 2){
+                celebrity_person1.get_imageView().visibility = View.VISIBLE
+                celebrity_person2.get_imageView().visibility = View.INVISIBLE
+                celebrity_person3.get_imageView().visibility = View.INVISIBLE
+                celebrity_person1.get_infoView().visibility = View.VISIBLE
+                celebrity_person2.get_infoView().visibility = View.INVISIBLE
+                celebrity_person3.get_infoView().visibility = View.INVISIBLE
+                celebrity_person2.get_textView().setText("")
+                celebrity_person3.get_textView().setText("")
+                val anim_celebrity = TranslateAnimation(
+                    -500f, 0f,
+                    0f,
+                    0f)
+                anim_celebrity.duration = 600
+                anim_celebrity.fillAfter = true
+                celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
+                quotes_text.setText("")
+                quotes_author.setText("")
+                celebrity_person1.get_textView().setText(nodeList[0])
+                celebrity_name1 = nodeList[0]
+                celebrity_meaning1 = nodeList[1]
+                if(!rich_name.get_isNameRunning()) {rich_name.get_imageView().visibility = View.INVISIBLE
+                    rich_name.get_textView().visibility = View.INVISIBLE}
+                if(!strong_name.get_isNameRunning()) {strong_name.get_imageView().visibility = View.INVISIBLE
+                    strong_name.get_textView().visibility = View.INVISIBLE}
+                if(!smart_name.get_isNameRunning()) {smart_name.get_imageView().visibility = View.INVISIBLE
+                    smart_name.get_textView().visibility = View.INVISIBLE}
+                if(!beautiful_name.get_isNameRunning()) {beautiful_name.get_imageView().visibility = View.INVISIBLE
+                    beautiful_name.get_textView().visibility = View.INVISIBLE}
+                if(!believer_name.get_isNameRunning()) {believer_name.get_imageView().visibility = View.INVISIBLE
+                    believer_name.get_textView().visibility = View.INVISIBLE}
+            }
+            else if (nodeList.size == 4){
+                celebrity_person1.get_imageView().visibility = View.VISIBLE
+                celebrity_person2.get_imageView().visibility = View.VISIBLE
+                celebrity_person3.get_imageView().visibility = View.INVISIBLE
+                celebrity_person1.get_infoView().visibility = View.VISIBLE
+                celebrity_person2.get_infoView().visibility = View.VISIBLE
+                celebrity_person3.get_infoView().visibility = View.INVISIBLE
+                celebrity_person3.get_textView().setText("")
+                val anim_celebrity = TranslateAnimation(
+                    -500f, 0f,
+                    0f,
+                    0f)
+                celebrity_name1 = nodeList[0]
+                celebrity_meaning1 = nodeList[1]
+                celebrity_name2 = nodeList[2]
+                celebrity_meaning2 = nodeList[3]
+                anim_celebrity.duration = 600
+                anim_celebrity.fillAfter = true
+                quotes_text.setText("")
+                quotes_author.setText("")
+                celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
+                celebrity_person2.get_constraintLayout().startAnimation(anim_celebrity)
+                celebrity_person1.get_textView().setText(nodeList[0])
+                celebrity_person2.get_textView().setText(nodeList[2])
+                if(!rich_name.get_isNameRunning()) {rich_name.get_imageView().visibility = View.INVISIBLE
+                    rich_name.get_textView().visibility = View.INVISIBLE}
+                if(!strong_name.get_isNameRunning()) {strong_name.get_imageView().visibility = View.INVISIBLE
+                    strong_name.get_textView().visibility = View.INVISIBLE}
+                if(!smart_name.get_isNameRunning()) {smart_name.get_imageView().visibility = View.INVISIBLE
+                    smart_name.get_textView().visibility = View.INVISIBLE}
+                if(!beautiful_name.get_isNameRunning()) {beautiful_name.get_imageView().visibility = View.INVISIBLE
+                    beautiful_name.get_textView().visibility = View.INVISIBLE}
+                if(!believer_name.get_isNameRunning()) {believer_name.get_imageView().visibility = View.INVISIBLE
+                    believer_name.get_textView().visibility = View.INVISIBLE}
+            }
+            else if (nodeList.size == 6){
+                celebrity_person1.get_imageView().visibility = View.VISIBLE
+                celebrity_person2.get_imageView().visibility = View.VISIBLE
+                celebrity_person3.get_imageView().visibility = View.VISIBLE
+                celebrity_person1.get_infoView().visibility = View.VISIBLE
+                celebrity_person2.get_infoView().visibility = View.VISIBLE
+                celebrity_person3.get_infoView().visibility = View.VISIBLE
+                quotes_text.setText("")
+                quotes_author.setText("")
+                val anim_celebrity = TranslateAnimation(
+                    -500f, 0f,
+                    0f,
+                    0f)
+                celebrity_name1 = nodeList[0]
+                celebrity_meaning1 = nodeList[1]
+                celebrity_name2 = nodeList[2]
+                celebrity_meaning2 = nodeList[3]
+                celebrity_name3 = nodeList[4]
+                celebrity_meaning3 = nodeList[5]
+                anim_celebrity.duration = 600
+                anim_celebrity.fillAfter = true
+                quotes_text.setText("")
+                quotes_author.setText("")
+                celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
+                celebrity_person2.get_constraintLayout().startAnimation(anim_celebrity)
+                celebrity_person3.get_constraintLayout().startAnimation(anim_celebrity)
+                celebrity_person1.get_textView().setText(nodeList[0])
+                celebrity_person2.get_textView().setText(nodeList[2])
+                celebrity_person3.get_textView().setText(nodeList[4])
+                if(!rich_name.get_isNameRunning()) {rich_name.get_imageView().visibility = View.INVISIBLE
+                    rich_name.get_textView().visibility = View.INVISIBLE}
+                if(!strong_name.get_isNameRunning()) {strong_name.get_imageView().visibility = View.INVISIBLE
+                    strong_name.get_textView().visibility = View.INVISIBLE}
+                if(!smart_name.get_isNameRunning()) {smart_name.get_imageView().visibility = View.INVISIBLE
+                    smart_name.get_textView().visibility = View.INVISIBLE}
+                if(!beautiful_name.get_isNameRunning()) {beautiful_name.get_imageView().visibility = View.INVISIBLE
+                    beautiful_name.get_textView().visibility = View.INVISIBLE}
+                if(!believer_name.get_isNameRunning()) {believer_name.get_imageView().visibility = View.INVISIBLE
+                    believer_name.get_textView().visibility = View.INVISIBLE}
+            }
         }
-
-        addListener(result,meaning,name,character_type)
-
+        celebrity_person1.get_infoView().setOnClickListener {
+         if(is_celebrity_meaning1==false) {  celebrity_person1.get_textView().setText(celebrity_meaning1)
+             is_celebrity_meaning1=true}
+         else
+         {celebrity_person1.get_textView().setText(celebrity_name1)
+             is_celebrity_meaning1=false}
+        }
+        celebrity_person2.get_infoView().setOnClickListener {
+            if(is_celebrity_meaning2==false)   {celebrity_person2.get_textView().setText(celebrity_meaning2)
+                is_celebrity_meaning2=true}
+            else {
+                celebrity_person2.get_textView().setText(celebrity_name2)
+                is_celebrity_meaning2=false
+            }
+        }
+        celebrity_person3.get_infoView().setOnClickListener {
+            if(is_celebrity_meaning3==false) {
+                celebrity_person3.get_textView().setText(celebrity_meaning3)
+                is_celebrity_meaning3=true
+            }
+            else {
+                celebrity_person3.get_textView().setText(celebrity_name3)
+                is_celebrity_meaning3=false
+            }
+        }
+        addListener(result,meaning,name,character_type, quotesSearching,
+            place_1,place_2,place_3,place_4,place_5,quotes_author,quotes_text,
+            celebrity_person1,celebrity_person2,celebrity_person3,
+        rich_name, strong_name,smart_name,beautiful_name,believer_name)
     }
     open fun getXmlDocument(filename: String): Document? {
         return try {
@@ -800,13 +965,10 @@ open class MainActivity : AppCompatActivity() {
         val nodes = document!!.getElementsByTagName(tag)
         return nodes.item(index).textContent.toInt()
     }
-    private fun addListener(root: View,root2: TextView,root3: TextView,root4: TextView) {
-        if (root is ViewGroup) {
-            val parent = root
-            for (i in 0 until parent.childCount) {
-                addListener(parent.getChildAt(i),root2,root3,root4)
-            }
-        } else {
+    private fun addListener(root: View,root2: TextView,root3: TextView,root4: TextView,quotesSearching: Quotes_searching
+                            ,place_1:Place,place_2:Place,place_3:Place,place_4:Place,place_5:Place, quotes_author: TextView, quotes_text:TextView,
+                            celebrity_person1: Result_celebrity, celebrity_person2: Result_celebrity,celebrity_person3:  Result_celebrity,
+   rich_name: Name, strong_name: Name, smart_name: Name, beautiful_name:Name,believer_name:Name ) {
             root.isClickable = true
             root.setOnLongClickListener { v ->
                 mExplosionField!!.explode(v)
@@ -814,8 +976,33 @@ open class MainActivity : AppCompatActivity() {
                 root2.setText("")
                 root3.setText("")
                 root4.setText("")
+                celebrity_person1.get_imageView().visibility = View.INVISIBLE
+                celebrity_person2.get_imageView().visibility = View.INVISIBLE
+                celebrity_person3.get_imageView().visibility = View.INVISIBLE
+                celebrity_person1.get_infoView().visibility = View.INVISIBLE
+                celebrity_person2.get_infoView().visibility = View.INVISIBLE
+                celebrity_person3.get_infoView().visibility = View.INVISIBLE
+                celebrity_person1.get_textView().setText("")
+                celebrity_person2.get_textView().setText("")
+                celebrity_person3.get_textView().setText("")
+                quotes_author.setText("")
+                quotes_text.setText("")
+                rich_name.get_imageView().visibility = View.VISIBLE
+                rich_name.get_textView().visibility = View.VISIBLE
+                strong_name.get_imageView().visibility = View.VISIBLE
+                strong_name.get_textView().visibility = View.VISIBLE
+                smart_name.get_imageView().visibility = View.VISIBLE
+                smart_name.get_textView().visibility = View.VISIBLE
+                beautiful_name.get_imageView().visibility = View.VISIBLE
+                beautiful_name.get_textView().visibility = View.VISIBLE
+                believer_name.get_imageView().visibility = View.VISIBLE
+                believer_name.get_textView().visibility = View.VISIBLE
+                if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
+                    var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                    quotes_author.setText(nodeList[0])
+                    quotes_text.setText(nodeList[1])
+                }
                 true
             }
         }
     }
-}

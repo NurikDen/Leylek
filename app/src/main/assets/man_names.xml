@@ -335,11 +335,11 @@
     </names>
 <names>
         <name>Галиәсгар</name>
-        <beautiful>1</beautiful>
-        <smart>0</smart>
-        <strong>1</strong>
-        <believer>1</believer>
-        <rich>1</rich>
+        <beautiful>2</beautiful>
+        <smart>2</smart>
+        <strong>2</strong>
+        <believer>2</believer>
+        <rich>2</rich>
         <character>Бөек гаскәр</character>
     </names>
 <names>
@@ -1261,7 +1261,7 @@
         <character>Серле</character>
          </names>
 <names>
-         <name>Рамил                                                                                                                                                                                                                         </name>
+         <name>Рамил</name>
      <beautiful>3</beautiful>
         <smart>3</smart>
         <strong>1</strong>
@@ -1369,7 +1369,6 @@
         <character>Матур</character>
          </names>
 <names>
-        <number>155</number>
         <name>Талибетдин</name>
         <beautiful>1</beautiful>
         <smart>3</smart>
