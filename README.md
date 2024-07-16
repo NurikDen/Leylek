@@ -22,4 +22,4 @@ This application can help to find best name for future child.
 
 #15.07.2024 Updated new features and UI.
 
-Warning! This is not actual branch!
+#16.07.2024 Updated UI, fixed bugs.
