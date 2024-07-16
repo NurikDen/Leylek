@@ -22,7 +22,7 @@ class Searching: MainActivity(){
         var final_characters = ""
         var name: String
         var number_of_character = 0
-        val randint_1 = random.nextInt(165)
+        val randint_1 = random.nextInt(163)
         val randint_2 = randint_1 + 25
         val total = rich_int + strong_int + smart_happy_int + beautiful_int + believer_int
         var smart:Int
