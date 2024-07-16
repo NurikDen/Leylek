@@ -11,3 +11,15 @@ This application can help to find best name for future child.
 #27.06.2024 Added new animations, updated UI, updated database of men and women, created database of celebrities
 
 #01.07.2024 Updated animations
+
+#06.07.2024 Updated animations, made optimization, added xml file of celebrities.
+
+#10.07.2024 We made optimiztion and updated main animations. Besides, we made the generating of quotes. The second beta-version.
+
+#11.07.2024 Our application can show celebrities with that name. The third beta-version.
+
+#12.07.2024 You can add names to list of favourite names. The fourth beta-version.
+
+#15.07.2024 Updated new features and UI.
+
+Warning! This is not actual branch!
