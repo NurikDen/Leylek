@@ -21,3 +21,5 @@ This application can help to find best name for future child.
 #12.07.2024 You can add names to list of favourite names. The fourth beta-version.
 
 #15.07.2024 Updated new features and UI.
+
+Warning! This is not actual branch!
