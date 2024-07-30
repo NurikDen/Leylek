@@ -28,6 +28,7 @@
         android:layout_width="161dp"
         android:layout_height="115dp"
         android:layout_marginEnd="120dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -149,7 +150,7 @@
         android:layout_marginTop="105dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman">
 
         <ImageView
             android:id="@+id/smart_button"
@@ -374,10 +375,10 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="130dp"
         android:layout_marginEnd="26dp"
-        app:layout_constraintBottom_toBottomOf="@+id/resultLayout"
-        app:layout_constraintEnd_toEndOf="@+id/resultLayout"
-        app:layout_constraintStart_toStartOf="@+id/resultLayout"
-        app:layout_constraintTop_toTopOf="@+id/resultLayout">
+        app:layout_constraintBottom_toBottomOf="@+id/resultLayout_woman"
+        app:layout_constraintEnd_toEndOf="@+id/resultLayout_woman"
+        app:layout_constraintStart_toStartOf="@+id/resultLayout_woman"
+        app:layout_constraintTop_toTopOf="@+id/resultLayout_woman">
 
         <ImageView
             android:id="@+id/button1"
@@ -406,7 +407,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout"
+        android:id="@+id/resultLayout_woman"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -414,7 +415,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/result_white"
+            android:id="@+id/result_black"
             android:layout_width="349dp"
             android:layout_height="216dp"
             android:layout_marginTop="30dp"
@@ -441,7 +442,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/result_white"
+            app:layout_constraintTop_toTopOf="@+id/result_black"
             app:layout_constraintVertical_bias="0.507" />
 
         <TextView
@@ -454,11 +455,11 @@
             android:textColor="#000000"
             android:textSize="9sp"
             android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/result_white"
+            app:layout_constraintBottom_toBottomOf="@+id/result_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/result_white"
+            app:layout_constraintTop_toTopOf="@+id/result_black"
             app:layout_constraintVertical_bias="0.716" />
 
         <TextView
@@ -477,17 +478,17 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/result_white"
+            app:layout_constraintEnd_toEndOf="@+id/result_black"
             app:layout_constraintHorizontal_bias="0.523"
-            app:layout_constraintStart_toStartOf="@+id/result_white"
-            app:layout_constraintTop_toTopOf="@+id/result_white"
+            app:layout_constraintStart_toStartOf="@+id/result_black"
+            app:layout_constraintTop_toTopOf="@+id/result_black"
             app:layout_constraintVertical_bias="0.213" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/men_button"
-        android:layout_width="51dp"
+        android:layout_width="50dp"
         android:layout_height="68dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -520,7 +521,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman" />
 
     <TextView
         android:id="@+id/quotes_author"
@@ -546,7 +547,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman">
 
         <ImageView
             android:id="@+id/resultCelebrity1"
@@ -591,7 +592,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -641,7 +642,7 @@
         android:id="@+id/resultLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="85dp"
         android:layout_marginBottom="100dp"
         android:visibility="invisible"

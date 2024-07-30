@@ -2,7 +2,6 @@ package com.aocompany.leylek
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.ScaleAnimation
@@ -12,11 +11,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.w3c.dom.Document
-import java.io.File
 import javax.xml.parsers.DocumentBuilderFactory
-import javax.xml.transform.TransformerFactory
-import javax.xml.transform.dom.DOMSource
-import javax.xml.transform.stream.StreamResult
 
 
 open class MainActivity : AppCompatActivity() {
@@ -29,7 +24,7 @@ open class MainActivity : AppCompatActivity() {
         val button = findViewById<ConstraintLayout>(R.id.button)
         val name = findViewById<TextView>(R.id.name)
         val meaning = findViewById<TextView>(R.id.meaning)
-        val result = findViewById<ImageView>(R.id.result_white)
+        val result = findViewById<ImageView>(R.id.result_black)
         val character_type = findViewById<TextView>(R.id.character_type)
         val men_women = findViewById<ImageView>(R.id.men_button)
         var celebrity_name1 = ""
