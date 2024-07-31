@@ -38,9 +38,9 @@ open class MainActivity : AppCompatActivity() {
         var is_celebrity_meaning3 = false
         var is_result_remove = false
 
-        val celebrity_person1 = Result_celebrity(findViewById(R.id.resultLayout1),findViewById(R.id.resultCelebrity1),findViewById(R.id.nameCelebrity1),findViewById(R.id.information_button1))
-        val celebrity_person2 = Result_celebrity(findViewById(R.id.resultLayout2),findViewById(R.id.resultCelebrity2),findViewById(R.id.nameCelebrity2),findViewById(R.id.information_button2))
-        val celebrity_person3 = Result_celebrity(findViewById(R.id.resultLayout3),findViewById(R.id.resultCelebrity3),findViewById(R.id.nameCelebrity3),findViewById(R.id.information_button3))
+        val celebrity_person1 = Result_celebrity(findViewById(R.id.resultLayout_woman1),findViewById(R.id.resultCelebrity1),findViewById(R.id.nameCelebrity1),findViewById(R.id.information_button1))
+        val celebrity_person2 = Result_celebrity(findViewById(R.id.resultLayout_woman2),findViewById(R.id.resultCelebrity2),findViewById(R.id.nameCelebrity2),findViewById(R.id.information_button2))
+        val celebrity_person3 = Result_celebrity(findViewById(R.id.resultLayout_woman3),findViewById(R.id.resultCelebrity3),findViewById(R.id.nameCelebrity3),findViewById(R.id.information_button3))
 
         val quotes_text = findViewById<TextView>(R.id.quotes_text)
         val quotes_author = findViewById<TextView>(R.id.quotes_author)

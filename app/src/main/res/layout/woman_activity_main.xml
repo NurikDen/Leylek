@@ -2,9 +2,107 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/App_women"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000">
+
+    <TextView
+        android:id="@+id/woman_rich_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/woman_rich"
+        app:layout_constraintEnd_toEndOf="@+id/woman_rich"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/woman_rich"
+        app:layout_constraintTop_toTopOf="@+id/woman_rich"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/woman_happy_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/woman_happy"
+        app:layout_constraintEnd_toStartOf="@+id/woman_beautiful"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/woman_happy"
+        app:layout_constraintTop_toTopOf="@+id/woman_happy"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/woman_smart_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/woman_smart"
+        app:layout_constraintEnd_toEndOf="@+id/woman_smart"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/woman_smart"
+        app:layout_constraintTop_toTopOf="@+id/woman_smart"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/woman_beautiful_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/woman_beautiful"
+        app:layout_constraintEnd_toEndOf="@+id/woman_beautiful"
+        app:layout_constraintStart_toStartOf="@+id/woman_beautiful"
+        app:layout_constraintTop_toTopOf="@+id/woman_beautiful" />
+
+    <TextView
+        android:id="@+id/woman_believer_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/woman_believer"
+        app:layout_constraintEnd_toEndOf="@+id/woman_believer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/woman_believer"
+        app:layout_constraintTop_toTopOf="@+id/woman_believer"
+        app:layout_constraintVertical_bias="0.719" />
+
+    <TextView
+        android:id="@+id/quotes_text_woman"
+        android:layout_width="171dp"
+        android:layout_height="106dp"
+        android:layout_marginBottom="100dp"
+        android:fontFamily="@font/montserrat_alternates_semibold"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman" />
+
+    <TextView
+        android:id="@+id/quotes_author_woman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_alternates_medium"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quotes_text_woman"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/question_button_white2"
+        android:layout_width="73dp"
+        android:layout_height="112dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintStart_toEndOf="@+id/best_name_button_white"
+        app:layout_constraintTop_toTopOf="@+id/believer"
+        app:layout_constraintVertical_bias="0.497"
+        app:srcCompat="@drawable/black_button_ask" />
 
     <ImageView
         android:id="@+id/background_woman"
@@ -352,5 +450,158 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024"
         app:srcCompat="@drawable/women" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultLayout_woman1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman">
+
+        <ImageView
+            android:id="@+id/resultCelebrity1"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/information_banner_black" />
+
+        <ImageView
+            android:id="@+id/information_button1"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="200dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/information_black" />
+
+        <TextView
+            android:id="@+id/nameCelebrity1"
+            android:layout_width="185dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_alternates_semibold"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultLayout_woman2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman1">
+
+        <ImageView
+            android:id="@+id/resultCelebrity2"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/information_banner_black" />
+
+        <ImageView
+            android:id="@+id/information_button2"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="230dp"
+            android:rotation="-47"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/information_black" />
+
+        <TextView
+            android:id="@+id/nameCelebrity2"
+            android:layout_width="185dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_alternates_semibold"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultLayout_woman3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman2">
+
+        <ImageView
+            android:id="@+id/resultCelebrity3"
+            android:layout_width="280dp"
+            android:layout_height="60dp"
+            android:rotationX="0"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/information_banner_black" />
+
+        <ImageView
+            android:id="@+id/information_button3"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="15dp"
+            android:rotation="34"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/information_black" />
+
+        <TextView
+            android:id="@+id/nameCelebrity3"
+            android:layout_width="185dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_alternates_semibold"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
