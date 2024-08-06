@@ -27,3 +27,5 @@ This application can help to find best name for future child.
 #30.07.2024 Added the woman activity main.
 
 #31.07.2024 Updated the woman activity main.
+
+#06.08.2024 Now our app can find women's names.
