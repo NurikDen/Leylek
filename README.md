@@ -25,3 +25,5 @@ This application can help to find best name for future child.
 #16.07.2024 Updated UI, fixed bugs.
 
 #30.07.2024 Added the woman activity main.
+
+#31.07.2024 Updated the woman activity main.
