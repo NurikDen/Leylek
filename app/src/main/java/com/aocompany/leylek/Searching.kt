@@ -22,19 +22,19 @@ class Searching: MainActivity(){
         var final_characters = ""
         var name: String
         var number_of_character = 0
-        val randint_1 = random.nextInt(163)
+        val randint_1 = random.nextInt(nameNodes.length - 25)
         val randint_2 = randint_1 + 25
         val total = rich_int + strong_int + smart_happy_int + beautiful_int + believer_int
-        var smart:Int
+        var strong:Int
         for (i in randint_1 until randint_2) {
             val name = nameNodes.item(i).textContent
             val character = nodes.item(i).textContent
             val rich = getValueForTag(document, "rich", i) * rich_int
-            val strong = getValueForTag(document, "strong", i) * strong_int
+            val smart = getValueForTag(document, "smart", i) * smart_happy_int
             if (gender == "man") {
-                smart = getValueForTag(document, "smart", i) * smart_happy_int
-            } else {
-                smart = getValueForTag(document, "happy", i) * smart_happy_int
+                strong = getValueForTag(document, "smart", i) * smart_happy_int
+            } else{
+                strong = getValueForTag(document, "happy", i) * smart_happy_int
             }
             val beautiful = getValueForTag(document, "beautiful", i) * beautiful_int
             val believer = getValueForTag(document, "believer", i) * believer_int

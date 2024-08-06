@@ -74,7 +74,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman" />
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout" />
 
     <TextView
         android:id="@+id/quotes_author_woman"
@@ -94,8 +94,8 @@
         android:id="@+id/question_button_white2"
         android:layout_width="73dp"
         android:layout_height="112dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.025"
@@ -184,86 +184,6 @@
         app:layout_constraintStart_toStartOf="@+id/place_1"
         app:layout_constraintTop_toTopOf="@+id/place_3"
         app:srcCompat="@drawable/button_black" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout_woman"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/result_black"
-            android:layout_width="349dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="10dp"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/black_result" />
-
-        <TextView
-            android:id="@+id/meaning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_alternates"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/result_black"
-            app:layout_constraintVertical_bias="0.507" />
-
-        <TextView
-            android:id="@+id/character_type"
-            android:layout_width="191dp"
-            android:layout_height="52dp"
-            android:breakStrategy="high_quality"
-            android:fontFamily="@font/montserrat_alternates_medium"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/result_black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/result_black"
-            app:layout_constraintVertical_bias="0.716" />
-
-        <TextView
-            android:id="@+id/name"
-            style="@android:style/Widget.TextView.PopupMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:fontFamily="@font/montserrat_alternates_bold"
-            android:gravity="center"
-            android:shadowColor="#FFFFFF"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#FFFFFF"
-            android:textSize="45sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/result_black"
-            app:layout_constraintHorizontal_bias="0.531"
-            app:layout_constraintStart_toStartOf="@+id/result_black"
-            app:layout_constraintTop_toTopOf="@+id/result_black"
-            app:layout_constraintVertical_bias="0.211" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/woman_rich"
@@ -439,10 +359,91 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/result"
+            android:layout_width="349dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="10dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/black_result" />
+
+        <TextView
+            android:id="@+id/meaning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/result"
+            app:layout_constraintVertical_bias="0.583" />
+
+        <TextView
+            android:id="@+id/character_type"
+            android:layout_width="191dp"
+            android:layout_height="52dp"
+            android:breakStrategy="high_quality"
+            android:fontFamily="@font/montserrat_alternates_medium"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/result"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/result"
+            app:layout_constraintVertical_bias="0.716" />
+
+        <TextView
+            android:id="@+id/name"
+            style="@android:style/Widget.TextView.PopupMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:fontFamily="@font/montserrat_alternates_bold"
+            android:gravity="center"
+            android:shadowColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/result"
+            app:layout_constraintHorizontal_bias="0.518"
+            app:layout_constraintStart_toStartOf="@+id/result"
+            app:layout_constraintTop_toTopOf="@+id/result"
+            app:layout_constraintVertical_bias="0.295" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <ImageView
         android:id="@+id/women_button"
-        android:layout_width="50dp"
-        android:layout_height="68dp"
+        android:layout_width="69dp"
+        android:layout_height="85dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
@@ -452,18 +453,18 @@
         app:srcCompat="@drawable/women" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout_woman1"
+        android:id="@+id/resultLayout_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout">
 
         <ImageView
             android:id="@+id/resultCelebrity1"
-            android:layout_width="280dp"
+            android:layout_width="320dp"
             android:layout_height="60dp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -501,7 +502,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout_woman2"
+        android:id="@+id/resultLayout_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -509,11 +510,11 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman1">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_1">
 
         <ImageView
             android:id="@+id/resultCelebrity2"
-            android:layout_width="280dp"
+            android:layout_width="320dp"
             android:layout_height="60dp"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -553,18 +554,18 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout_woman3"
+        android:id="@+id/resultLayout_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman2">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_2">
 
         <ImageView
             android:id="@+id/resultCelebrity3"
-            android:layout_width="280dp"
+            android:layout_width="320dp"
             android:layout_height="60dp"
             android:rotationX="0"
             android:visibility="visible"

@@ -150,7 +150,7 @@
         android:layout_marginTop="105dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout">
 
         <ImageView
             android:id="@+id/smart_button"
@@ -375,10 +375,10 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="130dp"
         android:layout_marginEnd="26dp"
-        app:layout_constraintBottom_toBottomOf="@+id/resultLayout_woman"
-        app:layout_constraintEnd_toEndOf="@+id/resultLayout_woman"
-        app:layout_constraintStart_toStartOf="@+id/resultLayout_woman"
-        app:layout_constraintTop_toTopOf="@+id/resultLayout_woman">
+        app:layout_constraintBottom_toBottomOf="@+id/resultLayout"
+        app:layout_constraintEnd_toEndOf="@+id/resultLayout"
+        app:layout_constraintStart_toStartOf="@+id/resultLayout"
+        app:layout_constraintTop_toTopOf="@+id/resultLayout">
 
         <ImageView
             android:id="@+id/button1"
@@ -407,7 +407,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout_woman"
+        android:id="@+id/resultLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -415,7 +415,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/result_black"
+            android:id="@+id/result"
             android:layout_width="349dp"
             android:layout_height="216dp"
             android:layout_marginTop="30dp"
@@ -442,7 +442,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/result_black"
+            app:layout_constraintTop_toTopOf="@+id/result"
             app:layout_constraintVertical_bias="0.507" />
 
         <TextView
@@ -455,11 +455,11 @@
             android:textColor="#000000"
             android:textSize="9sp"
             android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/result_black"
+            app:layout_constraintBottom_toBottomOf="@+id/result"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/result_black"
+            app:layout_constraintTop_toTopOf="@+id/result"
             app:layout_constraintVertical_bias="0.716" />
 
         <TextView
@@ -478,18 +478,18 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/result_black"
+            app:layout_constraintEnd_toEndOf="@+id/result"
             app:layout_constraintHorizontal_bias="0.523"
-            app:layout_constraintStart_toStartOf="@+id/result_black"
-            app:layout_constraintTop_toTopOf="@+id/result_black"
+            app:layout_constraintStart_toStartOf="@+id/result"
+            app:layout_constraintTop_toTopOf="@+id/result"
             app:layout_constraintVertical_bias="0.213" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/men_button"
-        android:layout_width="50dp"
-        android:layout_height="68dp"
+        android:layout_width="66dp"
+        android:layout_height="94dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
@@ -521,7 +521,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman" />
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout" />
 
     <TextView
         android:id="@+id/quotes_author"
@@ -539,7 +539,7 @@
         app:layout_constraintVertical_bias="0.036" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout_woman1"
+        android:id="@+id/resultLayout_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -547,7 +547,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout">
 
         <ImageView
             android:id="@+id/resultCelebrity1"
@@ -588,7 +588,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout_woman2"
+        android:id="@+id/resultLayout_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -596,7 +596,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman1">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_1">
 
         <ImageView
             android:id="@+id/resultCelebrity2"
@@ -639,7 +639,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/resultLayout_woman3"
+        android:id="@+id/resultLayout_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -647,7 +647,7 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout_woman2">
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout_2">
 
         <ImageView
             android:id="@+id/resultCelebrity3"

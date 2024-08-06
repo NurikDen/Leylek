@@ -813,7 +813,7 @@
                 <character>Якты, нурлы</character>
     </names>
 <names>
-        <name>Хава</name>
+        <name>Һава</name>
         <beautiful>2</beautiful>
         <smart>2</smart>
         <happy>2</happy>
@@ -1057,11 +1057,11 @@
  </names>
 <names>
  <name>Наха</name>
-<beautiful>0</beautiful>
- <smart>0</smart>
- <happy>0</happy>
- <believer>0</believer>
- <rich>10</rich>
+<beautiful>100</beautiful>
+ <smart>100</smart>
+ <happy>100</happy>
+ <believer>100</believer>
+ <rich>100</rich>
 <character>Явыз</character>
  </names>
 </woman_names>
