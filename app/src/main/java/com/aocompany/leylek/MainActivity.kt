@@ -1,5 +1,6 @@
 package com.aocompany.leylek
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -28,6 +29,9 @@ open class MainActivity : AppCompatActivity() {
         val result = findViewById<ImageView>(R.id.result)
         val character_type = findViewById<TextView>(R.id.character_type)
         val men_women = findViewById<ImageView>(R.id.men_button)
+        val egg_view = findViewById<ImageView>(R.id.egg)
+        val help = findViewById<ImageView>(R.id.question_button_white)
+        val background = findViewById<ImageView>(R.id.background)
         var celebrity_name1 = ""
         var celebrity_name2 = ""
         var celebrity_name3 = ""
@@ -68,25 +72,63 @@ open class MainActivity : AppCompatActivity() {
 
         mExplosionField = ExplosionField.attach2Window(this)
 
+        val sharedPreferences = getSharedPreferences("com.aocompany.leylek", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val isFirstRun = sharedPreferences.getBoolean("isFirstRun", true)
+
+        val shaking = ScaleAnimation(0.5f,1f,0.5f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
+            Animation.RELATIVE_TO_SELF, 0.5f)
+        shaking.duration = 800
+        shaking.fillAfter = true
+        quotes_text.startAnimation(fadeInAnimation)
+
+
+        if (isFirstRun) {
+            help.visibility = View.INVISIBLE
+            egg_view.visibility = View.VISIBLE
+            background.visibility = View.INVISIBLE
+            men_women.visibility = View.INVISIBLE
+            rich_name.get_imageView().visibility = View.INVISIBLE
+            strong_name.get_imageView().visibility = View.INVISIBLE
+            smart_name.get_imageView().visibility = View.INVISIBLE
+            beautiful_name.get_imageView().visibility = View.INVISIBLE
+            believer_name.get_imageView().visibility = View.INVISIBLE
+            rich_name.get_textView().visibility = View.INVISIBLE
+            strong_name.get_textView().visibility = View.INVISIBLE
+            smart_name.get_textView().visibility = View.INVISIBLE
+            beautiful_name.get_textView().visibility = View.INVISIBLE
+            believer_name.get_textView().visibility = View.INVISIBLE
+            place_1.get_placeView().visibility = View.INVISIBLE
+            place_2.get_placeView().visibility = View.INVISIBLE
+            place_3.get_placeView().visibility = View.INVISIBLE
+            place_4.get_placeView().visibility = View.INVISIBLE
+            place_5.get_placeView().visibility = View.INVISIBLE
+            button.visibility = View.INVISIBLE
+            egg_view.startAnimation(shaking)
+            quotes_text.setText("Сәлам, төймәгә бас")
+            editor.putBoolean("isFirstRun", false)
+            editor.apply()
+        }
+        else{
+            val anim_men = TranslateAnimation(
+                0f, 0f,
+                -300f,
+                0f)
+            anim_men.duration = 1000
+            anim_men.fillAfter = true
+            men_women.startAnimation(anim_men)
+            val translate_button_animation = TranslateAnimation(
+                0f, 0f,
+                200f,
+                0f)
+            translate_button_animation.duration =1000
+            button.startAnimation(translate_button_animation)
+        }
+
         men_women.setOnClickListener {
             val intent = Intent(this, WomanMainActivity::class.java)
             startActivity(intent)
         }
-        val anim_men = TranslateAnimation(
-            0f, 0f,
-            -300f,
-           0f)
-        anim_men.duration = 1000
-        anim_men.fillAfter = true
-        men_women.startAnimation(anim_men)
-
-        val translate_button_animation = TranslateAnimation(
-            0f, 0f,
-            200f,
-            0f)
-        translate_button_animation.duration =1000
-        button.startAnimation(translate_button_animation)
-
         val anim_rich = ScaleAnimation(0f,1f,0f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
             Animation.RELATIVE_TO_SELF, 0.5f)
         anim_rich.duration = 1000
