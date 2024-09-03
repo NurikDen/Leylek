@@ -2,6 +2,7 @@ package com.aocompany.leylek
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
@@ -10,6 +11,7 @@ import android.view.animation.ScaleAnimation
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import org.w3c.dom.Document
@@ -18,11 +20,12 @@ import javax.xml.parsers.DocumentBuilderFactory
 
 open class MainActivity : AppCompatActivity() {
     private var mExplosionField: ExplosionField? = null
-    @SuppressLint("MissingInflatedId", "CutPasteId")
+    @SuppressLint("MissingInflatedId", "CutPasteId", "ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        lateinit var videoView: VideoView
         val button = findViewById<ConstraintLayout>(R.id.button)
         val name = findViewById<TextView>(R.id.name)
         val meaning = findViewById<TextView>(R.id.meaning)
@@ -32,6 +35,7 @@ open class MainActivity : AppCompatActivity() {
         val egg_view = findViewById<ImageView>(R.id.egg)
         val help = findViewById<ImageView>(R.id.question_button_white)
         val background = findViewById<ImageView>(R.id.background)
+        videoView = findViewById(R.id.videoView)
         var celebrity_name1 = ""
         var celebrity_name2 = ""
         var celebrity_name3 = ""
@@ -76,12 +80,12 @@ open class MainActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         val isFirstRun = sharedPreferences.getBoolean("isFirstRun", true)
 
-        val shaking = ScaleAnimation(0.5f,1f,0.5f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
+        val shaking = ScaleAnimation(0.8f,1f,0.6f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
             Animation.RELATIVE_TO_SELF, 0.5f)
         shaking.duration = 800
         shaking.fillAfter = true
         quotes_text.startAnimation(fadeInAnimation)
-
+        var count_click = 0
 
         if (isFirstRun) {
             help.visibility = View.INVISIBLE
@@ -104,6 +108,8 @@ open class MainActivity : AppCompatActivity() {
             place_4.get_placeView().visibility = View.INVISIBLE
             place_5.get_placeView().visibility = View.INVISIBLE
             button.visibility = View.INVISIBLE
+            val videoUri: Uri = Uri.parse("android.resource://$packageName/${R.raw.pointer_animation}")
+            videoView.setVideoURI(videoUri)
             egg_view.startAnimation(shaking)
             quotes_text.setText("Сәлам, төймәгә бас")
             editor.putBoolean("isFirstRun", false)
@@ -123,6 +129,24 @@ open class MainActivity : AppCompatActivity() {
                 0f)
             translate_button_animation.duration =1000
             button.startAnimation(translate_button_animation)
+        }
+        egg_view.setOnClickListener {
+            count_click += 1
+            egg_view.startAnimation(shaking)
+            if(count_click==1) quotes_text.text = ""
+            if(count_click==5){
+                shaking.duration = 1300
+            }
+            if(count_click==6) {
+                videoView.visibility = View.VISIBLE
+                videoView.start()}
+            when(count_click){
+                1->egg_view.setImageResource(R.drawable.egg_2)
+                2->egg_view.setImageResource(R.drawable.egg_3)
+                3->egg_view.setImageResource(R.drawable.egg_4)
+                4->egg_view.setImageResource(R.drawable.egg_5)
+                5->egg_view.setImageResource(R.drawable.leylek_happy)
+            }
         }
 
         men_women.setOnClickListener {
