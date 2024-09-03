@@ -138,6 +138,7 @@ open class MainActivity : AppCompatActivity() {
                 shaking.duration = 1300
             }
             if(count_click==6) {
+
                 videoView.visibility = View.VISIBLE
                 videoView.start()}
             when(count_click){
