@@ -697,27 +697,39 @@
         android:id="@+id/egg"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.406"
-        app:srcCompat="@drawable/egg_1" />
+        app:srcCompat="@drawable/leylek_happy" />
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="235dp"
-        android:layout_height="179dp"
-        android:backgroundTint="#FFFFFF"
+    <ImageView
+        android:id="@+id/destination"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.399"
+        app:srcCompat="@drawable/place_of_conbination" />
+
+    <ImageView
+        android:id="@+id/wings"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/egg"
+        app:layout_constraintEnd_toEndOf="@+id/egg"
         app:layout_constraintStart_toStartOf="@+id/egg"
         app:layout_constraintTop_toTopOf="@+id/egg"
-        app:layout_constraintVertical_bias="0.0" />
+        app:srcCompat="@drawable/leylek_wings" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

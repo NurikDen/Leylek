@@ -35,7 +35,7 @@ open class MainActivity : AppCompatActivity() {
         val egg_view = findViewById<ImageView>(R.id.egg)
         val help = findViewById<ImageView>(R.id.question_button_white)
         val background = findViewById<ImageView>(R.id.background)
-        videoView = findViewById(R.id.videoView)
+        val wings = findViewById<ImageView>(R.id.wings)
         var celebrity_name1 = ""
         var celebrity_name2 = ""
         var celebrity_name3 = ""
@@ -80,9 +80,11 @@ open class MainActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         val isFirstRun = sharedPreferences.getBoolean("isFirstRun", true)
 
-        val shaking = ScaleAnimation(0.8f,1f,0.6f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
-            Animation.RELATIVE_TO_SELF, 0.5f)
-        shaking.duration = 800
+        val shaking = TranslateAnimation(
+            0f, 0f,
+            0f,
+            100f)
+        shaking.duration = 600
         shaking.fillAfter = true
         quotes_text.startAnimation(fadeInAnimation)
         var count_click = 0
@@ -108,9 +110,6 @@ open class MainActivity : AppCompatActivity() {
             place_4.get_placeView().visibility = View.INVISIBLE
             place_5.get_placeView().visibility = View.INVISIBLE
             button.visibility = View.INVISIBLE
-            val videoUri: Uri = Uri.parse("android.resource://$packageName/${R.raw.pointer_animation}")
-            videoView.setVideoURI(videoUri)
-            egg_view.startAnimation(shaking)
             quotes_text.setText("Сәлам, төймәгә бас")
             editor.putBoolean("isFirstRun", false)
             editor.apply()
@@ -127,27 +126,28 @@ open class MainActivity : AppCompatActivity() {
                 0f, 0f,
                 200f,
                 0f)
-            translate_button_animation.duration =1000
+            translate_button_animation.duration =900
             button.startAnimation(translate_button_animation)
         }
         egg_view.setOnClickListener {
             count_click += 1
-            egg_view.startAnimation(shaking)
             if(count_click==1) quotes_text.text = ""
-            if(count_click==5){
-                shaking.duration = 1300
+            if(count_click>=6){
+                egg_view.setImageResource(R.drawable.leylek_happy)
+                wings.visibility = View.VISIBLE
+                shaking.fillAfter = true
+                shaking.duration = 1000
+                egg_view.startAnimation(shaking)
+                wings.startAnimation(fadeInAnimation)
+                wings.startAnimation(shaking)
             }
-            if(count_click==6) {
-
-                videoView.visibility = View.VISIBLE
-                videoView.start()}
             when(count_click){
                 1->egg_view.setImageResource(R.drawable.egg_2)
                 2->egg_view.setImageResource(R.drawable.egg_3)
                 3->egg_view.setImageResource(R.drawable.egg_4)
                 4->egg_view.setImageResource(R.drawable.egg_5)
-                5->egg_view.setImageResource(R.drawable.leylek_happy)
             }
+            egg_view.startAnimation(shaking)
         }
 
         men_women.setOnClickListener {
