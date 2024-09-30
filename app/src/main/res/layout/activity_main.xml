@@ -164,7 +164,7 @@
 
         <ImageView
             android:id="@+id/smart_text"
-            android:layout_width="43dp"
+            android:layout_width="38dp"
             android:layout_height="8dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
@@ -723,12 +723,15 @@
         android:id="@+id/wings"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="45dp"
+        android:rotation="0"
         app:layout_constraintBottom_toBottomOf="@+id/egg"
         app:layout_constraintEnd_toEndOf="@+id/egg"
+        app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="@+id/egg"
         app:layout_constraintTop_toTopOf="@+id/egg"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/leylek_wings" />
 
 

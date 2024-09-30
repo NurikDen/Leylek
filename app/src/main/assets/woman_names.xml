@@ -123,7 +123,7 @@
         <smart>3</smart>
         <happy>3</happy>
         <believer>1</believer>
-        <rich>01</rich>
+        <rich>1</rich>
         <character>Якын дус</character>
     </names>
 <names>
@@ -197,15 +197,6 @@
         <believer>0</believer>
         <rich>1</rich>
         <character>Матур</character>
-    </names>
-<names>
-        <name>Диана</name>
-        <beautiful>2</beautiful>
-        <smart>5</smart>
-        <happy>1</happy>
-        <believer>1</believer>
-        <rich>1</rich>
-        <character>Дәвалучы</character>
     </names>
 <names>
         <name>Динә</name>
@@ -569,17 +560,7 @@
                 <character>Дерес юлдан барган кеше</character>
     </names>
 <names>
-        <name>Рената</name>
-        <beautiful>3</beautiful>
-        <smart>0</smart>
-        <happy>3</happy>
-        <believer>0</believer>
-        <rich>4</rich>
-                <character>Яңадан туган кеше
-</character>
-    </names>
-<names>
-        <name>Ризидә</name>
+        <name>Резидә</name>
         <beautiful>0</beautiful>
         <smart>4</smart>
         <happy>1</happy>
@@ -956,6 +937,15 @@
  <rich>1</rich>
  <character>Матур, яраткан кыз</character>
 </names>
+    <names>
+        <name>Наха</name>
+        <beautiful>100</beautiful>
+        <smart>100</smart>
+        <happy>100</happy>
+        <believer>100</believer>
+        <rich>100</rich>
+        <character>Явыз</character>
+    </names>
 <names>
  <name>Җансөяр</name>
  <beautiful>7</beautiful>
@@ -1054,14 +1044,5 @@
  <believer>0</believer>
  <rich>0</rich>
 <character>Матур</character>
- </names>
-<names>
- <name>Наха</name>
-<beautiful>100</beautiful>
- <smart>100</smart>
- <happy>100</happy>
- <believer>100</believer>
- <rich>100</rich>
-<character>Явыз</character>
  </names>
 </woman_names>

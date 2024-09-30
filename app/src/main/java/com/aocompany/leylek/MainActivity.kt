@@ -1,4 +1,5 @@
 package com.aocompany.leylek
+import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -89,6 +90,18 @@ open class MainActivity : AppCompatActivity() {
         quotes_text.startAnimation(fadeInAnimation)
         var count_click = 0
 
+        val wings_anim = TranslateAnimation(
+            30f, 120f,
+            0f,
+            -90f)
+        wings_anim.duration = 800
+        wings_anim.fillAfter = true
+
+        val egg_scale = ScaleAnimation(0.8f,1f,0.8f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
+            Animation.RELATIVE_TO_SELF, 0.5f)
+        egg_scale.duration = 800
+
+
         if (isFirstRun) {
             help.visibility = View.INVISIBLE
             egg_view.visibility = View.VISIBLE
@@ -111,6 +124,7 @@ open class MainActivity : AppCompatActivity() {
             place_5.get_placeView().visibility = View.INVISIBLE
             button.visibility = View.INVISIBLE
             quotes_text.setText("Сәлам, төймәгә бас")
+            quotes_text.startAnimation(egg_scale)
             editor.putBoolean("isFirstRun", false)
             editor.apply()
         }
@@ -131,8 +145,11 @@ open class MainActivity : AppCompatActivity() {
         }
         egg_view.setOnClickListener {
             count_click += 1
-            if(count_click==1) quotes_text.text = ""
-            if(count_click>=6){
+            if(count_click in 0..4) {
+                quotes_text.text = ""
+                egg_view.startAnimation(shaking)
+            }
+            if(count_click == 5){
                 egg_view.setImageResource(R.drawable.leylek_happy)
                 wings.visibility = View.VISIBLE
                 shaking.fillAfter = true
@@ -141,13 +158,52 @@ open class MainActivity : AppCompatActivity() {
                 wings.startAnimation(fadeInAnimation)
                 wings.startAnimation(shaking)
             }
+            else if(count_click==6){
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
+                quotes_text.y = egg_view.y
+                quotes_text.text = "Сәлам, минем исемем Ләйләк"
+                quotes_text.startAnimation(egg_scale)
+            }
+            else if(count_click==7){
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
+                quotes_text.text = "Мин кешеләргә иң матур һәм мәгънәле исем табарга булышам"
+                quotes_text.startAnimation(egg_scale)
+            }
+            else if(count_click==8){
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
+                quotes_text.text = "Берәр сыйфатны сайла"
+                quotes_text.startAnimation(egg_scale)
+                rich_name.get_imageView().visibility = View.VISIBLE
+                strong_name.get_imageView().visibility = View.VISIBLE
+                smart_name.get_imageView().visibility = View.VISIBLE
+                beautiful_name.get_imageView().visibility = View.VISIBLE
+                believer_name.get_imageView().visibility = View.VISIBLE
+                rich_name.get_textView().visibility = View.VISIBLE
+                strong_name.get_textView().visibility = View.VISIBLE
+                smart_name.get_textView().visibility = View.VISIBLE
+                beautiful_name.get_textView().visibility = View.VISIBLE
+                believer_name.get_textView().visibility = View.VISIBLE
+                button.visibility = View.VISIBLE
+            }
+            else if(count_click==9){
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
+                quotes_text.text = "Шәп сайлау! Бу төймәгә бас"
+                quotes_text.startAnimation(egg_scale)
+            }
             when(count_click){
                 1->egg_view.setImageResource(R.drawable.egg_2)
                 2->egg_view.setImageResource(R.drawable.egg_3)
                 3->egg_view.setImageResource(R.drawable.egg_4)
                 4->egg_view.setImageResource(R.drawable.egg_5)
             }
-            egg_view.startAnimation(shaking)
         }
 
         men_women.setOnClickListener {
@@ -1085,5 +1141,10 @@ open class MainActivity : AppCompatActivity() {
                 true
             }
         }
+    private fun rotateImageView(imageView: ImageView) {
+        val animator = ObjectAnimator.ofFloat(imageView, "rotation", 0f, -120f)
+        animator.duration = 800
+        animator.start()
+    }
 
     }
