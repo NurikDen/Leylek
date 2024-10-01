@@ -697,14 +697,14 @@
         android:id="@+id/egg"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.406"
-        app:srcCompat="@drawable/leylek_happy" />
+        app:srcCompat="@drawable/egg_1" />
 
     <ImageView
         android:id="@+id/destination"
@@ -726,6 +726,7 @@
         android:layout_marginTop="75dp"
         android:layout_marginEnd="45dp"
         android:rotation="0"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/egg"
         app:layout_constraintEnd_toEndOf="@+id/egg"
         app:layout_constraintHorizontal_bias="0.84"
