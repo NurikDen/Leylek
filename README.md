@@ -34,8 +34,4 @@ This application can help to find best name for future child.
 
 #03.09.2024 Added new animations
 
-#13.09.2024 Updated start animations
-
-#30.09.2024 Updated start animations
-
-#01.10.2024 Updated start animations
+#13.09.2024-02.10.2024 Updated start animations
