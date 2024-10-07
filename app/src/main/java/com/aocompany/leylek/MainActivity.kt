@@ -15,6 +15,7 @@ import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import org.w3c.dom.Document
 import javax.xml.parsers.DocumentBuilderFactory
 
@@ -47,6 +48,7 @@ open class MainActivity : AppCompatActivity() {
         var is_celebrity_meaning1 = false
         var is_celebrity_meaning2 = false
         var is_celebrity_meaning3 = false
+        var is_helping = false
 
         val celebrity_person1 = Result_celebrity(findViewById(R.id.resultLayout_1),findViewById(R.id.resultCelebrity1),findViewById(R.id.nameCelebrity1),findViewById(R.id.information_button1))
         val celebrity_person2 = Result_celebrity(findViewById(R.id.resultLayout_2),findViewById(R.id.resultCelebrity2),findViewById(R.id.nameCelebrity2),findViewById(R.id.information_button2))
@@ -101,6 +103,27 @@ open class MainActivity : AppCompatActivity() {
         val egg_scale = ScaleAnimation(0.8f,1f,0.8f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
             Animation.RELATIVE_TO_SELF, 0.5f)
         egg_scale.duration = 800
+
+        help.setOnClickListener {
+            if(is_helping == false) {
+                is_helping = true
+                egg_view.visibility = View.VISIBLE
+                wings.visibility = View.VISIBLE
+                quotes_text.y = egg_view.y
+                quotes_text.text =
+                    "Сәлам, сорау булса, берәр төймәгә бас. Мин шул төймә турында сиңа сөйләрмен"
+                egg_view.setImageResource(R.drawable.leylek_happy)
+                quotes_text.startAnimation(egg_scale)
+            }
+            else if(is_helping == true) {
+                is_helping = false
+                egg_view.visibility = View.INVISIBLE
+                wings.visibility = View.INVISIBLE
+                quotes_text.y = egg_view.y
+                quotes_text.text = ""
+                quotes_text.y = quotes_author.y-400f
+            }
+        }
         if (isFirstRun) {
             help.visibility = View.INVISIBLE
             egg_view.visibility = View.VISIBLE
@@ -150,6 +173,12 @@ open class MainActivity : AppCompatActivity() {
                 if (count_click in 0..4) {
                     quotes_text.text = ""
                     egg_view.startAnimation(shaking)
+                }
+                when(count_click){
+                    1->egg_view.setImageResource(R.drawable.egg_2)
+                    2->egg_view.setImageResource(R.drawable.egg_3)
+                    3->egg_view.setImageResource(R.drawable.egg_4)
+                    4->egg_view.setImageResource(R.drawable.egg_5)
                 }
                 if (count_click == 5) {
                     egg_view.setImageResource(R.drawable.leylek_happy)
@@ -211,7 +240,7 @@ open class MainActivity : AppCompatActivity() {
                     quotes_text.text = "Бигрәк матур исем! Хәзер сез бу исемнең мәгънәсен карый аласыз!"
                     quotes_text.startAnimation(egg_scale)
                 }
-             else if (count_click == 12) {
+             else if (count_click == 11) {
                  wings.startAnimation(wings_anim)
                 egg_view.startAnimation(egg_scale)
                 rotateImageView(wings)
@@ -220,23 +249,19 @@ open class MainActivity : AppCompatActivity() {
                 quotes_text.startAnimation(egg_scale)
                 help.visibility = View.VISIBLE
             }
-                else if (count_click == 13) {
+                else if (count_click == 12) {
+                    egg_view.visibility = View.INVISIBLE
+                    wings.visibility = View.INVISIBLE
                     wings.visibility = View.INVISIBLE
                     quotes_text.y = quotes_author.y-400f
                     quotes_text.startAnimation(egg_scale)
-                    egg_view.visibility = View.INVISIBLE
                     background.visibility = View.VISIBLE
                     men_women.visibility = View.VISIBLE
                     button.visibility = View.VISIBLE
                     quotes_text.text = ""
                     isFirstRun = false
+                    count_click = 0
                 }
-            }
-            when(count_click){
-                1->egg_view.setImageResource(R.drawable.egg_2)
-                2->egg_view.setImageResource(R.drawable.egg_3)
-                3->egg_view.setImageResource(R.drawable.egg_4)
-                4->egg_view.setImageResource(R.drawable.egg_5)
             }
         }
         button.setOnClickListener {
