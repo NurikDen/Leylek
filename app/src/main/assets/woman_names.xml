@@ -802,6 +802,15 @@
         <rich>2</rich>
                 <character>Исәнлек</character>
     </names>
+    <names>
+        <name>Наха</name>
+        <beautiful>10</beautiful>
+        <smart>10</smart>
+        <happy>5</happy>
+        <believer>10</believer>
+        <rich>5</rich>
+        <character>Явыз</character>
+    </names>
 <names>
         <name>Хадия</name>
         <beautiful>3</beautiful>
@@ -937,15 +946,6 @@
  <rich>1</rich>
  <character>Матур, яраткан кыз</character>
 </names>
-    <names>
-        <name>Наха</name>
-        <beautiful>100</beautiful>
-        <smart>100</smart>
-        <happy>100</happy>
-        <believer>100</believer>
-        <rich>100</rich>
-        <character>Явыз</character>
-    </names>
 <names>
  <name>Җансөяр</name>
  <beautiful>7</beautiful>

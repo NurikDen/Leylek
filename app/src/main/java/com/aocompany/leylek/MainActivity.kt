@@ -107,20 +107,28 @@ open class MainActivity : AppCompatActivity() {
         help.setOnClickListener {
             if(is_helping == false) {
                 is_helping = true
+                wings.y-=200f
+                egg_view.y-=200f
                 egg_view.visibility = View.VISIBLE
                 wings.visibility = View.VISIBLE
-                quotes_text.y = egg_view.y
+                quotes_text.y = egg_view.y+200f
                 quotes_text.text =
                     "Сәлам, сорау булса, берәр төймәгә бас. Мин шул төймә турында сиңа сөйләрмен"
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
                 egg_view.setImageResource(R.drawable.leylek_happy)
                 quotes_text.startAnimation(egg_scale)
             }
             else if(is_helping == true) {
+                wings.y+=200f
+                egg_view.y+=200f
                 is_helping = false
                 egg_view.visibility = View.INVISIBLE
                 wings.visibility = View.INVISIBLE
                 quotes_text.y = egg_view.y
                 quotes_text.text = ""
+                quotes_author.text = ""
                 quotes_text.y = quotes_author.y-400f
             }
         }
@@ -265,155 +273,223 @@ open class MainActivity : AppCompatActivity() {
             }
         }
         button.setOnClickListener {
-            quotes_author.text = ""
-            var arr = searching_tool.searching(rich_name.get_count(),strong_name.get_count(),smart_name.get_count(),beautiful_name.get_count(),believer_name.get_count(),"man",
-                getXmlDocument("man_names.xml")!!,
-                getXmlDocument("man_names.xml")!!.getElementsByTagName("name"), getXmlDocument("man_names.xml")!!.getElementsByTagName("character"))
-            findViewById<ConstraintLayout>(R.id.resultLayout).startAnimation(fadeInAnimation)
-            name.setText(arr[0])
-            meaning.setText(arr[1])
-            character_type.setText(arr[2])
-            result.visibility = View.VISIBLE
-            celebrity_person1.get_textView().setTextSize(16f)
-            celebrity_person2.get_textView().setTextSize(16f)
-            celebrity_person3.get_textView().setTextSize(16f)
-            var nodeList = celebritiesSearching.celebrities_searching(getXmlDocument("men_celebrity.xml")!!,arr[0])
-            if(nodeList.size == 0){
-                quotes_text.setText("Әлегә мондый исемле бөек шәхесләр табылмаган. Бәлки сезнең балагыз бу исемне йөртеп бөек шәхес булыр?")
-                quotes_author.setText("")
-                celebrity_person1.get_imageView().visibility = View.INVISIBLE
-                celebrity_person2.get_imageView().visibility = View.INVISIBLE
-                celebrity_person3.get_imageView().visibility = View.INVISIBLE
-                celebrity_person1.get_infoView().visibility = View.INVISIBLE
-                celebrity_person2.get_infoView().visibility = View.INVISIBLE
-                celebrity_person3.get_infoView().visibility = View.INVISIBLE
-                celebrity_person1.get_textView().setText("")
-                celebrity_person2.get_textView().setText("")
-                celebrity_person3.get_textView().setText("")
-                if(!rich_name.get_isNameRunning()) {rich_name.get_imageView().visibility = View.INVISIBLE
-                    rich_name.get_textView().visibility = View.INVISIBLE}
-                if(!strong_name.get_isNameRunning()) {strong_name.get_imageView().visibility = View.INVISIBLE
-                    strong_name.get_textView().visibility = View.INVISIBLE}
-                if(!smart_name.get_isNameRunning()) {smart_name.get_imageView().visibility = View.INVISIBLE
-                    smart_name.get_textView().visibility = View.INVISIBLE}
-                if(!beautiful_name.get_isNameRunning()) {beautiful_name.get_imageView().visibility = View.INVISIBLE
-                    beautiful_name.get_textView().visibility = View.INVISIBLE}
-                if(!believer_name.get_isNameRunning()) {believer_name.get_imageView().visibility = View.INVISIBLE
-                    believer_name.get_textView().visibility = View.INVISIBLE}
+            if (is_helping == false) {
+                quotes_author.text = ""
+                var arr = searching_tool.searching(
+                    rich_name.get_count(),
+                    strong_name.get_count(),
+                    smart_name.get_count(),
+                    beautiful_name.get_count(),
+                    believer_name.get_count(),
+                    "man",
+                    getXmlDocument("man_names.xml")!!,
+                    getXmlDocument("man_names.xml")!!.getElementsByTagName("name"),
+                    getXmlDocument("man_names.xml")!!.getElementsByTagName("character")
+                )
+                findViewById<ConstraintLayout>(R.id.resultLayout).startAnimation(fadeInAnimation)
+                name.setText(arr[0])
+                meaning.setText(arr[1])
+                character_type.setText(arr[2])
+                result.visibility = View.VISIBLE
+                celebrity_person1.get_textView().setTextSize(16f)
+                celebrity_person2.get_textView().setTextSize(16f)
+                celebrity_person3.get_textView().setTextSize(16f)
+                var nodeList = celebritiesSearching.celebrities_searching(
+                    getXmlDocument("men_celebrity.xml")!!,
+                    arr[0]
+                )
+                if (nodeList.size == 0) {
+                    quotes_text.setText("Әлегә мондый исемле бөек шәхесләр табылмаган. Бәлки сезнең балагыз бу исемне йөртеп бөек шәхес булыр?")
+                    quotes_author.setText("")
+                    celebrity_person1.get_imageView().visibility = View.INVISIBLE
+                    celebrity_person2.get_imageView().visibility = View.INVISIBLE
+                    celebrity_person3.get_imageView().visibility = View.INVISIBLE
+                    celebrity_person1.get_infoView().visibility = View.INVISIBLE
+                    celebrity_person2.get_infoView().visibility = View.INVISIBLE
+                    celebrity_person3.get_infoView().visibility = View.INVISIBLE
+                    celebrity_person1.get_textView().setText("")
+                    celebrity_person2.get_textView().setText("")
+                    celebrity_person3.get_textView().setText("")
+                    if (!rich_name.get_isNameRunning()) {
+                        rich_name.get_imageView().visibility = View.INVISIBLE
+                        rich_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!strong_name.get_isNameRunning()) {
+                        strong_name.get_imageView().visibility = View.INVISIBLE
+                        strong_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!smart_name.get_isNameRunning()) {
+                        smart_name.get_imageView().visibility = View.INVISIBLE
+                        smart_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!beautiful_name.get_isNameRunning()) {
+                        beautiful_name.get_imageView().visibility = View.INVISIBLE
+                        beautiful_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!believer_name.get_isNameRunning()) {
+                        believer_name.get_imageView().visibility = View.INVISIBLE
+                        believer_name.get_textView().visibility = View.INVISIBLE
+                    }
+                } else if (nodeList.size == 2) {
+                    celebrity_person1.get_imageView().visibility = View.VISIBLE
+                    celebrity_person2.get_imageView().visibility = View.INVISIBLE
+                    celebrity_person3.get_imageView().visibility = View.INVISIBLE
+                    celebrity_person1.get_infoView().visibility = View.VISIBLE
+                    celebrity_person2.get_infoView().visibility = View.INVISIBLE
+                    celebrity_person3.get_infoView().visibility = View.INVISIBLE
+                    celebrity_person2.get_textView().setText("")
+                    celebrity_person3.get_textView().setText("")
+                    val anim_celebrity = TranslateAnimation(
+                        -500f, 0f,
+                        0f,
+                        0f
+                    )
+                    anim_celebrity.duration = 800
+                    anim_celebrity.fillAfter = true
+                    celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
+                    quotes_text.setText("")
+                    quotes_author.setText("")
+                    celebrity_person1.get_textView().setText(nodeList[0])
+                    celebrity_name1 = nodeList[0]
+                    celebrity_meaning1 = nodeList[1]
+                    if (!rich_name.get_isNameRunning()) {
+                        rich_name.get_imageView().visibility = View.INVISIBLE
+                        rich_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!strong_name.get_isNameRunning()) {
+                        strong_name.get_imageView().visibility = View.INVISIBLE
+                        strong_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!smart_name.get_isNameRunning()) {
+                        smart_name.get_imageView().visibility = View.INVISIBLE
+                        smart_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!beautiful_name.get_isNameRunning()) {
+                        beautiful_name.get_imageView().visibility = View.INVISIBLE
+                        beautiful_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!believer_name.get_isNameRunning()) {
+                        believer_name.get_imageView().visibility = View.INVISIBLE
+                        believer_name.get_textView().visibility = View.INVISIBLE
+                    }
+                } else if (nodeList.size == 4) {
+                    celebrity_person1.get_imageView().visibility = View.VISIBLE
+                    celebrity_person2.get_imageView().visibility = View.VISIBLE
+                    celebrity_person3.get_imageView().visibility = View.INVISIBLE
+                    celebrity_person1.get_infoView().visibility = View.VISIBLE
+                    celebrity_person2.get_infoView().visibility = View.VISIBLE
+                    celebrity_person3.get_infoView().visibility = View.INVISIBLE
+                    celebrity_person3.get_textView().setText("")
+                    val anim_celebrity = TranslateAnimation(
+                        -500f, 0f,
+                        0f,
+                        0f
+                    )
+                    celebrity_name1 = nodeList[0]
+                    celebrity_meaning1 = nodeList[1]
+                    celebrity_name2 = nodeList[2]
+                    celebrity_meaning2 = nodeList[3]
+                    anim_celebrity.duration = 800
+                    anim_celebrity.fillAfter = true
+                    quotes_text.setText("")
+                    quotes_author.setText("")
+                    celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
+                    celebrity_person2.get_constraintLayout().startAnimation(anim_celebrity)
+                    celebrity_person1.get_textView().setText(nodeList[0])
+                    celebrity_person2.get_textView().setText(nodeList[2])
+                    if (!rich_name.get_isNameRunning()) {
+                        rich_name.get_imageView().visibility = View.INVISIBLE
+                        rich_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!strong_name.get_isNameRunning()) {
+                        strong_name.get_imageView().visibility = View.INVISIBLE
+                        strong_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!smart_name.get_isNameRunning()) {
+                        smart_name.get_imageView().visibility = View.INVISIBLE
+                        smart_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!beautiful_name.get_isNameRunning()) {
+                        beautiful_name.get_imageView().visibility = View.INVISIBLE
+                        beautiful_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!believer_name.get_isNameRunning()) {
+                        believer_name.get_imageView().visibility = View.INVISIBLE
+                        believer_name.get_textView().visibility = View.INVISIBLE
+                    }
+                } else if (nodeList.size == 6) {
+                    celebrity_person1.get_imageView().visibility = View.VISIBLE
+                    celebrity_person2.get_imageView().visibility = View.VISIBLE
+                    celebrity_person3.get_imageView().visibility = View.VISIBLE
+                    celebrity_person1.get_infoView().visibility = View.VISIBLE
+                    celebrity_person2.get_infoView().visibility = View.VISIBLE
+                    celebrity_person3.get_infoView().visibility = View.VISIBLE
+                    quotes_text.setText("")
+                    quotes_author.setText("")
+                    val anim_celebrity = TranslateAnimation(
+                        -500f, 0f,
+                        0f,
+                        0f
+                    )
+                    celebrity_name1 = nodeList[0]
+                    celebrity_meaning1 = nodeList[1]
+                    celebrity_name2 = nodeList[2]
+                    celebrity_meaning2 = nodeList[3]
+                    celebrity_name3 = nodeList[4]
+                    celebrity_meaning3 = nodeList[5]
+                    anim_celebrity.duration = 800
+                    anim_celebrity.fillAfter = true
+                    quotes_text.setText("")
+                    quotes_author.setText("")
+                    celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
+                    celebrity_person2.get_constraintLayout().startAnimation(anim_celebrity)
+                    celebrity_person3.get_constraintLayout().startAnimation(anim_celebrity)
+                    celebrity_person1.get_textView().setText(nodeList[0])
+                    celebrity_person2.get_textView().setText(nodeList[2])
+                    celebrity_person3.get_textView().setText(nodeList[4])
+                    if (!rich_name.get_isNameRunning()) {
+                        rich_name.get_imageView().visibility = View.INVISIBLE
+                        rich_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!strong_name.get_isNameRunning()) {
+                        strong_name.get_imageView().visibility = View.INVISIBLE
+                        strong_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!smart_name.get_isNameRunning()) {
+                        smart_name.get_imageView().visibility = View.INVISIBLE
+                        smart_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!beautiful_name.get_isNameRunning()) {
+                        beautiful_name.get_imageView().visibility = View.INVISIBLE
+                        beautiful_name.get_textView().visibility = View.INVISIBLE
+                    }
+                    if (!believer_name.get_isNameRunning()) {
+                        believer_name.get_imageView().visibility = View.INVISIBLE
+                        believer_name.get_textView().visibility = View.INVISIBLE
+                    }
+                }
+                quotes_text.startAnimation(fadeInAnimation)
             }
-            else if (nodeList.size == 2){
-                celebrity_person1.get_imageView().visibility = View.VISIBLE
-                celebrity_person2.get_imageView().visibility = View.INVISIBLE
-                celebrity_person3.get_imageView().visibility = View.INVISIBLE
-                celebrity_person1.get_infoView().visibility = View.VISIBLE
-                celebrity_person2.get_infoView().visibility = View.INVISIBLE
-                celebrity_person3.get_infoView().visibility = View.INVISIBLE
-                celebrity_person2.get_textView().setText("")
-                celebrity_person3.get_textView().setText("")
-                val anim_celebrity = TranslateAnimation(
-                    -500f, 0f,
-                    0f,
-                    0f)
-                anim_celebrity.duration = 800
-                anim_celebrity.fillAfter = true
-                celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
-                quotes_text.setText("")
-                quotes_author.setText("")
-                celebrity_person1.get_textView().setText(nodeList[0])
-                celebrity_name1 = nodeList[0]
-                celebrity_meaning1 = nodeList[1]
-                if(!rich_name.get_isNameRunning()) {rich_name.get_imageView().visibility = View.INVISIBLE
-                    rich_name.get_textView().visibility = View.INVISIBLE}
-                if(!strong_name.get_isNameRunning()) {strong_name.get_imageView().visibility = View.INVISIBLE
-                    strong_name.get_textView().visibility = View.INVISIBLE}
-                if(!smart_name.get_isNameRunning()) {smart_name.get_imageView().visibility = View.INVISIBLE
-                    smart_name.get_textView().visibility = View.INVISIBLE}
-                if(!beautiful_name.get_isNameRunning()) {beautiful_name.get_imageView().visibility = View.INVISIBLE
-                    beautiful_name.get_textView().visibility = View.INVISIBLE}
-                if(!believer_name.get_isNameRunning()) {believer_name.get_imageView().visibility = View.INVISIBLE
-                    believer_name.get_textView().visibility = View.INVISIBLE}
+            else if(is_helping == true){
+                quotes_text.text = "Исем табу өчен бу төймәгә баса аласыз"
+                quotes_text.startAnimation(egg_scale)
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
             }
-            else if (nodeList.size == 4){
-                celebrity_person1.get_imageView().visibility = View.VISIBLE
-                celebrity_person2.get_imageView().visibility = View.VISIBLE
-                celebrity_person3.get_imageView().visibility = View.INVISIBLE
-                celebrity_person1.get_infoView().visibility = View.VISIBLE
-                celebrity_person2.get_infoView().visibility = View.VISIBLE
-                celebrity_person3.get_infoView().visibility = View.INVISIBLE
-                celebrity_person3.get_textView().setText("")
-                val anim_celebrity = TranslateAnimation(
-                    -500f, 0f,
-                    0f,
-                    0f)
-                celebrity_name1 = nodeList[0]
-                celebrity_meaning1 = nodeList[1]
-                celebrity_name2 = nodeList[2]
-                celebrity_meaning2 = nodeList[3]
-                anim_celebrity.duration = 800
-                anim_celebrity.fillAfter = true
-                quotes_text.setText("")
-                quotes_author.setText("")
-                celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
-                celebrity_person2.get_constraintLayout().startAnimation(anim_celebrity)
-                celebrity_person1.get_textView().setText(nodeList[0])
-                celebrity_person2.get_textView().setText(nodeList[2])
-                if(!rich_name.get_isNameRunning()) {rich_name.get_imageView().visibility = View.INVISIBLE
-                    rich_name.get_textView().visibility = View.INVISIBLE}
-                if(!strong_name.get_isNameRunning()) {strong_name.get_imageView().visibility = View.INVISIBLE
-                    strong_name.get_textView().visibility = View.INVISIBLE}
-                if(!smart_name.get_isNameRunning()) {smart_name.get_imageView().visibility = View.INVISIBLE
-                    smart_name.get_textView().visibility = View.INVISIBLE}
-                if(!beautiful_name.get_isNameRunning()) {beautiful_name.get_imageView().visibility = View.INVISIBLE
-                    beautiful_name.get_textView().visibility = View.INVISIBLE}
-                if(!believer_name.get_isNameRunning()) {believer_name.get_imageView().visibility = View.INVISIBLE
-                    believer_name.get_textView().visibility = View.INVISIBLE}
-            }
-            else if (nodeList.size == 6){
-                celebrity_person1.get_imageView().visibility = View.VISIBLE
-                celebrity_person2.get_imageView().visibility = View.VISIBLE
-                celebrity_person3.get_imageView().visibility = View.VISIBLE
-                celebrity_person1.get_infoView().visibility = View.VISIBLE
-                celebrity_person2.get_infoView().visibility = View.VISIBLE
-                celebrity_person3.get_infoView().visibility = View.VISIBLE
-                quotes_text.setText("")
-                quotes_author.setText("")
-                val anim_celebrity = TranslateAnimation(
-                    -500f, 0f,
-                    0f,
-                    0f)
-                celebrity_name1 = nodeList[0]
-                celebrity_meaning1 = nodeList[1]
-                celebrity_name2 = nodeList[2]
-                celebrity_meaning2 = nodeList[3]
-                celebrity_name3 = nodeList[4]
-                celebrity_meaning3 = nodeList[5]
-                anim_celebrity.duration = 800
-                anim_celebrity.fillAfter = true
-                quotes_text.setText("")
-                quotes_author.setText("")
-                celebrity_person1.get_constraintLayout().startAnimation(anim_celebrity)
-                celebrity_person2.get_constraintLayout().startAnimation(anim_celebrity)
-                celebrity_person3.get_constraintLayout().startAnimation(anim_celebrity)
-                celebrity_person1.get_textView().setText(nodeList[0])
-                celebrity_person2.get_textView().setText(nodeList[2])
-                celebrity_person3.get_textView().setText(nodeList[4])
-                if(!rich_name.get_isNameRunning()) {rich_name.get_imageView().visibility = View.INVISIBLE
-                    rich_name.get_textView().visibility = View.INVISIBLE}
-                if(!strong_name.get_isNameRunning()) {strong_name.get_imageView().visibility = View.INVISIBLE
-                    strong_name.get_textView().visibility = View.INVISIBLE}
-                if(!smart_name.get_isNameRunning()) {smart_name.get_imageView().visibility = View.INVISIBLE
-                    smart_name.get_textView().visibility = View.INVISIBLE}
-                if(!beautiful_name.get_isNameRunning()) {beautiful_name.get_imageView().visibility = View.INVISIBLE
-                    beautiful_name.get_textView().visibility = View.INVISIBLE}
-                if(!believer_name.get_isNameRunning()) {believer_name.get_imageView().visibility = View.INVISIBLE
-                    believer_name.get_textView().visibility = View.INVISIBLE}
-            }
-            quotes_text.startAnimation(fadeInAnimation)
-
         }
         men_women.setOnClickListener {
+            if(is_helping == false){
             val intent = Intent(this, WomanMainActivity::class.java)
             startActivity(intent)
+            }
+            else if (is_helping == true){
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
+                quotes_text.text = "Бу төймәгә бассагыз, хатын-кыз исемнәренә күчә аласыз"
+                quotes_text.startAnimation(egg_scale)
+            }
         }
         val anim_rich = ScaleAnimation(0f,1f,0f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
             Animation.RELATIVE_TO_SELF, 0.5f)
@@ -445,100 +521,135 @@ open class MainActivity : AppCompatActivity() {
         anim_believer.fillAfter = true
         findViewById<ConstraintLayout>(R.id.believer).startAnimation(anim_believer)
 
+        celebrity_person1.get_imageView().setOnClickListener {
+            if(is_helping == true){
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
+                quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
+                quotes_text.startAnimation(egg_scale)
+            }
+        }
+        celebrity_person2.get_imageView().setOnClickListener {
+            if(is_helping == true){
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
+                quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
+                quotes_text.startAnimation(egg_scale)
+            }
+        }
+        celebrity_person3.get_imageView().setOnClickListener {
+            if(is_helping == true){
+                egg_view.startAnimation(egg_scale)
+                wings.startAnimation(wings_anim)
+                rotateImageView(wings)
+                quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
+                quotes_text.startAnimation(egg_scale)
+            }
+        }
+
         rich_name.get_imageView().setOnClickListener {
-            if (rich_name.get_isNameRunning() == false) {
-                rich_name.get_constraintLayout().startAnimation(fadeOutAnimation)
-                fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
-                    override fun onAnimationStart(animation: Animation) {}
-                    override fun onAnimationEnd(animation: Animation) {
-                        if (place_1.get_placeIsEmpty()==true) {
-                            rich_name.set_placeCount_x(place_1.get_placeView().x)
-                            rich_name.set_placeCount_y(place_1.get_placeView().y)
-                            place_1.get_placeView().visibility= View.INVISIBLE
-                            rich_name.set_nameDestination_x(-7f)
-                            rich_name.set_nameDestination_y(10f)
-                            rich_name.set_name_textDestination_x(0f)
-                            rich_name.set_name_textDestination_y(0f)
-                            rich_name.set_count(5)
-                            place_1.set_placeText("rich")
-                            place_1.set_placeIsEmpty(false)
+            if(is_helping == false) {
+                if (rich_name.get_isNameRunning() == false) {
+                    rich_name.get_constraintLayout().startAnimation(fadeOutAnimation)
+                    fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
+                        override fun onAnimationStart(animation: Animation) {}
+                        override fun onAnimationEnd(animation: Animation) {
+                            if (place_1.get_placeIsEmpty() == true) {
+                                rich_name.set_placeCount_x(place_1.get_placeView().x)
+                                rich_name.set_placeCount_y(place_1.get_placeView().y)
+                                place_1.get_placeView().visibility = View.INVISIBLE
+                                rich_name.set_nameDestination_x(-7f)
+                                rich_name.set_nameDestination_y(10f)
+                                rich_name.set_name_textDestination_x(0f)
+                                rich_name.set_name_textDestination_y(0f)
+                                rich_name.set_count(5)
+                                place_1.set_placeText("rich")
+                                place_1.set_placeIsEmpty(false)
+                            } else if (place_2.get_placeIsEmpty() == true) {
+                                rich_name.set_placeCount_x(place_2.get_placeView().x)
+                                rich_name.set_placeCount_y(place_2.get_placeView().y)
+                                place_2.get_placeView().visibility = View.INVISIBLE
+                                rich_name.set_nameDestination_x(-9f)
+                                rich_name.set_nameDestination_y(-10f)
+                                rich_name.set_name_textDestination_x(0f)
+                                rich_name.set_name_textDestination_y(50f)
+                                rich_name.set_count(4)
+                                place_2.set_placeText("rich")
+                                place_2.set_placeIsEmpty(false)
+                                rich_name.get_imageView().rotation = 180f
+                            } else if (place_3.get_placeIsEmpty() == true) {
+                                rich_name.set_placeCount_x(place_3.get_placeView().x)
+                                rich_name.set_placeCount_y(place_3.get_placeView().y)
+                                place_3.get_placeView().visibility = View.INVISIBLE
+                                rich_name.set_nameDestination_x(7f)
+                                rich_name.set_nameDestination_y(10f)
+                                rich_name.set_name_textDestination_x(0f)
+                                rich_name.set_name_textDestination_y(0f)
+                                rich_name.set_count(3)
+                                place_3.set_placeText("rich")
+                                place_3.set_placeIsEmpty(false)
+                            } else if (place_4.get_placeIsEmpty() == true) {
+                                rich_name.set_placeCount_x(place_4.get_placeView().x)
+                                rich_name.set_placeCount_y(place_4.get_placeView().y)
+                                place_4.get_placeView().visibility = View.INVISIBLE
+                                rich_name.set_nameDestination_x(-7f)
+                                rich_name.set_nameDestination_y(-10f)
+                                rich_name.set_name_textDestination_x(0f)
+                                rich_name.set_name_textDestination_y(50f)
+                                rich_name.set_count(2)
+                                rich_name.get_imageView().rotation = 180f
+                                place_4.set_placeText("rich")
+                                place_4.set_placeIsEmpty(false)
+                            } else if (place_5.get_placeIsEmpty() == true) {
+                                rich_name.set_placeCount_x(place_5.get_placeView().x)
+                                rich_name.set_placeCount_y(place_5.get_placeView().y)
+                                place_5.get_placeView().visibility = View.INVISIBLE
+                                rich_name.set_nameDestination_x(-7f)
+                                rich_name.set_nameDestination_y(10f)
+                                rich_name.set_name_textDestination_x(0f)
+                                rich_name.set_name_textDestination_y(0f)
+                                rich_name.set_count(1)
+                                place_5.set_placeText("rich")
+                                place_5.set_placeIsEmpty(false)
+                            }
+                            rich_name.set_isNameRunning(true)
+                            rich_name.get_constraintLayout().x =
+                                rich_name.get_placeCount_x() + rich_name.get_nameDestination_x()
+                            rich_name.get_constraintLayout().y =
+                                rich_name.get_placeCount_y() + rich_name.get_nameDestination_y()
+                            rich_name.get_textView().x += rich_name.get_name_textDestination_x()
+                            rich_name.get_textView().y += rich_name.get_name_textDestination_y()
+                            rich_name.get_constraintLayout().startAnimation(fadeInAnimation)
+                            if (place_1.get_placeIsEmpty() == false && place_2.get_placeIsEmpty() == false && place_3.get_placeIsEmpty() == false && place_4.get_placeIsEmpty() == false && place_5.get_placeIsEmpty() == false) {
+                                var nodeList =
+                                    quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                                quotes_author.setText(nodeList[0])
+                                quotes_text.setText(nodeList[1])
+                            }
                         }
-                        else if (place_2.get_placeIsEmpty()==true) {
-                            rich_name.set_placeCount_x(place_2.get_placeView().x)
-                            rich_name.set_placeCount_y(place_2.get_placeView().y)
-                            place_2.get_placeView().visibility= View.INVISIBLE
-                            rich_name.set_nameDestination_x(-9f)
-                            rich_name.set_nameDestination_y(-10f)
-                            rich_name.set_name_textDestination_x(0f)
-                            rich_name.set_name_textDestination_y(50f)
-                            rich_name.set_count(4)
-                            place_2.set_placeText("rich")
-                            place_2.set_placeIsEmpty(false)
-                            rich_name.get_imageView().rotation=180f
-                        }
-                        else if (place_3.get_placeIsEmpty()==true) {
-                            rich_name.set_placeCount_x(place_3.get_placeView().x)
-                            rich_name.set_placeCount_y(place_3.get_placeView().y)
-                            place_3.get_placeView().visibility= View.INVISIBLE
-                            rich_name.set_nameDestination_x(7f)
-                            rich_name.set_nameDestination_y(10f)
-                            rich_name.set_name_textDestination_x(0f)
-                            rich_name.set_name_textDestination_y(0f)
-                            rich_name.set_count(3)
-                            place_3.set_placeText("rich")
-                            place_3.set_placeIsEmpty(false)
-                        }
-                        else if (place_4.get_placeIsEmpty()==true) {
-                            rich_name.set_placeCount_x(place_4.get_placeView().x)
-                            rich_name.set_placeCount_y(place_4.get_placeView().y)
-                            place_4.get_placeView().visibility= View.INVISIBLE
-                            rich_name.set_nameDestination_x(-7f)
-                            rich_name.set_nameDestination_y(-10f)
-                            rich_name.set_name_textDestination_x(0f)
-                            rich_name.set_name_textDestination_y(50f)
-                            rich_name.set_count(2)
-                            rich_name.get_imageView().rotation=180f
-                            place_4.set_placeText("rich")
-                            place_4.set_placeIsEmpty(false)
-                        }
-                        else if (place_5.get_placeIsEmpty()==true) {
-                            rich_name.set_placeCount_x(place_5.get_placeView().x)
-                            rich_name.set_placeCount_y(place_5.get_placeView().y)
-                            place_5.get_placeView().visibility= View.INVISIBLE
-                            rich_name.set_nameDestination_x(-7f)
-                            rich_name.set_nameDestination_y(10f)
-                            rich_name.set_name_textDestination_x(0f)
-                            rich_name.set_name_textDestination_y(0f)
-                            rich_name.set_count(1)
-                            place_5.set_placeText("rich")
-                            place_5.set_placeIsEmpty(false)
-                        }
-                        rich_name.set_isNameRunning(true)
-                        rich_name.get_constraintLayout().x = rich_name.get_placeCount_x()+ rich_name.get_nameDestination_x()
-                        rich_name.get_constraintLayout().y = rich_name.get_placeCount_y() + rich_name.get_nameDestination_y()
-                        rich_name.get_textView().x+=rich_name.get_name_textDestination_x()
-                        rich_name.get_textView().y+=rich_name.get_name_textDestination_y()
-                        rich_name.get_constraintLayout().startAnimation(fadeInAnimation)
-                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
-                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
-                            quotes_author.setText(nodeList[0])
-                            quotes_text.setText(nodeList[1])
-                        }
-                    }
-                    override fun onAnimationRepeat(animation: Animation) {}
-                })
+
+                        override fun onAnimationRepeat(animation: Animation) {}
+                    })
+                }
+            }
+            else if(is_helping==true){
+                quotes_text.text = "Бу төймәгә бассагыз, бай дигән мәгънәне белдергән исемнәр чыга"
+                quotes_text.startAnimation(egg_scale)
             }
         }
         strong_name.get_imageView().setOnClickListener {
+            if(is_helping==false){
             if (strong_name.get_isNameRunning() == false) {
                 strong_name.get_constraintLayout().startAnimation(fadeOutAnimation)
                 fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {
-                        if (place_1.get_placeIsEmpty()==true) {
+                        if (place_1.get_placeIsEmpty() == true) {
                             strong_name.set_placeCount_x(place_1.get_placeView().x)
                             strong_name.set_placeCount_y(place_1.get_placeView().y)
-                            place_1.get_placeView().visibility= View.INVISIBLE
+                            place_1.get_placeView().visibility = View.INVISIBLE
                             strong_name.set_nameDestination_x(-7f)
                             strong_name.set_nameDestination_y(-10f)
                             strong_name.set_name_textDestination_x(0f)
@@ -546,12 +657,11 @@ open class MainActivity : AppCompatActivity() {
                             strong_name.set_count(5)
                             place_1.set_placeText("strong")
                             place_1.set_placeIsEmpty(false)
-                            strong_name.get_imageView().rotation=180f
-                        }
-                        else if (place_2.get_placeIsEmpty()==true) {
+                            strong_name.get_imageView().rotation = 180f
+                        } else if (place_2.get_placeIsEmpty() == true) {
                             strong_name.set_placeCount_x(place_2.get_placeView().x)
                             strong_name.set_placeCount_y(place_2.get_placeView().y)
-                            place_2.get_placeView().visibility= View.INVISIBLE
+                            place_2.get_placeView().visibility = View.INVISIBLE
                             strong_name.set_nameDestination_x(0f)
                             strong_name.set_nameDestination_y(10f)
                             strong_name.set_name_textDestination_x(0f)
@@ -559,11 +669,10 @@ open class MainActivity : AppCompatActivity() {
                             strong_name.set_count(4)
                             place_2.set_placeText("strong")
                             place_2.set_placeIsEmpty(false)
-                        }
-                        else if (place_3.get_placeIsEmpty()==true) {
+                        } else if (place_3.get_placeIsEmpty() == true) {
                             strong_name.set_placeCount_x(place_3.get_placeView().x)
                             strong_name.set_placeCount_y(place_3.get_placeView().y)
-                            place_3.get_placeView().visibility= View.INVISIBLE
+                            place_3.get_placeView().visibility = View.INVISIBLE
                             strong_name.set_nameDestination_x(0f)
                             strong_name.set_nameDestination_y(-10f)
                             strong_name.set_name_textDestination_x(0f)
@@ -571,12 +680,11 @@ open class MainActivity : AppCompatActivity() {
                             strong_name.set_count(3)
                             place_3.set_placeText("strong")
                             place_3.set_placeIsEmpty(false)
-                            strong_name.get_imageView().rotation=180f
-                        }
-                        else if (place_4.get_placeIsEmpty()==true) {
+                            strong_name.get_imageView().rotation = 180f
+                        } else if (place_4.get_placeIsEmpty() == true) {
                             strong_name.set_placeCount_x(place_4.get_placeView().x)
                             strong_name.set_placeCount_y(place_4.get_placeView().y)
-                            place_4.get_placeView().visibility= View.INVISIBLE
+                            place_4.get_placeView().visibility = View.INVISIBLE
                             strong_name.set_nameDestination_x(0f)
                             strong_name.set_nameDestination_y(10f)
                             strong_name.set_name_textDestination_x(0f)
@@ -584,11 +692,10 @@ open class MainActivity : AppCompatActivity() {
                             strong_name.set_count(2)
                             place_4.set_placeText("strong")
                             place_4.set_placeIsEmpty(false)
-                        }
-                        else if (place_5.get_placeIsEmpty()==true) {
+                        } else if (place_5.get_placeIsEmpty() == true) {
                             strong_name.set_placeCount_x(place_5.get_placeView().x)
                             strong_name.set_placeCount_y(place_5.get_placeView().y)
-                            place_5.get_placeView().visibility= View.INVISIBLE
+                            place_5.get_placeView().visibility = View.INVISIBLE
                             strong_name.set_nameDestination_x(0f)
                             strong_name.set_nameDestination_y(-10f)
                             strong_name.set_name_textDestination_x(0f)
@@ -596,35 +703,45 @@ open class MainActivity : AppCompatActivity() {
                             strong_name.set_count(1)
                             place_5.set_placeText("strong")
                             place_5.set_placeIsEmpty(false)
-                            strong_name.get_imageView().rotation=180f
+                            strong_name.get_imageView().rotation = 180f
                         }
                         strong_name.set_isNameRunning(true)
-                        strong_name.get_constraintLayout().x = strong_name.get_placeCount_x()+ strong_name.get_nameDestination_x()
-                        strong_name.get_constraintLayout().y = strong_name.get_placeCount_y() + strong_name.get_nameDestination_y()
-                        strong_name.get_textView().x+=strong_name.get_name_textDestination_x()
-                        strong_name.get_textView().y+=strong_name.get_name_textDestination_y()
+                        strong_name.get_constraintLayout().x =
+                            strong_name.get_placeCount_x() + strong_name.get_nameDestination_x()
+                        strong_name.get_constraintLayout().y =
+                            strong_name.get_placeCount_y() + strong_name.get_nameDestination_y()
+                        strong_name.get_textView().x += strong_name.get_name_textDestination_x()
+                        strong_name.get_textView().y += strong_name.get_name_textDestination_y()
                         strong_name.get_constraintLayout().startAnimation(fadeInAnimation)
-                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
-                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                        if (place_1.get_placeIsEmpty() == false && place_2.get_placeIsEmpty() == false && place_3.get_placeIsEmpty() == false && place_4.get_placeIsEmpty() == false && place_5.get_placeIsEmpty() == false) {
+                            var nodeList =
+                                quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
                             quotes_author.setText(nodeList[0])
                             quotes_text.setText(nodeList[1])
                         }
                     }
+
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
             }
         }
+            else if(is_helping==true){
+                quotes_text.text = "Бу төймәгә бассагыз, көчле дигән мәгънәне белдергән исемнәр чыга"
+                quotes_text.startAnimation(egg_scale)
+            }
+        }
 
         smart_name.get_imageView().setOnClickListener {
+            if(is_helping==false){
             if (smart_name.get_isNameRunning() == false) {
                 smart_name.get_constraintLayout().startAnimation(fadeOutAnimation)
                 fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {
-                        if (place_1.get_placeIsEmpty()==true) {
+                        if (place_1.get_placeIsEmpty() == true) {
                             smart_name.set_placeCount_x(place_1.get_placeView().x)
                             smart_name.set_placeCount_y(place_1.get_placeView().y)
-                            place_1.get_placeView().visibility= View.INVISIBLE
+                            place_1.get_placeView().visibility = View.INVISIBLE
                             smart_name.set_nameDestination_x(-7f)
                             smart_name.set_nameDestination_y(10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -632,11 +749,10 @@ open class MainActivity : AppCompatActivity() {
                             smart_name.set_count(5)
                             place_1.set_placeText("smart")
                             place_1.set_placeIsEmpty(false)
-                        }
-                        else if (place_2.get_placeIsEmpty()==true) {
+                        } else if (place_2.get_placeIsEmpty() == true) {
                             smart_name.set_placeCount_x(place_2.get_placeView().x)
                             smart_name.set_placeCount_y(place_2.get_placeView().y)
-                            place_2.get_placeView().visibility= View.INVISIBLE
+                            place_2.get_placeView().visibility = View.INVISIBLE
                             smart_name.set_nameDestination_x(-9f)
                             smart_name.set_nameDestination_y(-10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -644,12 +760,11 @@ open class MainActivity : AppCompatActivity() {
                             smart_name.set_count(4)
                             place_2.set_placeText("smart")
                             place_2.set_placeIsEmpty(false)
-                            smart_name.get_imageView().rotation=180f
-                        }
-                        else if (place_3.get_placeIsEmpty()==true) {
+                            smart_name.get_imageView().rotation = 180f
+                        } else if (place_3.get_placeIsEmpty() == true) {
                             smart_name.set_placeCount_x(place_3.get_placeView().x)
                             smart_name.set_placeCount_y(place_3.get_placeView().y)
-                            place_3.get_placeView().visibility= View.INVISIBLE
+                            place_3.get_placeView().visibility = View.INVISIBLE
                             smart_name.set_nameDestination_x(7f)
                             smart_name.set_nameDestination_y(10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -657,24 +772,22 @@ open class MainActivity : AppCompatActivity() {
                             smart_name.set_count(3)
                             place_3.set_placeText("smart")
                             place_3.set_placeIsEmpty(false)
-                        }
-                        else if (place_4.get_placeIsEmpty()==true) {
+                        } else if (place_4.get_placeIsEmpty() == true) {
                             smart_name.set_placeCount_x(place_4.get_placeView().x)
                             smart_name.set_placeCount_y(place_4.get_placeView().y)
-                            place_4.get_placeView().visibility= View.INVISIBLE
+                            place_4.get_placeView().visibility = View.INVISIBLE
                             smart_name.set_nameDestination_x(-7f)
                             smart_name.set_nameDestination_y(-10f)
                             smart_name.set_name_textDestination_x(0f)
                             smart_name.set_name_textDestination_y(70f)
                             smart_name.set_count(2)
-                            smart_name.get_imageView().rotation=180f
+                            smart_name.get_imageView().rotation = 180f
                             place_4.set_placeText("smart")
                             place_4.set_placeIsEmpty(false)
-                        }
-                        else if (place_5.get_placeIsEmpty()==true) {
+                        } else if (place_5.get_placeIsEmpty() == true) {
                             smart_name.set_placeCount_x(place_5.get_placeView().x)
                             smart_name.set_placeCount_y(place_5.get_placeView().y)
-                            place_5.get_placeView().visibility= View.INVISIBLE
+                            place_5.get_placeView().visibility = View.INVISIBLE
                             smart_name.set_nameDestination_x(-7f)
                             smart_name.set_nameDestination_y(10f)
                             smart_name.set_name_textDestination_x(0f)
@@ -684,31 +797,41 @@ open class MainActivity : AppCompatActivity() {
                             place_5.set_placeIsEmpty(false)
                         }
                         smart_name.set_isNameRunning(true)
-                        smart_name.get_constraintLayout().x = smart_name.get_placeCount_x()+ smart_name.get_nameDestination_x()
-                        smart_name.get_constraintLayout().y = smart_name.get_placeCount_y() + smart_name.get_nameDestination_y()
-                        smart_name.get_textView().x+=smart_name.get_name_textDestination_x()
-                        smart_name.get_textView().y+=smart_name.get_name_textDestination_y()
+                        smart_name.get_constraintLayout().x =
+                            smart_name.get_placeCount_x() + smart_name.get_nameDestination_x()
+                        smart_name.get_constraintLayout().y =
+                            smart_name.get_placeCount_y() + smart_name.get_nameDestination_y()
+                        smart_name.get_textView().x += smart_name.get_name_textDestination_x()
+                        smart_name.get_textView().y += smart_name.get_name_textDestination_y()
                         smart_name.get_constraintLayout().startAnimation(fadeInAnimation)
-                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
-                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                        if (place_1.get_placeIsEmpty() == false && place_2.get_placeIsEmpty() == false && place_3.get_placeIsEmpty() == false && place_4.get_placeIsEmpty() == false && place_5.get_placeIsEmpty() == false) {
+                            var nodeList =
+                                quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
                             quotes_author.setText(nodeList[0])
                             quotes_text.setText(nodeList[1])
                         }
                     }
+
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
             }
         }
+            else if(is_helping==true){
+                quotes_text.text = "Бу төймәгә бассагыз, акыллы дигән мәгънәне белдергән исемнәр чыга"
+                quotes_text.startAnimation(egg_scale)
+            }
+        }
         beautiful_name.get_imageView().setOnClickListener {
+            if(is_helping==false){
             if (beautiful_name.get_isNameRunning() == false) {
                 beautiful_name.get_constraintLayout().startAnimation(fadeOutAnimation)
                 fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
                     override fun onAnimationStart(animation: Animation) {}
                     override fun onAnimationEnd(animation: Animation) {
-                        if (place_1.get_placeIsEmpty()==true) {
+                        if (place_1.get_placeIsEmpty() == true) {
                             beautiful_name.set_placeCount_x(place_1.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_1.get_placeView().y)
-                            place_1.get_placeView().visibility= View.INVISIBLE
+                            place_1.get_placeView().visibility = View.INVISIBLE
                             beautiful_name.set_nameDestination_x(0f)
                             beautiful_name.set_nameDestination_y(-10f)
                             beautiful_name.set_name_textDestination_x(0f)
@@ -716,12 +839,11 @@ open class MainActivity : AppCompatActivity() {
                             beautiful_name.set_count(5)
                             place_1.set_placeText("beautiful")
                             place_1.set_placeIsEmpty(false)
-                            beautiful_name.get_imageView().rotation=180f
-                        }
-                        else if (place_2.get_placeIsEmpty()==true) {
+                            beautiful_name.get_imageView().rotation = 180f
+                        } else if (place_2.get_placeIsEmpty() == true) {
                             beautiful_name.set_placeCount_x(place_2.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_2.get_placeView().y)
-                            place_2.get_placeView().visibility= View.INVISIBLE
+                            place_2.get_placeView().visibility = View.INVISIBLE
                             beautiful_name.set_nameDestination_x(0f)
                             beautiful_name.set_nameDestination_y(10f)
                             beautiful_name.set_name_textDestination_x(0f)
@@ -729,11 +851,10 @@ open class MainActivity : AppCompatActivity() {
                             beautiful_name.set_count(4)
                             place_2.set_placeText("beautiful")
                             place_2.set_placeIsEmpty(false)
-                        }
-                        else if (place_3.get_placeIsEmpty()==true) {
+                        } else if (place_3.get_placeIsEmpty() == true) {
                             beautiful_name.set_placeCount_x(place_3.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_3.get_placeView().y)
-                            place_3.get_placeView().visibility= View.INVISIBLE
+                            place_3.get_placeView().visibility = View.INVISIBLE
                             beautiful_name.set_nameDestination_x(0f)
                             beautiful_name.set_nameDestination_y(-10f)
                             beautiful_name.set_name_textDestination_x(0f)
@@ -741,12 +862,11 @@ open class MainActivity : AppCompatActivity() {
                             beautiful_name.set_count(3)
                             place_3.set_placeText("beautiful")
                             place_3.set_placeIsEmpty(false)
-                            beautiful_name.get_imageView().rotation=180f
-                        }
-                        else if (place_4.get_placeIsEmpty()==true) {
+                            beautiful_name.get_imageView().rotation = 180f
+                        } else if (place_4.get_placeIsEmpty() == true) {
                             beautiful_name.set_placeCount_x(place_4.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_4.get_placeView().y)
-                            place_4.get_placeView().visibility= View.INVISIBLE
+                            place_4.get_placeView().visibility = View.INVISIBLE
                             beautiful_name.set_nameDestination_x(0f)
                             beautiful_name.set_nameDestination_y(10f)
                             beautiful_name.set_name_textDestination_x(0f)
@@ -754,11 +874,10 @@ open class MainActivity : AppCompatActivity() {
                             beautiful_name.set_count(2)
                             place_4.set_placeText("beautiful")
                             place_4.set_placeIsEmpty(false)
-                        }
-                        else if (place_5.get_placeIsEmpty()==true) {
+                        } else if (place_5.get_placeIsEmpty() == true) {
                             beautiful_name.set_placeCount_x(place_5.get_placeView().x)
                             beautiful_name.set_placeCount_y(place_5.get_placeView().y)
-                            place_5.get_placeView().visibility= View.INVISIBLE
+                            place_5.get_placeView().visibility = View.INVISIBLE
                             beautiful_name.set_nameDestination_x(0f)
                             beautiful_name.set_nameDestination_y(-10f)
                             beautiful_name.set_name_textDestination_x(0f)
@@ -766,106 +885,121 @@ open class MainActivity : AppCompatActivity() {
                             beautiful_name.set_count(1)
                             place_5.set_placeText("beautiful")
                             place_5.set_placeIsEmpty(false)
-                            beautiful_name.get_imageView().rotation=180f
+                            beautiful_name.get_imageView().rotation = 180f
                         }
                         beautiful_name.set_isNameRunning(true)
-                        beautiful_name.get_constraintLayout().x = beautiful_name.get_placeCount_x()+ beautiful_name.get_nameDestination_x()
-                        beautiful_name.get_constraintLayout().y = beautiful_name.get_placeCount_y() + beautiful_name.get_nameDestination_y()
-                        beautiful_name.get_textView().x+=beautiful_name.get_name_textDestination_x()
-                        beautiful_name.get_textView().y+=beautiful_name.get_name_textDestination_y()
+                        beautiful_name.get_constraintLayout().x =
+                            beautiful_name.get_placeCount_x() + beautiful_name.get_nameDestination_x()
+                        beautiful_name.get_constraintLayout().y =
+                            beautiful_name.get_placeCount_y() + beautiful_name.get_nameDestination_y()
+                        beautiful_name.get_textView().x += beautiful_name.get_name_textDestination_x()
+                        beautiful_name.get_textView().y += beautiful_name.get_name_textDestination_y()
                         beautiful_name.get_constraintLayout().startAnimation(fadeInAnimation)
-                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
-                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                        if (place_1.get_placeIsEmpty() == false && place_2.get_placeIsEmpty() == false && place_3.get_placeIsEmpty() == false && place_4.get_placeIsEmpty() == false && place_5.get_placeIsEmpty() == false) {
+                            var nodeList =
+                                quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
                             quotes_author.setText(nodeList[0])
                             quotes_text.setText(nodeList[1])
                         }
                     }
+
                     override fun onAnimationRepeat(animation: Animation) {}
                 })
             }
         }
+            else if(is_helping==true){
+                quotes_text.text = "Бу төймәгә бассагыз, матур дигән мәгънәне белдергән исемнәр чыга"
+                quotes_text.startAnimation(egg_scale)
+            }
+        }
         believer_name.get_imageView().setOnClickListener {
-            if (believer_name.get_isNameRunning() == false) {
-                believer_name.get_constraintLayout().startAnimation(fadeOutAnimation)
-                fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
-                    override fun onAnimationStart(animation: Animation) {}
-                    override fun onAnimationEnd(animation: Animation) {
-                        if (place_1.get_placeIsEmpty()==true) {
-                            believer_name.set_placeCount_x(place_1.get_placeView().x)
-                            believer_name.set_placeCount_y(place_1.get_placeView().y)
-                            place_1.get_placeView().visibility= View.INVISIBLE
-                            believer_name.set_nameDestination_x(-7f)
-                            believer_name.set_nameDestination_y(10f)
-                            believer_name.set_name_textDestination_x(0f)
-                            believer_name.set_name_textDestination_y(0f)
-                            believer_name.set_count(5)
-                            place_1.set_placeText("believer")
-                            place_1.set_placeIsEmpty(false)
+            if(is_helping==false) {
+                if (believer_name.get_isNameRunning() == false) {
+                    believer_name.get_constraintLayout().startAnimation(fadeOutAnimation)
+                    fadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
+                        override fun onAnimationStart(animation: Animation) {}
+                        override fun onAnimationEnd(animation: Animation) {
+                            if (place_1.get_placeIsEmpty() == true) {
+                                believer_name.set_placeCount_x(place_1.get_placeView().x)
+                                believer_name.set_placeCount_y(place_1.get_placeView().y)
+                                place_1.get_placeView().visibility = View.INVISIBLE
+                                believer_name.set_nameDestination_x(-7f)
+                                believer_name.set_nameDestination_y(10f)
+                                believer_name.set_name_textDestination_x(0f)
+                                believer_name.set_name_textDestination_y(0f)
+                                believer_name.set_count(5)
+                                place_1.set_placeText("believer")
+                                place_1.set_placeIsEmpty(false)
+                            } else if (place_2.get_placeIsEmpty() == true) {
+                                believer_name.set_placeCount_x(place_2.get_placeView().x)
+                                believer_name.set_placeCount_y(place_2.get_placeView().y)
+                                place_2.get_placeView().visibility = View.INVISIBLE
+                                believer_name.set_nameDestination_x(-9f)
+                                believer_name.set_nameDestination_y(-10f)
+                                believer_name.set_name_textDestination_x(0f)
+                                believer_name.set_name_textDestination_y(70f)
+                                believer_name.set_count(4)
+                                place_2.set_placeText("believer")
+                                place_2.set_placeIsEmpty(false)
+                                believer_name.get_imageView().rotation = 180f
+                            } else if (place_3.get_placeIsEmpty() == true) {
+                                believer_name.set_placeCount_x(place_3.get_placeView().x)
+                                believer_name.set_placeCount_y(place_3.get_placeView().y)
+                                place_3.get_placeView().visibility = View.INVISIBLE
+                                believer_name.set_nameDestination_x(7f)
+                                believer_name.set_nameDestination_y(10f)
+                                believer_name.set_name_textDestination_x(0f)
+                                believer_name.set_name_textDestination_y(0f)
+                                believer_name.set_count(3)
+                                place_3.set_placeText("believer")
+                                place_3.set_placeIsEmpty(false)
+                            } else if (place_4.get_placeIsEmpty() == true) {
+                                believer_name.set_placeCount_x(place_4.get_placeView().x)
+                                believer_name.set_placeCount_y(place_4.get_placeView().y)
+                                place_4.get_placeView().visibility = View.INVISIBLE
+                                believer_name.set_nameDestination_x(-7f)
+                                believer_name.set_nameDestination_y(-10f)
+                                believer_name.set_name_textDestination_x(0f)
+                                believer_name.set_name_textDestination_y(70f)
+                                believer_name.set_count(2)
+                                believer_name.get_imageView().rotation = 180f
+                                place_4.set_placeText("believer")
+                                place_4.set_placeIsEmpty(false)
+                            } else if (place_5.get_placeIsEmpty() == true) {
+                                believer_name.set_placeCount_x(place_5.get_placeView().x)
+                                believer_name.set_placeCount_y(place_5.get_placeView().y)
+                                place_5.get_placeView().visibility = View.INVISIBLE
+                                believer_name.set_nameDestination_x(-7f)
+                                believer_name.set_nameDestination_y(10f)
+                                believer_name.set_name_textDestination_x(0f)
+                                believer_name.set_name_textDestination_y(0f)
+                                believer_name.set_count(1)
+                                place_5.set_placeText("believer")
+                                place_5.set_placeIsEmpty(false)
+                            }
+                            believer_name.set_isNameRunning(true)
+                            believer_name.get_constraintLayout().x =
+                                believer_name.get_placeCount_x() + believer_name.get_nameDestination_x()
+                            believer_name.get_constraintLayout().y =
+                                believer_name.get_placeCount_y() + believer_name.get_nameDestination_y()
+                            believer_name.get_textView().x += believer_name.get_name_textDestination_x()
+                            believer_name.get_textView().y += believer_name.get_name_textDestination_y()
+                            believer_name.get_constraintLayout().startAnimation(fadeInAnimation)
+                            if (place_1.get_placeIsEmpty() == false && place_2.get_placeIsEmpty() == false && place_3.get_placeIsEmpty() == false && place_4.get_placeIsEmpty() == false && place_5.get_placeIsEmpty() == false) {
+                                var nodeList =
+                                    quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                                quotes_author.setText(nodeList[0])
+                                quotes_text.setText(nodeList[1])
+                            }
                         }
-                        else if (place_2.get_placeIsEmpty()==true) {
-                            believer_name.set_placeCount_x(place_2.get_placeView().x)
-                            believer_name.set_placeCount_y(place_2.get_placeView().y)
-                            place_2.get_placeView().visibility= View.INVISIBLE
-                            believer_name.set_nameDestination_x(-9f)
-                            believer_name.set_nameDestination_y(-10f)
-                            believer_name.set_name_textDestination_x(0f)
-                            believer_name.set_name_textDestination_y(70f)
-                            believer_name.set_count(4)
-                            place_2.set_placeText("believer")
-                            place_2.set_placeIsEmpty(false)
-                            believer_name.get_imageView().rotation=180f
-                        }
-                        else if (place_3.get_placeIsEmpty()==true) {
-                            believer_name.set_placeCount_x(place_3.get_placeView().x)
-                            believer_name.set_placeCount_y(place_3.get_placeView().y)
-                            place_3.get_placeView().visibility= View.INVISIBLE
-                            believer_name.set_nameDestination_x(7f)
-                            believer_name.set_nameDestination_y(10f)
-                            believer_name.set_name_textDestination_x(0f)
-                            believer_name.set_name_textDestination_y(0f)
-                            believer_name.set_count(3)
-                            place_3.set_placeText("believer")
-                            place_3.set_placeIsEmpty(false)
-                        }
-                        else if (place_4.get_placeIsEmpty()==true) {
-                            believer_name.set_placeCount_x(place_4.get_placeView().x)
-                            believer_name.set_placeCount_y(place_4.get_placeView().y)
-                            place_4.get_placeView().visibility= View.INVISIBLE
-                            believer_name.set_nameDestination_x(-7f)
-                            believer_name.set_nameDestination_y(-10f)
-                            believer_name.set_name_textDestination_x(0f)
-                            believer_name.set_name_textDestination_y(70f)
-                            believer_name.set_count(2)
-                            believer_name.get_imageView().rotation=180f
-                            place_4.set_placeText("believer")
-                            place_4.set_placeIsEmpty(false)
-                        }
-                        else if (place_5.get_placeIsEmpty()==true) {
-                            believer_name.set_placeCount_x(place_5.get_placeView().x)
-                            believer_name.set_placeCount_y(place_5.get_placeView().y)
-                            place_5.get_placeView().visibility= View.INVISIBLE
-                            believer_name.set_nameDestination_x(-7f)
-                            believer_name.set_nameDestination_y(10f)
-                            believer_name.set_name_textDestination_x(0f)
-                            believer_name.set_name_textDestination_y(0f)
-                            believer_name.set_count(1)
-                            place_5.set_placeText("believer")
-                            place_5.set_placeIsEmpty(false)
-                        }
-                        believer_name.set_isNameRunning(true)
-                        believer_name.get_constraintLayout().x = believer_name.get_placeCount_x() + believer_name.get_nameDestination_x()
-                        believer_name.get_constraintLayout().y = believer_name.get_placeCount_y() + believer_name.get_nameDestination_y()
-                        believer_name.get_textView().x+=believer_name.get_name_textDestination_x()
-                        believer_name.get_textView().y+=believer_name.get_name_textDestination_y()
-                        believer_name.get_constraintLayout().startAnimation(fadeInAnimation)
-                        if (place_1.get_placeIsEmpty()==false && place_2.get_placeIsEmpty()==false && place_3.get_placeIsEmpty()==false && place_4.get_placeIsEmpty()==false && place_5.get_placeIsEmpty()==false){
-                            var nodeList = quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
-                            quotes_author.setText(nodeList[0])
-                            quotes_text.setText(nodeList[1])
-                        }
-                    }
-                    override fun onAnimationRepeat(animation: Animation) {}
-                })
+
+                        override fun onAnimationRepeat(animation: Animation) {}
+                    })
+                }
+            }
+            else if(is_helping==true){
+                quotes_text.text = "Бу төймәгә бассагыз, иманлы дигән мәгънәне белдергән исемнәр чыга"
+                quotes_text.startAnimation(egg_scale)
             }
         }
         rich_name.get_imageView().setOnLongClickListener {
@@ -1106,38 +1240,55 @@ open class MainActivity : AppCompatActivity() {
             true
         }
         celebrity_person1.get_infoView().setOnClickListener {
-         if(is_celebrity_meaning1==false) {
-             celebrity_person1.get_textView().setTextSize(14f)
-             celebrity_person1.get_textView().setText(celebrity_meaning1)
-             is_celebrity_meaning1=true
-         }
-         else
-         {   celebrity_person1.get_textView().setTextSize(16f)
-             celebrity_person1.get_textView().setText(celebrity_name1)
-             is_celebrity_meaning1=false}
+            if (is_helping == false) {
+                if (is_celebrity_meaning1 == false) {
+                    celebrity_person1.get_textView().setTextSize(14f)
+                    celebrity_person1.get_textView().setText(celebrity_meaning1)
+                    is_celebrity_meaning1 = true
+                } else {
+                    celebrity_person1.get_textView().setTextSize(16f)
+                    celebrity_person1.get_textView().setText(celebrity_name1)
+                    is_celebrity_meaning1 = false
+                }
+            }
+            else {
+                quotes_text.text = "Бу төймәгә бассагыз, кешенең кем булганын белә аласыз"
+                quotes_text.startAnimation(egg_scale)
+            }
         }
         celebrity_person2.get_infoView().setOnClickListener {
-            if(is_celebrity_meaning2==false)   {
-                celebrity_person2.get_textView().setTextSize(14f)
-                celebrity_person2.get_textView().setText(celebrity_meaning2)
-                is_celebrity_meaning2=true}
-            else {
-                celebrity_person2.get_textView().setTextSize(16f)
-                celebrity_person2.get_textView().setText(celebrity_name2)
-                is_celebrity_meaning2=false
+            if (is_helping == false) {
+                if (is_celebrity_meaning2 == false) {
+                    celebrity_person2.get_textView().setTextSize(14f)
+                    celebrity_person2.get_textView().setText(celebrity_meaning2)
+                    is_celebrity_meaning2 = true
+                } else {
+                    celebrity_person2.get_textView().setTextSize(16f)
+                    celebrity_person2.get_textView().setText(celebrity_name2)
+                    is_celebrity_meaning2 = false
+                }
             }
+            else {
+            quotes_text.text = "Бу төймәгә бассагыз, кешенең кем булганын белә аласыз"
+            quotes_text.startAnimation(egg_scale)
+        }
         }
         celebrity_person3.get_infoView().setOnClickListener {
-            if(is_celebrity_meaning3==false) {
-                celebrity_person3.get_textView().setTextSize(14f)
-                celebrity_person3.get_textView().setText(celebrity_meaning3)
-                is_celebrity_meaning3=true
+            if (is_helping == false) {
+                if (is_celebrity_meaning3 == false) {
+                    celebrity_person3.get_textView().setTextSize(14f)
+                    celebrity_person3.get_textView().setText(celebrity_meaning3)
+                    is_celebrity_meaning3 = true
+                } else {
+                    celebrity_person3.get_textView().setTextSize(16f)
+                    celebrity_person3.get_textView().setText(celebrity_name3)
+                    is_celebrity_meaning3 = false
+                }
             }
             else {
-                celebrity_person3.get_textView().setTextSize(16f)
-                celebrity_person3.get_textView().setText(celebrity_name3)
-                is_celebrity_meaning3=false
-            }
+            quotes_text.text = "Бу төймәгә бассагыз, кешенең кем булганын белә аласыз"
+            quotes_text.startAnimation(egg_scale)
+        }
         }
         addListener(result,meaning,name,character_type, quotesSearching,
             place_1,place_2,place_3,place_4,place_5,quotes_author,quotes_text,
