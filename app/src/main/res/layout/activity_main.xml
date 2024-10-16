@@ -707,19 +707,6 @@
         app:srcCompat="@drawable/egg_1" />
 
     <ImageView
-        android:id="@+id/destination"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.399"
-        app:srcCompat="@drawable/place_of_conbination" />
-
-    <ImageView
         android:id="@+id/wings"
         android:layout_width="75dp"
         android:layout_height="75dp"

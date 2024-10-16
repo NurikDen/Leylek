@@ -1,4 +1,6 @@
 package com.aocompany.leylek
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
 import android.content.Context
@@ -27,7 +29,6 @@ open class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        lateinit var videoView: VideoView
         val button = findViewById<ConstraintLayout>(R.id.button)
         val name = findViewById<TextView>(R.id.name)
         val meaning = findViewById<TextView>(R.id.meaning)
@@ -38,7 +39,6 @@ open class MainActivity : AppCompatActivity() {
         val help = findViewById<ImageView>(R.id.question_button_white)
         val background = findViewById<ImageView>(R.id.background)
         val wings = findViewById<ImageView>(R.id.wings)
-        val destination = findViewById<ImageView>(R.id.destination)
         var celebrity_name1 = ""
         var celebrity_name2 = ""
         var celebrity_name3 = ""
@@ -61,22 +61,24 @@ open class MainActivity : AppCompatActivity() {
         var quotesSearching = Quotes_searching()
         var celebritiesSearching = Celebrities_searching()
 
-        val rich_name = Name(findViewById(R.id.rich),findViewById<ImageView>(R.id.rich_button),findViewById<ImageView>(R.id.rich_text),false,0f,0f,0f,0f,0f,0f,0)
-        val strong_name = Name(findViewById(R.id.strong),findViewById<ImageView>(R.id.strong_button),findViewById<ImageView>(R.id.strong_text),false,0f,0f,0f,0f,0f,0f,0)
-        val smart_name = Name(findViewById(R.id.smart),findViewById<ImageView>(R.id.smart_button),findViewById<ImageView>(R.id.smart_text),false,0f,0f,0f,0f,0f,0f,0)
-        val beautiful_name = Name(findViewById(R.id.beautiful),findViewById<ImageView>(R.id.beautiful_button),findViewById<ImageView>(R.id.beautiful_text),false,0f,0f,0f,0f,0f,0f,0)
-        val believer_name = Name(findViewById(R.id.believer),findViewById<ImageView>(R.id.believer_button),findViewById<ImageView>(R.id.believer_text),false,0f,0f,0f,0f,0f,0f,0)
+        val rich_name = Name(findViewById(R.id.rich),findViewById(R.id.rich_button),findViewById<ImageView>(R.id.rich_text),false,0f,0f,0f,0f,0f,0f,0)
+        val strong_name = Name(findViewById(R.id.strong),findViewById(R.id.strong_button),findViewById<ImageView>(R.id.strong_text),false,0f,0f,0f,0f,0f,0f,0)
+        val smart_name = Name(findViewById(R.id.smart),findViewById(R.id.smart_button),findViewById<ImageView>(R.id.smart_text),false,0f,0f,0f,0f,0f,0f,0)
+        val beautiful_name = Name(findViewById(R.id.beautiful),findViewById(R.id.beautiful_button),findViewById<ImageView>(R.id.beautiful_text),false,0f,0f,0f,0f,0f,0f,0)
+        val believer_name = Name(findViewById(R.id.believer),findViewById(R.id.believer_button),findViewById<ImageView>(R.id.believer_text),false,0f,0f,0f,0f,0f,0f,0)
 
-        val place_1 = Place(findViewById<ImageView>(R.id.place1),"",true)
-        val place_2 = Place(findViewById<ImageView>(R.id.place2),"",true)
-        val place_3 = Place(findViewById<ImageView>(R.id.place3),"",true)
-        val place_4 = Place(findViewById<ImageView>(R.id.place4),"",true)
-        val place_5 = Place(findViewById<ImageView>(R.id.place5),"",true)
+        val place_1 = Place(findViewById(R.id.place1),"",true)
+        val place_2 = Place(findViewById(R.id.place2),"",true)
+        val place_3 = Place(findViewById(R.id.place3),"",true)
+        val place_4 = Place(findViewById(R.id.place4),"",true)
+        val place_5 = Place(findViewById(R.id.place5),"",true)
 
         val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fadeout)
         val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein)
+        val rotateAnimation = AnimationUtils.loadAnimation(this,R.anim.rotate)
         fadeOutAnimation.fillAfter = true
         fadeInAnimation.fillAfter = true
+        rotateAnimation.fillAfter = true
 
         mExplosionField = ExplosionField.attach2Window(this)
 
@@ -115,8 +117,7 @@ open class MainActivity : AppCompatActivity() {
                 quotes_text.text =
                     "Сәлам, сорау булса, берәр төймәгә бас. Мин шул төймә турында сиңа сөйләрмен"
                 egg_view.startAnimation(egg_scale)
-                wings.startAnimation(wings_anim)
-                rotateImageView(wings)
+                wings.startAnimation(rotateAnimation)
                 egg_view.setImageResource(R.drawable.leylek_happy)
                 quotes_text.startAnimation(egg_scale)
             }
@@ -199,20 +200,20 @@ open class MainActivity : AppCompatActivity() {
                 } else if (count_click == 6) {
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    rotateImageView(wings)
+                    wings.startAnimation(rotateAnimation)
                     quotes_text.y = egg_view.y
                     quotes_text.text = "Сәлам, минем исемем Ләйләк"
                     quotes_text.startAnimation(egg_scale)
                 } else if (count_click == 7) {
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    rotateImageView(wings)
+                    wings.startAnimation(rotateAnimation)
                     quotes_text.text = "Мин кешеләргә иң матур һәм мәгънәле исем табарга булышам"
                     quotes_text.startAnimation(egg_scale)
                 } else if (count_click == 8) {
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    rotateImageView(wings)
+                    wings.startAnimation(rotateAnimation)
                     quotes_text.text = "Берәр сыйфатны сайлагыз"
                     quotes_text.startAnimation(egg_scale)
                     rich_name.get_imageView().visibility = View.VISIBLE
@@ -228,7 +229,7 @@ open class MainActivity : AppCompatActivity() {
                 } else if (count_click == 9) {
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    rotateImageView(wings)
+                    wings.startAnimation(rotateAnimation)
                     quotes_text.text = "Шәп сайлау!"
                     quotes_text.startAnimation(egg_scale)
                 }
@@ -244,14 +245,14 @@ open class MainActivity : AppCompatActivity() {
                     result.visibility = View.VISIBLE
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    rotateImageView(wings)
+                    wings.startAnimation(rotateAnimation)
                     quotes_text.text = "Бигрәк матур исем! Хәзер сез бу исемнең мәгънәсен карый аласыз!"
                     quotes_text.startAnimation(egg_scale)
                 }
              else if (count_click == 11) {
                  wings.startAnimation(wings_anim)
                 egg_view.startAnimation(egg_scale)
-                rotateImageView(wings)
+                wings.startAnimation(rotateAnimation)
                 quotes_text.text =
                     "Ярар, сораулар булса мине монда таба аласыз, очрашуларга кадәр! Безнең кушымтаны сайлагавыгыз өчен зур рәхмәт!)"
                 quotes_text.startAnimation(egg_scale)
@@ -259,8 +260,6 @@ open class MainActivity : AppCompatActivity() {
             }
                 else if (count_click == 12) {
                     egg_view.visibility = View.INVISIBLE
-                    wings.visibility = View.INVISIBLE
-                    wings.visibility = View.INVISIBLE
                     quotes_text.y = quotes_author.y-400f
                     quotes_text.startAnimation(egg_scale)
                     background.visibility = View.VISIBLE
@@ -475,7 +474,7 @@ open class MainActivity : AppCompatActivity() {
                 quotes_text.startAnimation(egg_scale)
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                rotateImageView(wings)
+                wings.startAnimation(rotateAnimation)
             }
         }
         men_women.setOnClickListener {
@@ -486,7 +485,7 @@ open class MainActivity : AppCompatActivity() {
             else if (is_helping == true){
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                rotateImageView(wings)
+                wings.startAnimation(rotateAnimation)
                 quotes_text.text = "Бу төймәгә бассагыз, хатын-кыз исемнәренә күчә аласыз"
                 quotes_text.startAnimation(egg_scale)
             }
@@ -525,7 +524,7 @@ open class MainActivity : AppCompatActivity() {
             if(is_helping == true){
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                rotateImageView(wings)
+                wings.startAnimation(rotateAnimation)
                 quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
                 quotes_text.startAnimation(egg_scale)
             }
@@ -534,7 +533,7 @@ open class MainActivity : AppCompatActivity() {
             if(is_helping == true){
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                rotateImageView(wings)
+                wings.startAnimation(rotateAnimation)
                 quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
                 quotes_text.startAnimation(egg_scale)
             }
@@ -543,7 +542,7 @@ open class MainActivity : AppCompatActivity() {
             if(is_helping == true){
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                rotateImageView(wings)
+                wings.startAnimation(rotateAnimation)
                 quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
                 quotes_text.startAnimation(egg_scale)
             }
@@ -1351,10 +1350,4 @@ open class MainActivity : AppCompatActivity() {
                 true
             }
         }
-    private fun rotateImageView(imageView: ImageView) {
-        val animator = ObjectAnimator.ofFloat(imageView, "rotation", 0f, -120f)
-        animator.duration = 800
-        animator.start()
-    }
-
     }
