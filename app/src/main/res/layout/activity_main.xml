@@ -504,10 +504,10 @@
         android:layout_height="128dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toEndOf="@+id/best_name_button_white"
         app:layout_constraintTop_toTopOf="@+id/believer"
-        app:layout_constraintVertical_bias="0.497"
+        app:layout_constraintVertical_bias="0.74"
         app:srcCompat="@drawable/white_button_ask" />
 
     <TextView

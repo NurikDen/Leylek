@@ -145,6 +145,7 @@ class WomanMainActivity: AppCompatActivity() {
                         else if (place_3.get_placeIsEmpty()==true) {
                             rich_name.set_placeCount_x(place_3.get_placeView().x)
                             rich_name.set_placeCount_y(place_3.get_placeView().y)
+                            rich_name.get_textView().rotation = -90f
                             place_3.get_placeView().visibility= View.INVISIBLE
                             rich_name.set_count(3)
                             rich_name.set_nameDestination_x(25f)
@@ -212,7 +213,6 @@ class WomanMainActivity: AppCompatActivity() {
                             place_2.get_placeView().visibility= View.INVISIBLE
                             happy_name.set_count(4)
                             happy_name.set_nameDestination_y(-35f)
-                            happy_name.get_constraintLayout().rotation=0f
                             place_2.set_placeText("happy")
                             place_2.set_placeIsEmpty(false)
                         }
@@ -221,24 +221,26 @@ class WomanMainActivity: AppCompatActivity() {
                             happy_name.set_placeCount_y(place_3.get_placeView().y)
                             place_3.get_placeView().visibility= View.INVISIBLE
                             happy_name.set_count(3)
-                            happy_name.set_name_textDestination_x(25f)
+                            happy_name.set_name_textDestination_x(-30f)
+                            happy_name.set_name_textDestination_y(-30f)
                             happy_name.set_nameDestination_y(-35f)
                             place_3.set_placeText("happy")
                             place_3.set_placeIsEmpty(false)
                             happy_name.get_constraintLayout().rotation=45f
-                            happy_name.get_textView().rotation = -90f
+                            happy_name.get_textView().rotation = -45f
                         }
                         else if (place_4.get_placeIsEmpty()==true) {
                             happy_name.set_placeCount_x(place_4.get_placeView().x)
                             happy_name.set_placeCount_y(place_4.get_placeView().y)
                             place_4.get_placeView().visibility= View.INVISIBLE
                             happy_name.set_count(2)
-                            happy_name.set_name_textDestination_x(25f)
+                            happy_name.set_name_textDestination_x(20f)
+                            happy_name.set_name_textDestination_y(25f)
                             happy_name.set_nameDestination_y(-35f)
                             happy_name.get_constraintLayout().rotation=90f
                             place_4.set_placeText("happy")
                             place_4.set_placeIsEmpty(false)
-                            happy_name.get_textView().rotation = -90f
+                            happy_name.get_textView().rotation = -135f
                         }
                         else if (place_5.get_placeIsEmpty()==true) {
                             happy_name.set_placeCount_x(place_5.get_placeView().x)
@@ -248,7 +250,7 @@ class WomanMainActivity: AppCompatActivity() {
                             happy_name.set_nameDestination_y(-35f)
                             place_5.set_placeText("happy")
                             place_5.set_placeIsEmpty(false)
-                            happy_name.get_textView().rotation = -180f
+                            happy_name.get_textView().rotation = 225f
                             happy_name.get_constraintLayout().rotation=135f
                         }
                         happy_name.set_isNameRunning(true)
@@ -291,17 +293,21 @@ class WomanMainActivity: AppCompatActivity() {
                             smart_name.set_placeCount_x(place_2.get_placeView().x)
                             smart_name.set_placeCount_y(place_2.get_placeView().y)
                             place_2.get_placeView().visibility= View.INVISIBLE
+                            smart_name.set_name_textDestination_y(80f)
+                            smart_name.set_name_textDestination_x(0f)
                             smart_name.set_nameDestination_y(-35f)
                             smart_name.set_nameDestination_x(25f)
                             smart_name.set_count(4)
                             place_2.set_placeText("smart")
                             place_2.set_placeIsEmpty(false)
                             smart_name.get_constraintLayout().rotation=-45f
+                            smart_name.get_textView().rotation = 90f
                         }
                         else if (place_3.get_placeIsEmpty()==true) {
                             smart_name.set_placeCount_x(place_3.get_placeView().x)
                             smart_name.set_placeCount_y(place_3.get_placeView().y)
                             place_3.get_placeView().visibility= View.INVISIBLE
+                            smart_name.set_name_textDestination_y(0f)
                             smart_name.set_nameDestination_y(-35f)
                             smart_name.set_nameDestination_x(25f)
                             smart_name.set_count(3)
@@ -313,10 +319,13 @@ class WomanMainActivity: AppCompatActivity() {
                             smart_name.set_placeCount_y(place_4.get_placeView().y)
                             place_4.get_placeView().visibility= View.INVISIBLE
                             smart_name.set_count(2)
+                            smart_name.set_name_textDestination_y(80f)
+                            smart_name.set_name_textDestination_x(0f)
                             smart_name.set_nameDestination_y(-35f)
                             smart_name.set_nameDestination_x(25f)
                             smart_name.get_constraintLayout().rotation=45f
                             place_4.set_placeText("smart")
+                            smart_name.get_textView().rotation = -90f
                             place_4.set_placeIsEmpty(false)
                         }
                         else if (place_5.get_placeIsEmpty()==true) {
@@ -324,7 +333,8 @@ class WomanMainActivity: AppCompatActivity() {
                             smart_name.set_placeCount_y(place_5.get_placeView().y)
                             place_5.get_placeView().visibility= View.INVISIBLE
                             smart_name.set_nameDestination_y(-35f)
-                            smart_name.set_name_textDestination_y(50f)
+                            smart_name.set_name_textDestination_y(60f)
+                            smart_name.set_name_textDestination_x(5f)
                             smart_name.set_nameDestination_x(25f)
                             smart_name.set_count(1)
                             smart_name.get_constraintLayout().rotation=90f
@@ -360,7 +370,7 @@ class WomanMainActivity: AppCompatActivity() {
                             place_1.get_placeView().visibility= View.INVISIBLE
                             beautiful_name.get_constraintLayout().rotation=-135f
                             beautiful_name.set_nameDestination_x(-15f)
-                            beautiful_name.get_textView().rotation=90f
+                            beautiful_name.get_textView().rotation=135f
                             beautiful_name.set_nameDestination_y(-35f)
                             beautiful_name.set_count(5)
                             place_1.set_placeText("beautiful")
@@ -386,6 +396,7 @@ class WomanMainActivity: AppCompatActivity() {
                             beautiful_name.set_nameDestination_y(-35f)
                             place_3.set_placeIsEmpty(false)
                             beautiful_name.get_constraintLayout().rotation=-45f
+                            beautiful_name.get_textView().rotation=45f
                         }
                         else if (place_4.get_placeIsEmpty()==true) {
                             beautiful_name.set_placeCount_x(place_4.get_placeView().x)
@@ -395,6 +406,7 @@ class WomanMainActivity: AppCompatActivity() {
                             beautiful_name.set_count(2)
                             place_4.set_placeText("beautiful")
                             place_4.set_placeIsEmpty(false)
+                            beautiful_name.get_textView().rotation=-45f
                         }
                         else if (place_5.get_placeIsEmpty()==true) {
                             beautiful_name.set_placeCount_x(place_5.get_placeView().x)
@@ -405,6 +417,7 @@ class WomanMainActivity: AppCompatActivity() {
                             place_5.set_placeIsEmpty(false)
                             beautiful_name.get_constraintLayout().rotation=45f
                             beautiful_name.set_nameDestination_y(-35f)
+                            beautiful_name.get_textView().rotation=-45f
                         }
                         beautiful_name.set_isNameRunning(true)
                         beautiful_name.get_constraintLayout().x = beautiful_name.get_placeCount_x()+ beautiful_name.get_nameDestination_x()
@@ -455,6 +468,9 @@ class WomanMainActivity: AppCompatActivity() {
                             place_3.get_placeView().visibility= View.INVISIBLE
                             believer_name.set_nameDestination_x(25f)
                             believer_name.get_constraintLayout().rotation=-90f
+                            believer_name.get_textView().rotation=90f
+                            believer_name.set_name_textDestination_y(10f)
+                            believer_name.set_name_textDestination_x(100f)
                             believer_name.set_count(3)
                             place_3.set_placeText("believer")
                             place_3.set_placeIsEmpty(false)

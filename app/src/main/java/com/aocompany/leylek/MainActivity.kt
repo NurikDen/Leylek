@@ -61,11 +61,11 @@ open class MainActivity : AppCompatActivity() {
         var quotesSearching = Quotes_searching()
         var celebritiesSearching = Celebrities_searching()
 
-        val rich_name = Name(findViewById(R.id.rich),findViewById(R.id.rich_button),findViewById<ImageView>(R.id.rich_text),false,0f,0f,0f,0f,0f,0f,0)
-        val strong_name = Name(findViewById(R.id.strong),findViewById(R.id.strong_button),findViewById<ImageView>(R.id.strong_text),false,0f,0f,0f,0f,0f,0f,0)
-        val smart_name = Name(findViewById(R.id.smart),findViewById(R.id.smart_button),findViewById<ImageView>(R.id.smart_text),false,0f,0f,0f,0f,0f,0f,0)
-        val beautiful_name = Name(findViewById(R.id.beautiful),findViewById(R.id.beautiful_button),findViewById<ImageView>(R.id.beautiful_text),false,0f,0f,0f,0f,0f,0f,0)
-        val believer_name = Name(findViewById(R.id.believer),findViewById(R.id.believer_button),findViewById<ImageView>(R.id.believer_text),false,0f,0f,0f,0f,0f,0f,0)
+        val rich_name = Name(findViewById(R.id.rich),findViewById(R.id.rich_button),findViewById(R.id.rich_text),false,0f,0f,0f,0f,0f,0f,0)
+        val strong_name = Name(findViewById(R.id.strong),findViewById(R.id.strong_button),findViewById(R.id.strong_text),false,0f,0f,0f,0f,0f,0f,0)
+        val smart_name = Name(findViewById(R.id.smart),findViewById(R.id.smart_button),findViewById(R.id.smart_text),false,0f,0f,0f,0f,0f,0f,0)
+        val beautiful_name = Name(findViewById(R.id.beautiful),findViewById(R.id.beautiful_button),findViewById(R.id.beautiful_text),false,0f,0f,0f,0f,0f,0f,0)
+        val believer_name = Name(findViewById(R.id.believer),findViewById(R.id.believer_button),findViewById(R.id.believer_text),false,0f,0f,0f,0f,0f,0f,0)
 
         val place_1 = Place(findViewById(R.id.place1),"",true)
         val place_2 = Place(findViewById(R.id.place2),"",true)
@@ -104,9 +104,11 @@ open class MainActivity : AppCompatActivity() {
 
         val egg_scale = ScaleAnimation(0.8f,1f,0.8f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
             Animation.RELATIVE_TO_SELF, 0.5f)
-        egg_scale.duration = 800
+        egg_scale.duration = 900
+
 
         help.setOnClickListener {
+            quotes_author.text = ""
             if(is_helping == false) {
                 is_helping = true
                 wings.y-=200f
@@ -131,6 +133,12 @@ open class MainActivity : AppCompatActivity() {
                 quotes_text.text = ""
                 quotes_author.text = ""
                 quotes_text.y = quotes_author.y-400f
+                if (place_1.get_placeIsEmpty() == false && place_2.get_placeIsEmpty() == false && place_3.get_placeIsEmpty() == false && place_4.get_placeIsEmpty() == false && place_5.get_placeIsEmpty() == false) {
+                    var nodeList =
+                        quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
+                    quotes_author.setText(nodeList[0])
+                    quotes_text.setText(nodeList[1])
+                }
             }
         }
         if (isFirstRun) {
