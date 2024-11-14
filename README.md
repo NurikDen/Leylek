@@ -39,3 +39,5 @@ This application can help to find best name for future child
 #7.10.2024-#9.10.2024 Instructions for the education
 
 #16.10.2024 Optimization
+
+#14.11.2024 UI optimization
