@@ -63,36 +63,9 @@
         app:layout_constraintTop_toTopOf="@+id/woman_believer"
         app:layout_constraintVertical_bias="0.719" />
 
-    <TextView
-        android:id="@+id/quotes_text_woman"
-        android:layout_width="171dp"
-        android:layout_height="106dp"
-        android:layout_marginBottom="100dp"
-        android:fontFamily="@font/montserrat_alternates_semibold"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultLayout" />
-
-    <TextView
-        android:id="@+id/quotes_author_woman"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_alternates_medium"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quotes_text_woman"
-        app:layout_constraintVertical_bias="0.0" />
-
     <ImageView
         android:id="@+id/background_woman"
-        android:layout_width="372dp"
+        android:layout_width="400dp"
         android:layout_height="712dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -596,5 +569,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/quotes_text_woman"
+        android:layout_width="171dp"
+        android:layout_height="106dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/montserrat_alternates_semibold"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultLayout" />
+
+    <TextView
+        android:id="@+id/quotes_author_woman"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_alternates_semibold"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quotes_text_woman"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

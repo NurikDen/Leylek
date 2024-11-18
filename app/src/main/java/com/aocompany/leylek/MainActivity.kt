@@ -1,29 +1,23 @@
 package com.aocompany.leylek
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
 import android.view.animation.ScaleAnimation
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.isVisible
 import org.w3c.dom.Document
 import javax.xml.parsers.DocumentBuilderFactory
 
 
+@Suppress("DEPRECATION")
 open class MainActivity : AppCompatActivity() {
     private var mExplosionField: ExplosionField? = null
     @SuppressLint("MissingInflatedId", "CutPasteId", "ResourceAsColor")
@@ -77,6 +71,8 @@ open class MainActivity : AppCompatActivity() {
 
         val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fadeout)
         val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein)
+        val fadeOutWings = AnimationUtils.loadAnimation(this, R.anim.wingsfadeout)
+        fadeOutWings.fillAfter = true
         fadeOutAnimation.fillAfter = true
         fadeInAnimation.fillAfter = true
 
@@ -87,7 +83,7 @@ open class MainActivity : AppCompatActivity() {
         var isFirstRun = sharedPreferences.getBoolean("isFirstRun", true)
 
         val rotationAnimator = ObjectAnimator.ofFloat(wings, "rotation", 0f, -120f)
-        rotationAnimator.duration = 1000
+        rotationAnimator.duration = 600
 
         val shaking = TranslateAnimation(
             0f, 0f,
@@ -99,9 +95,9 @@ open class MainActivity : AppCompatActivity() {
         var count_click = 0
 
         val wings_anim = TranslateAnimation(
-            30f, 120f,
+            40f, 120f,
             0f,
-            -90f)
+            -70f)
         wings_anim.duration = 800
         wings_anim.fillAfter = true
         val egg_scale = ScaleAnimation(0.8f,1f,0.8f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
@@ -118,6 +114,7 @@ open class MainActivity : AppCompatActivity() {
                 egg_view.visibility = View.VISIBLE
                 wings.visibility = View.VISIBLE
                 quotes_text.y = egg_view.y+200f
+                quotes_text.x += 200f
                 quotes_text.text =
                     "Сәлам, сорау булса, берәр төймәгә бас. Мин шул төймә турында сиңа сөйләрмен"
                 egg_view.startAnimation(egg_scale)
@@ -127,12 +124,12 @@ open class MainActivity : AppCompatActivity() {
                 quotes_text.startAnimation(egg_scale)
             }
             else if(is_helping == true) {
+                wings.startAnimation(fadeOutWings)
+                egg_view.startAnimation(fadeOutWings)
                 is_helping = false
                 egg_view.visibility = View.INVISIBLE
-                wings.visibility = View.INVISIBLE
+                quotes_text.x -= 200f
                 quotes_text.y = egg_view.y
-                egg_view.y += 200f
-                wings.y +=200f
                 quotes_text.text = ""
                 quotes_author.text = ""
                 quotes_text.y = quotes_author.y-400f
@@ -142,6 +139,8 @@ open class MainActivity : AppCompatActivity() {
                     quotes_author.setText(nodeList[0])
                     quotes_text.setText(nodeList[1])
                 }
+                egg_view.y += 200f
+                wings.y +=200f
             }
         }
         if (isFirstRun) {
@@ -169,6 +168,7 @@ open class MainActivity : AppCompatActivity() {
             quotes_text.startAnimation(egg_scale)
             editor.putBoolean("isFirstRun", false)
             editor.apply()
+            help.isClickable = false
         }
         else{
             val anim_men = TranslateAnimation(
@@ -213,6 +213,7 @@ open class MainActivity : AppCompatActivity() {
                     wings.startAnimation(wings_anim)
                     rotationAnimator.start()
                     quotes_text.y = egg_view.y
+                    quotes_text.x += 200f
                     quotes_text.text = "Сәлам, минем исемем Ләйләк"
                     quotes_text.startAnimation(egg_scale)
                 } else if (count_click == 7) {
@@ -270,6 +271,7 @@ open class MainActivity : AppCompatActivity() {
                 help.visibility = View.VISIBLE
             }
                 else if (count_click == 12) {
+                    wings.startAnimation(fadeOutWings)
                     egg_view.visibility = View.INVISIBLE
                     quotes_text.y = quotes_author.y-400f
                     quotes_text.startAnimation(egg_scale)
@@ -279,6 +281,7 @@ open class MainActivity : AppCompatActivity() {
                     quotes_text.text = ""
                     isFirstRun = false
                     count_click = 0
+                    help.isClickable = true
                 }
             }
         }

@@ -181,7 +181,7 @@
         <character>Баш җитәкче</character>
     </names>
 <names>
-        <name>Алмас</name>
+        <name>Алмаз</name>
         <beautiful>3</beautiful>
         <smart>1</smart>
         <strong>2</strong>
@@ -280,7 +280,7 @@
         <character>Юмарт</character>
     </names>
 <names>
-        <name>Әклим</name>
+        <name>Әкълим</name>
         <beautiful>2</beautiful>
         <smart>2</smart>
         <strong>2</strong>
@@ -298,7 +298,7 @@
         <character>Кадерле</character>
     </names>
 <names>
-      <name>Әззәм</name>
+      <name>Әзһәм</name>
        <beautiful>2</beautiful>
         <smart>1</smart>
         <strong>5</strong>
@@ -370,7 +370,7 @@
         <character>Акыллы, зирәк</character>
      </names>
 <names>
-        <name>Әнсәр</name>
+        <name>Ансар</name>
    <beautiful>1</beautiful>
         <smart>3</smart>
         <strong>3</strong>
@@ -703,7 +703,7 @@
         <character>Бик бай</character>
         </names>
 <names>
-        <name>Биләл</name>
+        <name>Билал</name>
      <beautiful>3</beautiful>
         <smart>1</smart>
         <strong>3</strong>
@@ -730,7 +730,7 @@
         <character>Яшь </character>
         </names>
 <names>
-        <name>Богдай</name>
+        <name>Богъдай</name>
      <beautiful>1</beautiful>
         <smart>3</smart>
         <strong>3</strong>
@@ -820,7 +820,7 @@
         <character>Алладан курка торган кеше</character>
         </names>
 <names>
-        <name>Васыйм</name>
+        <name>Вәсим</name>
      <beautiful>5</beautiful>
         <smart>1</smart>
         <strong>2</strong>
@@ -874,7 +874,7 @@
         <character>Изге</character>
         </names>
 <names>
-        <name>Васыйль</name>
+        <name>Васыйл</name>
      <beautiful>1</beautiful>
         <smart>1</smart>
         <strong>4</strong>
@@ -1144,7 +1144,7 @@
         <character>Матур</character>
         </names>
 <names>
-         <name>Мәвлид</name>
+         <name>Мәүлид</name>
      <beautiful>3</beautiful>
         <smart>1</smart>
         <strong>3</strong>
@@ -1180,7 +1180,7 @@
         <character>Җиңүче</character>
          </names>
 <names>
-      <name>Мәксуд</name>
+      <name>Мәкъсуд</name>
      <beautiful>2</beautiful>
         <smart>1</smart>
         <strong>1</strong>
@@ -1486,15 +1486,6 @@
         <character>Арслан</character>
          </names>
 <names>
-         <name>Хәйреланам</name>
-     <beautiful>2</beautiful>
-        <smart>2</smart>
-        <strong>2</strong>
-        <believer>3</believer>
-        <rich>1</rich>
-        <character>Кешеләрнең иң яхшысы</character>
-         </names>
-<names>
          <name>Хәернәс</name>
      <beautiful>3</beautiful>
         <smart>2</smart>
@@ -1513,33 +1504,6 @@
         <character>Диндә булучы</character>
          </names>
 <names>
-         <name>Чал</name>
-     <beautiful>2</beautiful>
-        <smart>1</smart>
-        <strong>3</strong>
-        <believer>2</believer>
-        <rich>2</rich>
-        <character>Таш</character>
-         </names>
-<names>
-         <name>Чалтаймас</name>
-     <beautiful>1</beautiful>
-        <smart>2</smart>
-        <strong>3</strong>
-        <believer>2</believer>
-        <rich>2</rich>
-        <character>Нык</character>
-         </names>
-<names>
-         <name>Чалым</name>
-     <beautiful>2</beautiful>
-        <smart>2</smart>
-        <strong>3</strong>
-        <believer>1</believer>
-        <rich>2</rich>
-        <character>Атасына охшый</character>
-         </names>
-<names>
          <name>Чыңгыз</name>
      <beautiful>2</beautiful>
         <smart>2</smart>
@@ -1547,15 +1511,6 @@
         <believer>1</believer>
         <rich>2</rich>
         <character>Бөек</character>
-         </names>
-<names>
-         <name>Чуклы</name>
-     <beautiful>2</beautiful>
-        <smart>2</smart>
-        <strong>1</strong>
-        <believer>1</believer>
-        <rich>4</rich>
-        <character>Бай</character>
          </names>
 <names>
          <name>Шәмселислам</name>
@@ -1567,7 +1522,7 @@
         <character>Ислам кояшы</character>
          </names>
 <names>
-         <name>Шәмсекай</name>
+         <name>Шәмсекәй</name>
      <beautiful>3</beautiful>
         <smart>1</smart>
         <strong>1</strong>
@@ -1585,15 +1540,6 @@
         <character>Патша</character>
          </names>
 <names>
-         <name>Шатрух</name>
-     <beautiful>3</beautiful>
-        <smart>1</smart>
-        <strong>1</strong>
-        <believer>3</believer>
-        <rich>2</rich>
-        <character>Тормыш сөючән</character>
-         </names>
-<names>
          <name>Ирмөхәммәд</name>
      <beautiful>1</beautiful>
         <smart>2</smart>
@@ -1603,67 +1549,22 @@
         <character>Каһарман</character>
          </names>
 <names>
-         <name>Юаш</name>
-     <beautiful>2</beautiful>
-        <smart>3</smart>
-        <strong>1</strong>
-        <believer>3</believer>
-        <rich>1</rich>
-        <character>Әти-әнине тыңлый торган</character>
-         </names>
-<names>
-         <name>Юзык</name>
-     <beautiful>1</beautiful>
-        <smart>3</smart>
-        <strong>3</strong>
-        <believer>2</believer>
-        <rich>1</rich>
-        <character>Акыл, тәртип</character>
-         </names>
-<names>
-         <name>Юлдаш</name>
-     <beautiful>1</beautiful>
-        <smart>2</smart>
-        <strong>3</strong>
-        <believer>3</believer>
-        <rich>1</rich>
-        <character>Дус, иптәш</character>
-         </names>
-<names>
-         <name>Юма</name>
+         <name>Юныс</name>
      <beautiful>2</beautiful>
         <smart>1</smart>
         <strong>1</strong>
         <believer>4</believer>
         <rich>2</rich>
-        <character>Җомга</character>
+        <character>хәрәкәт</character>
          </names>
 <names>
-         <name>Яган</name>
+         <name>Якуп</name>
      <beautiful>2</beautiful>
         <smart>1</smart>
         <strong>4</strong>
         <believer>1</believer>
         <rich>2</rich>
-        <character>Фил</character>
-         </names>
-<names>
-         <name>Ялгач</name>
-     <beautiful>1</beautiful>
-        <smart>3</smart>
-        <strong>2</strong>
-        <believer>2</believer>
-        <rich>2</rich>
-        <character>Дәвамчы</character>
-         </names>
-<names>
-            <name>Ямгырчы</name>
-     <beautiful>2</beautiful>
-        <smart>2</smart>
-        <strong>2</strong>
-        <believer>1</believer>
-        <rich>3</rich>
-        <character>Яңгыр бирүче</character>
+        <character>артыннан килүче</character>
          </names>
 <names>
          <name>Җанбай</name>
@@ -1673,15 +1574,6 @@
         <believer>2</believer>
         <rich>2</rich>
         <character>Кадерле бала</character>
-         </names>
-<names>
-         <name>Җангораз</name>
-     <beautiful>3</beautiful>
-        <smart>2</smart>
-        <strong>2</strong>
-        <believer>1</believer>
-        <rich>2</rich>
-        <character>Яңа бәхет</character>
          </names>
 </man_names>
 

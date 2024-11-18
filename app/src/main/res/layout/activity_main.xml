@@ -24,50 +24,6 @@
         app:layout_constraintVertical_bias="0.531"
         app:srcCompat="@drawable/background" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/best_name_button_white"
-        android:layout_width="161dp"
-        android:layout_height="115dp"
-        android:layout_marginEnd="120dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rich">
-
-        <ImageView
-            android:id="@+id/best_name_button_white_image"
-            android:layout_width="162dp"
-            android:layout_height="115dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/white_button_best" />
-
-        <TextView
-            android:id="@+id/textView"
-            style="@android:style/Widget.Material.TextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_alternates"
-            android:rotation="-35"
-            android:text="0"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="#FFFFFF"
-            android:textColorHighlight="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textColorLink="#FFFFFF"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.602"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.634" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ImageView
         android:id="@+id/place5"
         android:layout_width="87dp"
@@ -504,11 +460,9 @@
         android:layout_width="60dp"
         android:layout_height="80dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toEndOf="@+id/best_name_button_white"
         app:layout_constraintTop_toTopOf="@+id/believer"
         app:layout_constraintVertical_bias="0.74"
         app:srcCompat="@drawable/white_button_ask" />
@@ -530,16 +484,11 @@
         android:id="@+id/quotes_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:fontFamily="@font/montserrat_alternates_medium"
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/question_button_white"
-        app:layout_constraintHorizontal_bias="0.656"
-        app:layout_constraintStart_toStartOf="@+id/best_name_button_white"
-        app:layout_constraintTop_toTopOf="@+id/best_name_button_white"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintEnd_toEndOf="@+id/question_button_white" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/resultLayout_1"

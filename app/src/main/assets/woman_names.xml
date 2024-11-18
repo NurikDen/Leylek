@@ -10,7 +10,7 @@
         <character>Юатучы, дәвалаучы</character>
     </names>
 <names>
-        <name>Айгел</name>
+        <name>Айгөл</name>
         <beautiful>6</beautiful>
         <smart>1</smart>
         <happy>0</happy>
@@ -64,7 +64,7 @@
         <character>Бөек</character>
     </names>
 <names>
-        <name>Әклимә</name>
+        <name>Әкълимә</name>
         <beautiful>2</beautiful>
         <smart>2</smart>
         <happy>2</happy>
@@ -100,7 +100,7 @@
         <character>Бикә</character>
     </names>
 <names>
-        <name>Бархәт</name>
+        <name>Бәрхәт</name>
         <beautiful>4</beautiful>
         <smart>0</smart>
         <happy>2</happy>
@@ -136,7 +136,7 @@
         <character>Матур</character>
     </names>
 <names>
-        <name>Гәлимә</name>
+        <name>Галимә</name>
         <beautiful>0</beautiful>
         <smart>8</smart>
         <happy>0</happy>
@@ -214,7 +214,7 @@
         <happy>0</happy>
         <believer>0</believer>
         <rich>2</rich>
-        <character>Сихерле йөрәк, яраткан</character>
+        <character>Яраткан</character>
     </names>
 <names>
         <name>Диләфрүз</name>
@@ -289,7 +289,7 @@
                 <character>Якты</character>
     </names>
 <names>
-        <name>Зәхирә</name>
+        <name>Заһирә</name>
         <beautiful>1</beautiful>
         <smart>4</smart>
         <happy>1</happy>
@@ -434,7 +434,7 @@
                 <character>Яраткан</character>
     </names>
  <names>
-        <name>Мәвлюдә</name>
+        <name>Мәүлидә</name>
         <beautiful>4</beautiful>
         <smart>2</smart>
         <happy>2</happy>
@@ -461,7 +461,7 @@
                 <character>Патшабикә</character>
     </names>
  <names>
-        <name>Мөхлиса</name>
+        <name>Мөхлисә</name>
         <beautiful>0</beautiful>
         <smart>6</smart>
         <happy>2</happy>
@@ -551,13 +551,13 @@
                 <character>беренче</character>
     </names>
 <names>
-        <name>Рашидә</name>
+        <name>Рәшидә</name>
         <beautiful>0</beautiful>
         <smart>2</smart>
         <happy>2</happy>
         <believer>5</believer>
         <rich>1</rich>
-                <character>Дерес юлдан барган кеше</character>
+                <character>Дөрес юлдан барган кеше</character>
     </names>
 <names>
         <name>Резидә</name>
@@ -731,7 +731,7 @@
                 <character>Өмет</character>
     </names>
 <names>
-        <name>Фәвзия</name>
+        <name>Фәүзия</name>
         <beautiful>3</beautiful>
         <smart>3</smart>
         <happy>0</happy>
@@ -767,7 +767,7 @@
                 <character>Йөрәк, якты битле</character>
     </names>
 <names>
-        <name>Филюзә</name>
+        <name>Филүзә</name>
         <beautiful>1</beautiful>
         <smart>4</smart>
         <happy>2</happy>
@@ -812,7 +812,7 @@
         <character>Явыз</character>
     </names>
 <names>
-        <name>Хадия</name>
+        <name>Хәдия</name>
         <beautiful>3</beautiful>
         <smart>0</smart>
         <happy>4</happy>
@@ -839,7 +839,7 @@
                 <character>Иртәнге йолдыз</character>
     </names>
 <names>
-        <name>Халимә</name>
+        <name>Хәлимә</name>
         <beautiful>3</beautiful>
         <smart>3</smart>
         <happy>3</happy>
