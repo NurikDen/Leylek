@@ -10,8 +10,8 @@ import javax.xml.parsers.DocumentBuilderFactory
 class Searching: MainActivity(){
     fun searching(
         rich_int: Int,
-        strong_int: Int,
-        smart_happy_int: Int,
+        smart_int: Int,
+        strong_happy_int: Int,
         beautiful_int: Int,
         believer_int: Int, gender: String, document: Document, nameNodes: NodeList, nodes: NodeList
     ): ArrayList<String> {
@@ -24,17 +24,17 @@ class Searching: MainActivity(){
         var number_of_character = 0
         val randint_1 = random.nextInt(nameNodes.length - 25)
         val randint_2 = randint_1 + 25
-        val total = rich_int + strong_int + smart_happy_int + beautiful_int + believer_int
+        val total = rich_int + smart_int + strong_happy_int + beautiful_int + believer_int
         var strong:Int
         for (i in randint_1 until randint_2) {
             val name = nameNodes.item(i).textContent
             val character = nodes.item(i).textContent
             val rich = getValueForTag(document, "rich", i) * rich_int
-            val smart = getValueForTag(document, "smart", i) * smart_happy_int
+            val smart = getValueForTag(document, "smart", i) * smart_int
             if (gender == "man") {
-                strong = getValueForTag(document, "smart", i) * smart_happy_int
+                strong = getValueForTag(document, "smart", i) * strong_happy_int
             } else{
-                strong = getValueForTag(document, "happy", i) * smart_happy_int
+                strong = getValueForTag(document, "happy", i) * strong_happy_int
             }
             val beautiful = getValueForTag(document, "beautiful", i) * beautiful_int
             val believer = getValueForTag(document, "believer", i) * believer_int
