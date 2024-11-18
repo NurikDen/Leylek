@@ -11,9 +11,10 @@
 
     <ImageView
         android:id="@+id/background"
-        android:layout_width="472dp"
-        android:layout_height="949dp"
-        android:layout_marginBottom="190dp"
+        android:layout_width="500dp"
+        android:layout_height="900dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="180dp"
         android:background="#00000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -488,8 +489,8 @@
 
     <ImageView
         android:id="@+id/men_button"
-        android:layout_width="66dp"
-        android:layout_height="94dp"
+        android:layout_width="59dp"
+        android:layout_height="88dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
@@ -500,8 +501,10 @@
 
     <ImageView
         android:id="@+id/question_button_white"
-        android:layout_width="105dp"
-        android:layout_height="128dp"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"

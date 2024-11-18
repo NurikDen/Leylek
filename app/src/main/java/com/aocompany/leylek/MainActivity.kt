@@ -10,6 +10,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.view.animation.LinearInterpolator
+import android.view.animation.RotateAnimation
 import android.view.animation.ScaleAnimation
 import android.view.animation.TranslateAnimation
 import android.widget.ImageView
@@ -75,16 +77,17 @@ open class MainActivity : AppCompatActivity() {
 
         val fadeOutAnimation = AnimationUtils.loadAnimation(this, R.anim.fadeout)
         val fadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fadein)
-        val rotateAnimation = AnimationUtils.loadAnimation(this,R.anim.rotate)
         fadeOutAnimation.fillAfter = true
         fadeInAnimation.fillAfter = true
-        rotateAnimation.fillAfter = true
 
         mExplosionField = ExplosionField.attach2Window(this)
 
         val sharedPreferences = getSharedPreferences("com.aocompany.leylek", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         var isFirstRun = sharedPreferences.getBoolean("isFirstRun", true)
+
+        val rotationAnimator = ObjectAnimator.ofFloat(wings, "rotation", 0f, -120f)
+        rotationAnimator.duration = 1000
 
         val shaking = TranslateAnimation(
             0f, 0f,
@@ -101,7 +104,6 @@ open class MainActivity : AppCompatActivity() {
             -90f)
         wings_anim.duration = 800
         wings_anim.fillAfter = true
-
         val egg_scale = ScaleAnimation(0.8f,1f,0.8f,1f, Animation.RELATIVE_TO_SELF, 0.5f,
             Animation.RELATIVE_TO_SELF, 0.5f)
         egg_scale.duration = 900
@@ -111,25 +113,26 @@ open class MainActivity : AppCompatActivity() {
             quotes_author.text = ""
             if(is_helping == false) {
                 is_helping = true
-                wings.y-=200f
-                egg_view.y-=200f
+                egg_view.y -= 200f
+                wings.y -=200f
                 egg_view.visibility = View.VISIBLE
                 wings.visibility = View.VISIBLE
                 quotes_text.y = egg_view.y+200f
                 quotes_text.text =
                     "Сәлам, сорау булса, берәр төймәгә бас. Мин шул төймә турында сиңа сөйләрмен"
                 egg_view.startAnimation(egg_scale)
-                wings.startAnimation(rotateAnimation)
+                wings.startAnimation(wings_anim)
+                rotationAnimator.start()
                 egg_view.setImageResource(R.drawable.leylek_happy)
                 quotes_text.startAnimation(egg_scale)
             }
             else if(is_helping == true) {
-                wings.y+=200f
-                egg_view.y+=200f
                 is_helping = false
                 egg_view.visibility = View.INVISIBLE
                 wings.visibility = View.INVISIBLE
                 quotes_text.y = egg_view.y
+                egg_view.y += 200f
+                wings.y +=200f
                 quotes_text.text = ""
                 quotes_author.text = ""
                 quotes_text.y = quotes_author.y-400f
@@ -208,20 +211,20 @@ open class MainActivity : AppCompatActivity() {
                 } else if (count_click == 6) {
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    wings.startAnimation(rotateAnimation)
+                    rotationAnimator.start()
                     quotes_text.y = egg_view.y
                     quotes_text.text = "Сәлам, минем исемем Ләйләк"
                     quotes_text.startAnimation(egg_scale)
                 } else if (count_click == 7) {
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    wings.startAnimation(rotateAnimation)
+                    rotationAnimator.start()
                     quotes_text.text = "Мин кешеләргә иң матур һәм мәгънәле исем табарга булышам"
                     quotes_text.startAnimation(egg_scale)
                 } else if (count_click == 8) {
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    wings.startAnimation(rotateAnimation)
+                    rotationAnimator.start()
                     quotes_text.text = "Берәр сыйфатны сайлагыз"
                     quotes_text.startAnimation(egg_scale)
                     rich_name.get_imageView().visibility = View.VISIBLE
@@ -237,7 +240,7 @@ open class MainActivity : AppCompatActivity() {
                 } else if (count_click == 9) {
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    wings.startAnimation(rotateAnimation)
+                    rotationAnimator.start()
                     quotes_text.text = "Шәп сайлау!"
                     quotes_text.startAnimation(egg_scale)
                 }
@@ -253,14 +256,14 @@ open class MainActivity : AppCompatActivity() {
                     result.visibility = View.VISIBLE
                     egg_view.startAnimation(egg_scale)
                     wings.startAnimation(wings_anim)
-                    wings.startAnimation(rotateAnimation)
+                    rotationAnimator.start()
                     quotes_text.text = "Бигрәк матур исем! Хәзер сез бу исемнең мәгънәсен карый аласыз!"
                     quotes_text.startAnimation(egg_scale)
                 }
              else if (count_click == 11) {
                  wings.startAnimation(wings_anim)
                 egg_view.startAnimation(egg_scale)
-                wings.startAnimation(rotateAnimation)
+                rotationAnimator.start()
                 quotes_text.text =
                     "Ярар, сораулар булса мине монда таба аласыз, очрашуларга кадәр! Безнең кушымтаны сайлагавыгыз өчен зур рәхмәт!)"
                 quotes_text.startAnimation(egg_scale)
@@ -482,7 +485,7 @@ open class MainActivity : AppCompatActivity() {
                 quotes_text.startAnimation(egg_scale)
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                wings.startAnimation(rotateAnimation)
+                rotationAnimator.start()
             }
         }
         men_women.setOnClickListener {
@@ -493,7 +496,7 @@ open class MainActivity : AppCompatActivity() {
             else if (is_helping == true){
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                wings.startAnimation(rotateAnimation)
+                rotationAnimator.start()
                 quotes_text.text = "Бу төймәгә бассагыз, хатын-кыз исемнәренә күчә аласыз"
                 quotes_text.startAnimation(egg_scale)
             }
@@ -532,7 +535,7 @@ open class MainActivity : AppCompatActivity() {
             if(is_helping == true){
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                wings.startAnimation(rotateAnimation)
+                rotationAnimator.start()
                 quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
                 quotes_text.startAnimation(egg_scale)
             }
@@ -541,7 +544,7 @@ open class MainActivity : AppCompatActivity() {
             if(is_helping == true){
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                wings.startAnimation(rotateAnimation)
+                rotationAnimator.start()
                 quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
                 quotes_text.startAnimation(egg_scale)
             }
@@ -550,7 +553,7 @@ open class MainActivity : AppCompatActivity() {
             if(is_helping == true){
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
-                wings.startAnimation(rotateAnimation)
+                rotationAnimator.start()
                 quotes_text.text = "Монда син бөек шәхесләрне карый аласыз"
                 quotes_text.startAnimation(egg_scale)
             }
