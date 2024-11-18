@@ -41,3 +41,5 @@ This application can help to find best name for future child
 #16.10.2024 Optimization
 
 #14.11.2024 UI optimization
+
+#19.11.2024 Publishing of first version
