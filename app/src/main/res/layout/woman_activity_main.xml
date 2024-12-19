@@ -65,8 +65,9 @@
 
     <ImageView
         android:id="@+id/background_woman"
-        android:layout_width="400dp"
-        android:layout_height="712dp"
+        android:layout_width="600dp"
+        android:layout_height="700dp"
+        android:layout_marginBottom="80dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.589"
@@ -329,6 +330,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

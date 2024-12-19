@@ -64,7 +64,6 @@
         android:rotation="180"
         android:tint="#99FFFFFF"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="@+id/place4"
         app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="@+id/place2"
@@ -484,11 +483,15 @@
         android:id="@+id/quotes_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="50dp"
         android:fontFamily="@font/montserrat_alternates_medium"
         android:textAlignment="center"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/question_button_white" />
+        app:layout_constraintEnd_toEndOf="@+id/question_button_white"
+        app:layout_constraintTop_toBottomOf="@+id/quotes_text"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/resultLayout_1"

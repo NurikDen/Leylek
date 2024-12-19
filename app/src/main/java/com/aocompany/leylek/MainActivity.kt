@@ -114,9 +114,9 @@ open class MainActivity : AppCompatActivity() {
                 egg_view.visibility = View.VISIBLE
                 wings.visibility = View.VISIBLE
                 quotes_text.y = egg_view.y+200f
-                quotes_text.x += 200f
+                quotes_text.x += 100f
                 quotes_text.text =
-                    "Сәлам, сорау булса, берәр төймәгә бас. Мин шул төймә турында сиңа сөйләрмен"
+                    "Сәлам, сорау булса, берәр төймәгә бас. Мин сиңа шул төймәнең функциясе турында сөйләрмен"
                 egg_view.startAnimation(egg_scale)
                 wings.startAnimation(wings_anim)
                 rotationAnimator.start()
@@ -124,21 +124,16 @@ open class MainActivity : AppCompatActivity() {
                 quotes_text.startAnimation(egg_scale)
             }
             else if(is_helping == true) {
+
                 wings.startAnimation(fadeOutWings)
                 egg_view.startAnimation(fadeOutWings)
                 is_helping = false
                 egg_view.visibility = View.INVISIBLE
-                quotes_text.x -= 200f
+                quotes_text.x -= 100f
                 quotes_text.y = egg_view.y
                 quotes_text.text = ""
                 quotes_author.text = ""
                 quotes_text.y = quotes_author.y-400f
-                if (place_1.get_placeIsEmpty() == false && place_2.get_placeIsEmpty() == false && place_3.get_placeIsEmpty() == false && place_4.get_placeIsEmpty() == false && place_5.get_placeIsEmpty() == false) {
-                    var nodeList =
-                        quotesSearching.quotes_searching(getXmlDocument("quotes.xml")!!)
-                    quotes_author.setText(nodeList[0])
-                    quotes_text.setText(nodeList[1])
-                }
                 egg_view.y += 200f
                 wings.y +=200f
             }
@@ -213,7 +208,7 @@ open class MainActivity : AppCompatActivity() {
                     wings.startAnimation(wings_anim)
                     rotationAnimator.start()
                     quotes_text.y = egg_view.y
-                    quotes_text.x += 200f
+                    quotes_text.x += 100f
                     quotes_text.text = "Сәлам, минем исемем Ләйләк"
                     quotes_text.startAnimation(egg_scale)
                 } else if (count_click == 7) {
@@ -271,6 +266,7 @@ open class MainActivity : AppCompatActivity() {
                 help.visibility = View.VISIBLE
             }
                 else if (count_click == 12) {
+                    quotes_text.x -=100f
                     wings.startAnimation(fadeOutWings)
                     egg_view.visibility = View.INVISIBLE
                     quotes_text.y = quotes_author.y-400f
