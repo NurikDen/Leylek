@@ -43,3 +43,5 @@ This application can help to find best name for future child
 #14.11.2024 UI optimization
 
 #19.11.2024 Publishing of first version
+
+#19.12.2024 Release in the Play Market (https://play.google.com/store/apps/details?id=com.aocompany.leylek)
